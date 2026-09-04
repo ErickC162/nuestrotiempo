@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cosmic Love • Clave de Acceso</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed": "#3d0026",
+            "surface-container-highest": "#363340",
+            "primary": "#ffafd3",
+            "secondary": "#ddb8ff",
+            "surface-container-high": "#2b2835",
+            "surface-bright": "#3a3744",
+            "tertiary": "#7bd0ff",
+            "surface-container": "#201e2a",
+            "primary-fixed": "#ffd8e7",
+            "on-tertiary-fixed-variant": "#004c69",
+            "surface": "#14121d",
+            "on-tertiary-fixed": "#001e2c",
+            "surface-dim": "#14121d",
+            "on-secondary": "#490081",
+            "tertiary-fixed-dim": "#7bd0ff",
+            "on-error": "#690005",
+            "outline": "#a28a93",
+            "on-primary-fixed-variant": "#85145a",
+            "inverse-on-surface": "#312f3b",
+            "on-surface-variant": "#dac0c9",
+            "error-container": "#93000a",
+            "inverse-primary": "#a43073",
+            "tertiary-container": "#0aaae4",
+            "on-secondary-container": "#d1a1ff",
+            "on-surface": "#e6e0f1",
+            "surface-container-low": "#1c1a26",
+            "surface-variant": "#363340",
+            "on-secondary-fixed": "#2c0051",
+            "inverse-surface": "#e6e0f1",
+            "error": "#ffb4ab",
+            "on-error-container": "#ffdad6",
+            "on-primary-container": "#6d0047",
+            "background": "#14121d",
+            "primary-fixed-dim": "#ffafd3",
+            "primary-container": "#f472b6",
+            "on-tertiary": "#00354a",
+            "secondary-container": "#62259b",
+            "on-background": "#e6e0f1",
+            "outline-variant": "#544249",
+            "surface-container-lowest": "#0f0d18",
+            "on-primary": "#620040",
+            "secondary-fixed": "#f0dbff",
+            "on-secondary-fixed-variant": "#62259b",
+            "surface-tint": "#ffafd3",
+            "tertiary-fixed": "#c4e7ff",
+            "on-tertiary-container": "#003a51",
+            "secondary-fixed-dim": "#ddb8ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "gutter-desktop": "2rem",
+            "space-xl": "2rem",
+            "container-max": "72rem",
+            "gutter-mobile": "1rem",
+            "space-3xl": "4rem",
+            "space-2xl": "3rem",
+            "space-2xs": "0.25rem",
+            "space-xs": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.75rem"
+          },
+          "fontFamily": {
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg": ["Playfair Display", "serif"],
+            "title-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg-mobile": ["Playfair Display", "serif"],
+            "display": ["Playfair Display", "serif"],
+            "headline-md": ["Playfair Display", "serif"],
+            "display-mobile": ["Playfair Display", "serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "label-md": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "500" }],
+            "headline-lg": ["36px", { "lineHeight": "46px", "fontWeight": "500" }],
+            "title-lg": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "500" }],
+            "display": ["56px", { "lineHeight": "68px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+            "display-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.15; transform: scale(0.85); }
+      50% { opacity: 0.85; transform: scale(1.15); }
+    }
+    @keyframes gentlePulse {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.04); opacity: 1; }
+    }
+    .star {
+      position: absolute;
+      background-color: #ffffff;
+      border-radius: 9999px;
+      animation: twinkle infinite ease-in-out;
+    }
+    .cosmic-nebula {
+      background: radial-gradient(circle at 50% 40%, rgba(221, 184, 255, 0.12) 0%, rgba(244, 114, 182, 0.08) 35%, rgba(11, 9, 20, 0) 70%);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container flex flex-col justify-between">
+<!-- Canvas de fondo atmosférico (Estrellas & Nebulosa celestial) -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<!-- Nebulosas difusas en tonos violeta profundo y rosa crepuscular -->
+<div class="absolute -top-[15%] left-1/2 -translate-x-1/2 w-[1000px] h-[750px] cosmic-nebula blur-3xl"></div>
+<div class="absolute -bottom-[20%] -left-[10%] w-[600px] h-[600px] bg-secondary-container/15 rounded-full blur-[120px]"></div>
+<div class="absolute top-1/3 -right-[15%] w-[700px] h-[700px] bg-primary-container/10 rounded-full blur-[140px]"></div>
+<!-- Estrellas generadas con micro-animaciones -->
+<div class="star w-1 h-1 top-[12%] left-[18%]" style="animation-duration: 4.2s; animation-delay: 0.2s;"></div>
+<div class="star w-1.5 h-1.5 top-[24%] left-[78%]" style="animation-duration: 5.6s; animation-delay: 1.1s;"></div>
+<div class="star w-1 h-1 top-[35%] left-[12%]" style="animation-duration: 3.8s; animation-delay: 2.3s;"></div>
+<div class="star w-1 h-1 top-[48%] left-[86%]" style="animation-duration: 6.1s; animation-delay: 0.7s;"></div>
+<div class="star w-2 h-2 top-[68%] left-[22%]" style="animation-duration: 4.9s; animation-delay: 1.8s;"></div>
+<div class="star w-1 h-1 top-[82%] left-[64%]" style="animation-duration: 5.2s; animation-delay: 3.0s;"></div>
+<div class="star w-1.5 h-1.5 top-[15%] left-[45%]" style="animation-duration: 7.0s; animation-delay: 0.5s;"></div>
+<div class="star w-1 h-1 top-[88%] left-[38%]" style="animation-duration: 4.4s; animation-delay: 2.7s;"></div>
+</div>
+<!-- Header Superior Minimalista / Barra de audio y portal -->
+<header class="relative z-20 w-full px-6 md:px-12 py-6 flex items-center justify-between">
+<!-- Logotipo sutil -->
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-display text-title-lg font-semibold tracking-tight text-primary">Cosmic Love</span>
+</div>
+<!-- Reproductor de Audio Flotante Minimalista -->
+<div class="flex items-center gap-3 bg-surface-container-lowest/80 backdrop-blur-md px-4 py-2 rounded-full border border-outline-variant/30 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.5)]">
+<button aria-label="Control de música" class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:text-white transition-colors duration-200" id="sound-btn">
+<span class="material-symbols-outlined text-[18px]" data-icon="music_note" id="sound-icon">music_note</span>
+</button>
+<div class="flex flex-col pr-1 text-left hidden sm:flex">
+<span class="font-label-sm text-label-sm text-on-surface tracking-wider font-semibold">Nuestra Canción</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">Universo a tus pies • 432 Hz</span>
+</div>
+<div class="flex items-center gap-1 pl-1">
+<span class="w-1 h-3 bg-primary/70 rounded-full animate-pulse"></span>
+<span class="w-1 h-5 bg-primary rounded-full animate-pulse" style="animation-delay: 0.2s;"></span>
+<span class="w-1 h-2.5 bg-primary/50 rounded-full animate-pulse" style="animation-delay: 0.4s;"></span>
+</div>
+</div>
+</header>
+<!-- Contenedor Principal: Clave de Acceso -->
+<main class="relative z-10 flex-1 flex items-center justify-center px-4 py-8">
+<!-- Tarjeta Central de Cristal Esmerilado (Glassmorphism Nivel 2 & Aura Suave) -->
+<div class="w-full max-w-md bg-surface-container-lowest/75 backdrop-blur-2xl rounded-2xl p-8 md:p-10 border border-primary/20 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8),0_0_35px_rgba(244,114,182,0.12)] flex flex-col items-center text-center relative overflow-hidden transition-all duration-300">
+<!-- Efecto de borde lumínico tenue superior -->
+<div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+<!-- Icono de Candado Celestial con Halo -->
+<div class="relative mb-6">
+<div class="absolute inset-0 rounded-full bg-primary/20 blur-xl"></div>
+<div class="relative w-16 h-16 rounded-full bg-surface-container-high/90 border border-primary/30 flex items-center justify-center text-primary shadow-[0_0_20px_rgba(255,175,211,0.25)]">
+<span class="material-symbols-outlined text-[30px]" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+</div>
+<!-- Título y Subtítulo -->
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2 font-medium tracking-tight">
+        2 Meses Juntos
+      </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs mb-8">
+        Ingresa nuestra fecha especial para abrir el portal celestial
+      </p>
+<!-- Indicador de 6 Dígitos (DD / MM / AA) -->
+<div aria-label="Indicador de código de 6 dígitos" class="flex items-center gap-2.5 sm:gap-3 mb-8" id="pin-indicators">
+<!-- Grupo Día -->
+<div class="w-4 h-4 rounded-full border border-primary/40 flex items-center justify-center transition-all duration-300 pin-dot" data-index="0">
+<div class="w-2 h-2 rounded-full bg-transparent transition-all duration-300 dot-fill"></div>
+</div>
+<div class="w-4 h-4 rounded-full border border-primary/40 flex items-center justify-center transition-all duration-300 pin-dot" data-index="1">
+<div class="w-2 h-2 rounded-full bg-transparent transition-all duration-300 dot-fill"></div>
+</div>
+<span class="text-outline-variant font-label-sm mx-0.5">/</span>
+<!-- Grupo Mes -->
+<div class="w-4 h-4 rounded-full border border-primary/40 flex items-center justify-center transition-all duration-300 pin-dot" data-index="2">
+<div class="w-2 h-2 rounded-full bg-transparent transition-all duration-300 dot-fill"></div>
+</div>
+<div class="w-4 h-4 rounded-full border border-primary/40 flex items-center justify-center transition-all duration-300 pin-dot" data-index="3">
+<div class="w-2 h-2 rounded-full bg-transparent transition-all duration-300 dot-fill"></div>
+</div>
+<span class="text-outline-variant font-label-sm mx-0.5">/</span>
+<!-- Grupo Año -->
+<div class="w-4 h-4 rounded-full border border-primary/40 flex items-center justify-center transition-all duration-300 pin-dot" data-index="4">
+<div class="w-2 h-2 rounded-full bg-transparent transition-all duration-300 dot-fill"></div>
+</div>
+<div class="w-4 h-4 rounded-full border border-primary/40 flex items-center justify-center transition-all duration-300 pin-dot" data-index="5">
+<div class="w-2 h-2 rounded-full bg-transparent transition-all duration-300 dot-fill"></div>
+</div>
+</div>
+<!-- Teclado Numérico Circular Interactivo (0 al 9, Borrar y Retroceso) -->
+<div class="grid grid-cols-3 gap-y-4 gap-x-6 w-full max-w-[280px] mb-8" id="keypad">
+<button class="key-btn w-16 h-16 rounded-full bg-surface-container/60 hover:bg-primary-container/20 border border-outline-variant/30 text-on-surface font-title-lg text-title-lg flex items-center justify-center transition-all duration-200 active:scale-95 shadow-[0_4px_12px_rgba(0,0,0,0.2)] mx-auto" data-key="1">1</button>
+<button class="key-btn w-16 h-16 rounded-full bg-surface-container/60 hover:bg-primary-container/20 border border-outline-variant/30 text-on-surface font-title-lg text-title-lg flex items-center justify-center transition-all duration-200 active:scale-95 shadow-[0_4px_12px_rgba(0,0,0,0.2)] mx-auto" data-key="2">2</button>
+<button class="key-btn w-16 h-16 rounded-full bg-surface-container/60 hover:bg-primary-container/20 border border-outline-variant/30 text-on-surface font-title-lg text-title-lg flex items-center justify-center transition-all duration-200 active:scale-95 shadow-[0_4px_12px_rgba(0,0,0,0.2)] mx-auto" data-key="3">3</button>
+<button class="key-btn w-16 h-16 rounded-full bg-surface-container/60 hover:bg-primary-container/20 border border-outline-variant/30 text-on-surface font-title-lg text-title-lg flex items-center justify-center transition-all duration-200 active:scale-95 shadow-[0_4px_12px_rgba(0,0,0,0.2)] mx-auto" data-key="4">4</button>
+<button class="key-btn w-16 h-16 rounded-full bg-surface-container/60 hover:bg-primary-container/20 border border-outline-variant/30 text-on-surface font-title-lg text-title-lg flex items-center justify-center transition-all duration-200 active:scale-95 shadow-[0_4px_12px_rgba(0,0,0,0.2)] mx-auto" data-key="5">5</button>
+<button class="key-btn w-16 h-16 rounded-full bg-surface-container/60 hover:bg-primary-container/20 border border-outline-variant/30 text-on-surface font-title-lg text-title-lg flex items-center justify-center transition-all duration-200 active:scale-95 shadow-[0_4px_12px_rgba(0,0,0,0.2)] mx-auto" data-key="6">6</button>
+<button class="key-btn w-16 h-16 rounded-full bg-surface-container/60 hover:bg-primary-container/20 border border-outline-variant/30 text-on-surface font-title-lg text-title-lg flex items-center justify-center transition-all duration-200 active:scale-95 shadow-[0_4px_12px_rgba(0,0,0,0.2)] mx-auto" data-key="7">7</button>
+<button class="key-btn w-16 h-16 rounded-full bg-surface-container/60 hover:bg-primary-container/20 border border-outline-variant/30 text-on-surface font-title-lg text-title-lg flex items-center justify-center transition-all duration-200 active:scale-95 shadow-[0_4px_12px_rgba(0,0,0,0.2)] mx-auto" data-key="8">8</button>
+<button class="key-btn w-16 h-16 rounded-full bg-surface-container/60 hover:bg-primary-container/20 border border-outline-variant/30 text-on-surface font-title-lg text-title-lg flex items-center justify-center transition-all duration-200 active:scale-95 shadow-[0_4px_12px_rgba(0,0,0,0.2)] mx-auto" data-key="9">9</button>
+<!-- Tecla 'C' para Limpiar Todo -->
+<button aria-label="Borrar todo" class="key-btn w-16 h-16 rounded-full bg-surface-container-low/40 hover:bg-surface-container-high border border-outline-variant/20 text-on-surface-variant font-label-md text-label-md flex items-center justify-center transition-all duration-200 active:scale-95 mx-auto" data-action="clear">
+          C
+        </button>
+<button class="key-btn w-16 h-16 rounded-full bg-surface-container/60 hover:bg-primary-container/20 border border-outline-variant/30 text-on-surface font-title-lg text-title-lg flex items-center justify-center transition-all duration-200 active:scale-95 shadow-[0_4px_12px_rgba(0,0,0,0.2)] mx-auto" data-key="0">0</button>
+<!-- Tecla Retroceso / Backspace -->
+<button aria-label="Borrar último dígito" class="key-btn w-16 h-16 rounded-full bg-surface-container-low/40 hover:bg-surface-container-high border border-outline-variant/20 text-on-surface-variant flex items-center justify-center transition-all duration-200 active:scale-95 mx-auto" data-action="backspace">
+<span class="material-symbols-outlined text-[20px]" data-icon="backspace">backspace</span>
+</button>
+</div>
+<!-- Pista Romántica con Icono de Corazón -->
+<div class="flex items-center justify-center gap-2 text-on-surface-variant font-body-md text-body-md bg-surface-container-high/40 px-4 py-2.5 rounded-full border border-outline-variant/20 mb-6 max-w-sm">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="text-xs">¿Olvidaste la fecha? El día de nuestra primera mirada</span>
+</div>
+<!-- Enlace Sutil: Saltar Clave -->
+<a class="font-label-md text-label-md text-primary/80 hover:text-primary transition-all duration-200 flex items-center gap-1.5 group" href="#portal">
+<span>Saltar clave y entrar directamente a nuestra historia</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<!-- Mensaje de éxito transitorio al desbloquear -->
+<div class="absolute inset-0 bg-surface-container-lowest/95 backdrop-blur-3xl rounded-2xl flex flex-col items-center justify-center p-8 opacity-0 pointer-events-none transition-all duration-500" id="unlock-success">
+<div class="w-16 h-16 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center text-primary mb-4 animate-bounce">
+<span class="material-symbols-outlined text-[32px]" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2 font-medium">¡Portal Desbloqueado!</h2>
+<p class="font-body-md text-body-md text-on-surface-variant text-center mb-6">Bienvenidos a nuestro universo infinito...</p>
+<button class="px-6 py-2.5 rounded-full bg-gradient-to-r from-primary-container to-secondary text-surface font-title-lg text-xs font-semibold tracking-wider hover:opacity-95 transition-opacity" onclick="resetPin()">
+          Continuar
+        </button>
+</div>
+</div>
+</main>
+<!-- Footer Discreto Celestial -->
+<footer class="relative z-10 w-full py-6 text-center">
+<p class="font-label-sm text-label-sm text-outline tracking-wider">
+      COSMIC LOVE • 2 MESES DE AMOR INFINITO
+    </p>
+</footer>
+<!-- Lógica interactiva en Vanilla JS para teclado y sonido -->
+<script>
+    const maxDigits = 6;
+    let enteredPin = [];
+    const correctSample = "140224"; // Ejemplo representativo
+
+    const dots = document.querySelectorAll('.pin-dot');
+    const successCard = document.getElementById('unlock-success');
+
+    function updateDisplay() {
+      dots.forEach((dot, index) => {
+        const fill = dot.querySelector('.dot-fill');
+        if (index < enteredPin.length) {
+          dot.classList.add('border-primary', 'shadow-[0_0_10px_rgba(255,175,211,0.5)]');
+          fill.classList.remove('bg-transparent');
+          fill.classList.add('bg-primary');
+        } else {
+          dot.classList.remove('border-primary', 'shadow-[0_0_10px_rgba(255,175,211,0.5)]');
+          fill.classList.remove('bg-primary');
+          fill.classList.add('bg-transparent');
+        }
+      });
+
+      // Si se completan los 6 dígitos
+      if (enteredPin.length === maxDigits) {
+        setTimeout(() => {
+          triggerSuccess();
+        }, 250);
+      }
+    }
+
+    function triggerSuccess() {
+      successCard.classList.remove('opacity-0', 'pointer-events-none');
+      successCard.classList.add('opacity-100', 'pointer-events-auto');
+    }
+
+    function resetPin() {
+      enteredPin = [];
+      updateDisplay();
+      successCard.classList.add('opacity-0', 'pointer-events-none');
+      successCard.classList.remove('opacity-100', 'pointer-events-auto');
+    }
+
+    // Event listener para teclado numérico interactivo
+    document.querySelectorAll('.key-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const key = button.getAttribute('data-key');
+        const action = button.getAttribute('data-action');
+
+        if (key !== null) {
+          if (enteredPin.length < maxDigits) {
+            enteredPin.push(key);
+            updateDisplay();
+          }
+        } else if (action === 'clear') {
+          enteredPin = [];
+          updateDisplay();
+        } else if (action === 'backspace') {
+          if (enteredPin.length > 0) {
+            enteredPin.pop();
+            updateDisplay();
+          }
+        }
+      });
+    });
+
+    // Soporte para entrada por teclado físico
+    document.addEventListener('keydown', (e) => {
+      if (e.key >= '0' && e.key <= '9') {
+        if (enteredPin.length < maxDigits) {
+          enteredPin.push(e.key);
+          updateDisplay();
+        }
+      } else if (e.key === 'Backspace') {
+        if (enteredPin.length > 0) {
+          enteredPin.pop();
+          updateDisplay();
+        }
+      } else if (e.key === 'Escape') {
+        enteredPin = [];
+        updateDisplay();
+      }
+    });
+
+    // Botón de sonido (simulado)
+    const soundBtn = document.getElementById('sound-btn');
+    const soundIcon = document.getElementById('sound-icon');
+    let isPlaying = true;
+
+    soundBtn.addEventListener('click', () => {
+      isPlaying = !isPlaying;
+      soundIcon.textContent = isPlaying ? 'music_note' : 'music_off';
+      soundIcon.setAttribute('data-icon', isPlaying ? 'music_note' : 'music_off');
+    });
+  </script>
+</body></html>

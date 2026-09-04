@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#14121d">
+<title>Nuestro Tiempo · Portal Secreto</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="js/config.js"></script>
+<script src="js/theme.js"></script>
+<link rel="stylesheet" href="css/cosmic.css">
+</head>
+
+<body data-pagina="acceso" data-chrome="no"
+      class="bg-background text-on-background font-body-md antialiased overflow-x-hidden select-none
+             selection:bg-primary-container selection:text-on-primary-container
+             flex flex-col justify-between items-center relative min-h-[100dvh]">
+
+<!-- Cabecera: solo escritorio -->
+<header class="hidden md:flex relative z-20 w-full px-12 py-6 items-center justify-between">
+  <div class="flex items-center gap-2">
+    <span class="material-symbols-outlined fill-icon text-primary">auto_awesome</span>
+    <span class="font-display text-title-lg font-semibold tracking-tight text-primary" data-marca></span>
+  </div>
+
+
+</header>
+
+<main class="relative z-10 w-full max-w-sm md:max-w-md mx-auto flex-1 flex flex-col justify-between md:justify-center items-center px-gutter-mobile md:px-4 py-space-lg md:py-8">
+
+  <!-- Tarjeta de cristal: en móvil es transparente, en escritorio un panel flotante -->
+  <div class="w-full flex flex-col justify-center md:justify-start items-center flex-1 md:flex-none
+              md:bg-surface-container-lowest/75 md:backdrop-blur-2xl md:rounded-2xl md:p-10
+              md:border md:border-primary/20 md:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8),0_0_35px_rgba(244,114,182,0.12)]
+              md:relative md:overflow-hidden enter">
+    <div class="hidden md:block absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+
+    <!-- Emblema y titulares -->
+    <header class="w-full flex flex-col items-center text-center mt-space-xs md:mt-0">
+      <div class="relative mb-space-md md:mb-6 flex items-center justify-center">
+        <div class="absolute inset-0 rounded-full bg-primary-container/20 md:bg-primary/20 blur-xl"></div>
+        <div class="w-16 h-16 rounded-full bg-surface-container/80 md:bg-surface-container-high/90 backdrop-blur-xl border border-outline-variant/30 md:border-primary/30 flex items-center justify-center shadow-lg md:shadow-[0_0_20px_rgba(255,175,211,0.25)] relative z-10 text-primary">
+          <span class="material-symbols-outlined text-[30px]" id="emblema">lock</span>
+        </div>
+        <div class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-surface-container-high/90 border border-primary/40 flex items-center justify-center md:hidden">
+          <span class="material-symbols-outlined fill-icon text-secondary-fixed text-[14px]">auto_awesome</span>
+        </div>
+      </div>
+
+      <h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg md:font-medium md:mb-2 text-on-surface tracking-tight" id="titulo-hito"></h1>
+      <p class="font-body-md text-body-md text-on-surface-variant/90 md:text-on-surface-variant max-w-[260px] md:max-w-xs mt-space-2xs md:mt-0 leading-relaxed" id="mensaje">
+        Ingresa nuestra fecha especial para entrar
+      </p>
+
+      <!-- Indicadores de dígitos -->
+      <div class="flex items-center justify-center gap-space-sm md:gap-3 mt-space-lg md:mt-8 md:mb-8" id="pips"></div>
+
+      <div class="flex items-center gap-1.5 mt-space-xs md:hidden text-on-surface-variant/60 font-label-sm text-label-sm tracking-widest uppercase" id="formato">
+        <span>D</span><span>D</span>
+        <span class="mx-0.5 opacity-40">/</span>
+        <span>M</span><span>M</span>
+        <span class="mx-0.5 opacity-40">/</span>
+        <span>A</span><span>A</span>
+      </div>
+    </header>
+
+    <!-- Teclado -->
+    <section aria-label="Teclado numérico" class="w-full max-w-[290px] md:max-w-[280px] my-auto md:my-0 md:mb-8 py-space-xs md:py-0 enter enter-2">
+      <div class="grid grid-cols-3 gap-y-space-sm md:gap-y-4 gap-x-space-md md:gap-x-6 justify-items-center" id="teclado"></div>
+    </section>
+
+  </div>
+</main>
+
+<!-- Pie de página: solo escritorio -->
+<footer class="hidden md:block relative z-10 w-full py-8 text-center">
+  <p class="font-label-sm text-label-sm text-on-surface-variant/50 tracking-[0.2em] uppercase" data-pie></p>
+</footer>
+
+<script src="js/common.js"></script>
+<script>
+(function () {
+  const cfg = COSMIC;
+  const clave = Cosmic.pinEsperado();
+  const largo = clave.length;
+
+  let entrada = '';
+  let bloqueado = false;
+
+  const elPips     = document.getElementById('pips');
+  const elTeclado  = document.getElementById('teclado');
+  const elMensaje  = document.getElementById('mensaje');
+  const elEmblema  = document.getElementById('emblema');
+  const mensajeInicial = elMensaje.textContent.trim();
+
+  const $ = (s) => document.querySelector(s);
+  document.getElementById('titulo-hito').textContent = Cosmic.tituloHito();
+  $('[data-marca]').textContent           = cfg.app.marca;
+  $('[data-pie]').textContent = `${cfg.app.marca} • ${Cosmic.hito()} Juntos`;
+
+  // El formato DD/MM/AA solo tiene sentido si la clave viene de la fecha
+  if (cfg.acceso.pin) document.getElementById('formato').classList.add('hidden');
+
+  /* ── Indicadores ── */
+  function pintarPips(estado) {
+    elPips.innerHTML = Array.from({ length: largo }, (_, i) => {
+      if (estado === 'error') {
+        return '<div class="w-3.5 h-3.5 rounded-full bg-error/70 border border-error transition-all duration-300"></div>';
+      }
+      return i < entrada.length
+        ? '<div class="w-3.5 h-3.5 rounded-full bg-primary shadow-[0_0_12px_rgba(244,114,182,0.6)] border border-primary-container transition-all duration-300"></div>'
+        : '<div class="w-3.5 h-3.5 rounded-full bg-surface-container/60 border border-outline-variant/60 transition-all duration-300"></div>';
+    }).join('');
+  }
+
+  /* ── Teclado ── */
+  const claseTecla = 'w-16 h-16 rounded-full bg-surface-container/50 hover:bg-surface-container-high/70 active:scale-95 active:bg-primary-container/20 border border-outline-variant/25 backdrop-blur-md flex items-center justify-center text-on-surface font-title-lg text-title-lg transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60';
+  const claseAuxiliar = 'w-16 h-16 rounded-full bg-transparent hover:bg-surface-container-high/40 active:scale-95 border border-transparent hover:border-outline-variant/20 flex items-center justify-center text-on-surface-variant transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60';
+
+  ['1','2','3','4','5','6','7','8','9','C','0','<'].forEach((tecla) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    if (tecla === 'C') {
+      b.className = claseAuxiliar + ' font-label-md text-label-md';
+      b.textContent = 'C';
+      b.setAttribute('aria-label', 'Borrar todo');
+    } else if (tecla === '<') {
+      b.className = claseAuxiliar;
+      b.innerHTML = '<span class="material-symbols-outlined text-[20px]">backspace</span>';
+      b.setAttribute('aria-label', 'Borrar último dígito');
+    } else {
+      b.className = claseTecla;
+      b.textContent = tecla;
+    }
+    b.addEventListener('click', () => pulsar(tecla));
+    elTeclado.appendChild(b);
+  });
+
+  function pulsar(tecla) {
+    if (bloqueado) return;
+    if (tecla === 'C') entrada = '';
+    else if (tecla === '<') entrada = entrada.slice(0, -1);
+    else if (entrada.length < largo) entrada += tecla;
+
+    pintarPips();
+    if (entrada.length === largo) setTimeout(verificar, 220);
+  }
+
+  /* ── Verificación ── */
+  function verificar() {
+    if (entrada === clave) { abrir(); return; }
+
+    bloqueado = true;
+    pintarPips('error');
+    elMensaje.textContent = 'Esa no es nuestra fecha… inténtalo otra vez';
+    elMensaje.classList.add('text-error');
+    elPips.animate(
+      [{ transform: 'translateX(0)' }, { transform: 'translateX(-7px)' },
+       { transform: 'translateX(7px)' }, { transform: 'translateX(0)' }],
+      { duration: 320, easing: 'ease-in-out' }
+    );
+
+    setTimeout(() => {
+      entrada = '';
+      bloqueado = false;
+      pintarPips();
+      elMensaje.textContent = mensajeInicial;
+      elMensaje.classList.remove('text-error');
+    }, 1100);
+  }
+
+  function abrir() {
+    bloqueado = true;
+    elEmblema.textContent = 'lock_open';
+    elMensaje.textContent = '¡Ya estás dentro! ✨';
+    elMensaje.classList.add('text-primary');
+    Cosmic.acceso.conceder();
+    document.body.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 500, fill: 'forwards' });
+    setTimeout(() => location.href = 'tiempo.html', 520);
+  }
+
+  /* ── Teclado físico ── */
+  document.addEventListener('keydown', (e) => {
+    if (/^[0-9]$/.test(e.key)) pulsar(e.key);
+    else if (e.key === 'Backspace') pulsar('<');
+    else if (e.key === 'Escape') pulsar('C');
+  });
+
+  pintarPips();
+})();
+</script>
+</body>
+</html>

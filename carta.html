@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#14121d">
+  <title>Nuestro Tiempo · Carta para Ti</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="js/config.js"></script>
+  <script src="js/theme.js"></script>
+  <link rel="stylesheet" href="css/cosmic.css">
+</head>
+
+<body data-pagina="carta" class="bg-background text-on-surface antialiased min-h-screen relative overflow-x-hidden pb-28 lg:pb-0 flex flex-col
+             selection:bg-primary-container selection:text-on-primary-container">
+
+  <main
+    class="relative z-10 flex-1 w-full max-w-md md:max-w-container-max mx-auto px-gutter-mobile md:px-12 pt-20 lg:pt-28 md:pb-20">
+
+    <!-- Encabezado -->
+    <section
+      class="text-center pt-space-xs pb-space-md md:pt-8 md:pb-12 md:max-w-3xl md:mx-auto md:flex md:flex-col md:items-center enter">
+      <div
+        class="inline-flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1 md:py-1.5 rounded-full bg-surface-container-high/60 backdrop-blur-md border border-outline-variant/30 md:border-primary/25 shadow-sm mb-3 md:mb-6">
+        <span class="material-symbols-outlined text-[13px] md:text-base text-primary">auto_awesome</span>
+        <span class="text-label-sm font-label-sm text-secondary md:text-primary tracking-widest uppercase"
+          data-capitulo></span>
+      </div>
+
+      <h1 class="text-headline-lg-mobile font-headline-lg-mobile md:hidden text-on-surface tracking-tight" data-titulo>
+      </h1>
+      <h1 class="hidden md:block font-display text-display text-on-surface tracking-tight mb-4 leading-tight">
+        <span data-titulo-amplio></span>
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-primary-fixed via-primary to-secondary">Corazón</span>
+      </h1>
+
+      <p class="text-body-md font-body-md md:text-body-lg md:font-body-lg md:font-light text-on-surface-variant mt-1.5 md:mt-0 max-w-xs md:max-w-2xl mx-auto leading-relaxed"
+        data-subtitulo></p>
+    </section>
+tion>
+
+    <!-- Carta + panel lateral -->
+    <div class="md:grid md:grid-cols-12 md:gap-8 md:items-start">
+
+      <!-- La carta -->
+      <article
+        class="relative rounded-2xl md:rounded-3xl bg-surface-container/70 md:bg-surface-container-lowest/80 backdrop-blur-2xl border border-primary/20 p-space-lg md:p-12 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_30px_rgba(192,132,252,0.08)] md:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.85)] mb-space-lg md:mb-0 md:col-span-8 overflow-hidden enter enter-2">
+
+        <div
+          class="flex items-center justify-between pb-space-sm md:pb-6 border-b border-outline-variant/20 mb-space-md md:mb-8">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-primary/70"></span>
+            <span class="text-label-sm font-label-sm text-secondary/90 tracking-wider uppercase" data-sello></span>
+          </div>
+          <span
+            class="material-symbols-outlined text-[18px] md:text-2xl text-primary-fixed-dim opacity-80">auto_awesome</span>
+        </div>
+
+        <h2
+          class="text-headline-md md:text-headline-lg font-display text-primary-fixed mb-4 md:mb-6 italic tracking-tight"
+          data-saludo></h2>
+
+        <div
+          class="space-y-4 md:space-y-6 text-body-md md:text-body-lg font-body-md md:font-body-lg text-on-surface/90 leading-[26px] md:leading-relaxed"
+          id="cuerpo"></div>
+
+        <div
+          class="mt-space-lg md:mt-10 pt-space-md md:pt-8 border-t border-outline-variant/20 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-label-sm font-label-sm text-outline tracking-wider uppercase" data-despedida></p>
+            <p class="text-headline-md md:text-headline-lg font-display text-on-surface italic mt-0.5" data-firma></p>
+          </div>
+          <div
+            class="self-end md:self-auto inline-flex items-center gap-2 px-3 md:px-5 py-1.5 md:py-2.5 rounded-full bg-primary/10 border border-primary/30 text-primary shadow-[0_0_15px_rgba(244,114,182,0.15)]">
+            <span class="material-symbols-outlined fill-icon text-[16px] md:text-lg">favorite</span>
+            <span class="text-label-sm font-label-sm md:text-label-md md:font-label-md tracking-wide"
+              data-insignia></span>
+          </div>
+        </div>
+
+        <!-- Acciones dentro de la carta: solo móvil -->
+        <div class="mt-space-lg grid grid-cols-1 gap-2.5 pt-space-xs md:hidden">
+          <button type="button" data-responder
+            class="w-full py-3 px-4 rounded-full bg-gradient-to-r from-primary-container to-secondary text-on-primary-fixed text-body-md font-semibold flex items-center justify-center gap-2 shadow-[0_8px_24px_-4px_rgba(244,114,182,0.35)] active:scale-95 transition-transform duration-150">
+            <span class="material-symbols-outlined text-[18px]">send</span>
+            <span>Dedicar una respuesta</span>
+          </button>
+          <button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+            class="w-full py-2.5 px-4 rounded-full bg-surface-variant/30 hover:bg-surface-variant/50 border border-outline-variant/40 text-on-surface-variant hover:text-primary text-label-md font-label-md flex items-center justify-center gap-1.5 active:scale-95 transition-all duration-150">
+            <span class="material-symbols-outlined text-[16px]">restart_alt</span>
+            <span>Releer desde el inicio</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Panel lateral: solo escritorio -->
+      <aside class="hidden md:block md:col-span-4 space-y-6 enter enter-3">
+
+        <div
+          class="rounded-2xl bg-surface-container-lowest/70 backdrop-blur-xl border border-outline-variant/30 p-6 shadow-lg">
+          <h3 class="font-title-lg text-title-lg text-on-surface font-semibold mb-2 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">mark_email_read</span>
+            Acciones de la Carta
+          </h3>
+          <p class="font-body-md text-xs text-on-surface-variant mb-6">
+            Guarda este hito en la memoria digital o comparte una respuesta desde tu dispositivo.
+          </p>
+          <div class="space-y-3">
+            <button type="button" data-responder
+              class="w-full py-3.5 px-5 rounded-full bg-gradient-to-r from-primary-container to-secondary text-on-primary-fixed text-sm font-semibold flex items-center justify-center gap-2 shadow-[0_8px_24px_-4px_rgba(244,114,182,0.4)] hover:shadow-[0_12px_28px_-4px_rgba(244,114,182,0.6)] hover:scale-[1.02] active:scale-95 transition-all">
+              <span class="material-symbols-outlined text-lg">edit_note</span>
+              Dedicar una respuesta
+            </button>
+            <button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+              class="w-full py-3 px-5 rounded-full bg-surface-container-high/60 hover:bg-surface-container-high border border-outline-variant/40 text-on-surface hover:text-primary text-sm font-medium flex items-center justify-center gap-2 transition-all">
+              <span class="material-symbols-outlined text-lg">restart_alt</span>
+              Releer desde el inicio
+            </button>
+            <button type="button" data-imprimir
+              class="w-full py-3 px-5 rounded-full bg-surface-container-high/60 hover:bg-surface-container-high border border-outline-variant/40 text-on-surface-variant hover:text-primary text-sm font-medium flex items-center justify-center gap-2 transition-all">
+              <span class="material-symbols-outlined text-lg">download</span>
+              Guardar como recuerdo digital
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="rounded-2xl bg-surface-container-lowest/65 backdrop-blur-xl border border-outline-variant/25 p-6 shadow-md">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="material-symbols-outlined text-secondary text-xl">insights</span>
+            <h4 class="text-sm font-semibold text-on-surface" data-cifras-titulo></h4>
+          </div>
+          <div class="grid grid-cols-2 gap-3 text-center" id="cifras"></div>
+        </div>
+
+
+      </aside>
+    </div>
+
+    <div class="text-center pb-6 pt-6 md:pt-12">
+      <p
+        class="text-label-sm font-label-sm text-outline/80 tracking-widest uppercase flex items-center justify-center gap-2">
+        <span class="inline-block w-6 md:w-12 h-px bg-outline-variant/40"></span>
+        <span data-pie></span>
+        <span class="inline-block w-6 md:w-12 h-px bg-outline-variant/40"></span>
+      </p>
+    </div>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script>
+    (function () {
+      Cosmic.acceso.exigir();
+
+      const c = COSMIC.carta;
+      const m = COSMIC.musica;
+      const $ = (s) => document.querySelector(s);
+      const $$ = (s) => document.querySelectorAll(s);
+      const t = Cosmic.tiempo();
+
+      const romanos = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
+      const capitulo = romanos[Math.min(11, Math.max(0, t.mesesTotales - 1))] || 'I';
+
+      /* ── Textos ── */
+      $('[data-capitulo]').textContent = `Capítulo ${capitulo} • ${Cosmic.miles(t.diasTotales)} Días`;
+      $('[data-titulo]').textContent = c.titulo;
+      $('[data-titulo-amplio]').textContent = 'Carta para Ti: Palabras desde el';
+      $('[data-subtitulo]').textContent = c.subtitulo;
+      $('[data-saludo]').textContent = c.saludo;
+      $('[data-despedida]').textContent = c.despedida;
+      $('[data-firma]').textContent = COSMIC.app.firma;
+      $('[data-insignia]').textContent = c.insignia;
+      $('[data-pie]').textContent = Cosmic.texto(c.piePagina);
+
+      const hoy = new Date();
+      $('[data-sello]').textContent =
+        `${Cosmic.pad(t.mesesTotales)} Meses • ${hoy.toLocaleDateString('es-ES', { day: 'numeric', month: 'long' })}`;
+
+
+
+      /* ── Cuerpo de la carta ── */
+      const parrafos = c.parrafos.map((p) => `<p>${Cosmic.texto(p)}</p>`);
+      if (c.destacado) {
+        parrafos.push(`
+      <div class="p-3.5 md:p-6 my-3 md:my-6 rounded-xl md:rounded-2xl bg-surface-container-high/60 border-l-2 md:border-l-4 border-primary/60 backdrop-blur-sm">
+        <p class="font-display text-body-lg md:text-headline-md text-primary tracking-wide italic md:leading-snug">${Cosmic.texto(c.destacado)}</p>
+      </div>`);
+      }
+      document.getElementById('cuerpo').innerHTML = parrafos.join('');
+
+      /* ── Panel lateral: cifras ── */
+      $('[data-cifras-titulo]').textContent = `${Cosmic.miles(t.diasTotales)} Días en Números`;
+
+      const cifras = [
+        { valor: Cosmic.miles(t.horasTotales), texto: 'Horas vividas', color: 'primary' },
+        { valor: Cosmic.miles(t.diasTotales * 1440), texto: 'Minutos de risas', color: 'secondary' },
+        { valor: '∞', texto: 'Besos pendientes', color: 'tertiary' },
+        { valor: '100%', texto: 'Amor constante', color: 'primary-fixed' },
+      ];
+      document.getElementById('cifras').innerHTML = cifras.map((x) => `
+    <div class="p-3 rounded-xl bg-surface-container-high/50 border border-outline-variant/20">
+      <p class="font-display text-headline-md font-bold text-${x.color}">${x.valor}</p>
+      <p class="font-label-sm text-[10px] text-on-surface-variant uppercase">${x.texto}</p>
+    </div>`).join('');
+
+
+
+
+
+      /* ── Acciones ── */
+      $$('[data-responder]').forEach((b) => b.addEventListener('click', () => {
+        alert('Aquí puede ir un formulario de respuesta, un enlace a WhatsApp o un mailto.\n\nDime cuál prefieres.');
+      }));
+      $$('[data-imprimir]').forEach((b) => b.addEventListener('click', () => window.print()));
+    })();
+  </script>
+</body>
+
+</html>

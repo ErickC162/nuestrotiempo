@@ -1,0 +1,10 @@
+Coloca aqui tus videos (mp4) y apunta a ellos desde js/config.js
+-> recuerdos.destacados, campo "video" (en vez de "foto").
+
+Se reproducen solos, en bucle, sin sonido y sin ningun control:
+nadie puede pausarlos, buscar en ellos ni activarles el audio.
+
+Recomendaciones:
+- Formato mp4 (H.264), sin audio o con audio (se silencia igual).
+- Duracion corta (5-15s) para que el bucle se sienta natural.
+- Peso ligero: la pagina lo carga entero, evita videos muy pesados.

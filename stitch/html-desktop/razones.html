@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cosmic Love — 100 Razones para Amarte</title>
+<!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-container": "#62259b",
+            "on-surface": "#e6e0f1",
+            "surface-container-lowest": "#0f0d18",
+            "surface": "#14121d",
+            "surface-container-highest": "#363340",
+            "on-error-container": "#ffdad6",
+            "inverse-surface": "#e6e0f1",
+            "on-primary-fixed-variant": "#85145a",
+            "inverse-on-surface": "#312f3b",
+            "error-container": "#93000a",
+            "tertiary": "#7bd0ff",
+            "error": "#ffb4ab",
+            "on-primary": "#620040",
+            "on-tertiary-fixed": "#001e2c",
+            "primary": "#ffafd3",
+            "on-background": "#e6e0f1",
+            "on-tertiary-fixed-variant": "#004c69",
+            "on-error": "#690005",
+            "surface-tint": "#ffafd3",
+            "inverse-primary": "#a43073",
+            "primary-fixed": "#ffd8e7",
+            "secondary-fixed": "#f0dbff",
+            "surface-bright": "#3a3744",
+            "on-surface-variant": "#dac0c9",
+            "tertiary-container": "#0aaae4",
+            "outline-variant": "#544249",
+            "on-primary-container": "#6d0047",
+            "on-tertiary-container": "#003a51",
+            "surface-container-high": "#2b2835",
+            "on-secondary-container": "#d1a1ff",
+            "surface-container": "#201e2a",
+            "on-secondary": "#490081",
+            "secondary": "#ddb8ff",
+            "surface-variant": "#363340",
+            "on-primary-fixed": "#3d0026",
+            "on-secondary-fixed": "#2c0051",
+            "surface-container-low": "#1c1a26",
+            "on-secondary-fixed-variant": "#62259b",
+            "surface-dim": "#14121d",
+            "primary-container": "#f472b6",
+            "on-tertiary": "#00354a",
+            "outline": "#a28a93",
+            "secondary-fixed-dim": "#ddb8ff",
+            "tertiary-fixed": "#c4e7ff",
+            "primary-fixed-dim": "#ffafd3",
+            "background": "#14121d",
+            "tertiary-fixed-dim": "#7bd0ff"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-2xs": "0.25rem",
+            "space-sm": "0.75rem",
+            "space-md": "1rem",
+            "space-xs": "0.5rem",
+            "space-xl": "2rem",
+            "space-2xl": "3rem",
+            "space-lg": "1.5rem",
+            "space-3xl": "4rem",
+            "gutter-desktop": "2rem",
+            "container-max": "72rem",
+            "gutter-mobile": "1rem"
+          },
+          fontFamily: {
+            "headline-lg-mobile": ["Playfair Display", "serif"],
+            "display": ["Playfair Display", "serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "label-md": ["Plus Jakarta Sans", "sans-serif"],
+            "title-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "display-mobile": ["Playfair Display", "serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-md": ["Playfair Display", "serif"],
+            "headline-lg": ["Playfair Display", "serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          fontSize: {
+            "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "500" }],
+            "display": ["56px", { lineHeight: "68px", letterSpacing: "-0.02em", fontWeight: "600" }],
+            "label-sm": ["11px", { lineHeight: "16px", letterSpacing: "0.08em", fontWeight: "500" }],
+            "label-md": ["13px", { lineHeight: "18px", letterSpacing: "0.04em", fontWeight: "600" }],
+            "title-lg": ["20px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "display-mobile": ["36px", { lineHeight: "44px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "body-lg": ["16px", { lineHeight: "26px", fontWeight: "400" }],
+            "headline-md": ["24px", { lineHeight: "32px", fontWeight: "500" }],
+            "headline-lg": ["36px", { lineHeight: "46px", fontWeight: "500" }],
+            "body-md": ["14px", { lineHeight: "22px", fontWeight: "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Subtle star twinkling micro-animation */
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.15; transform: scale(0.9); }
+      50% { opacity: 0.8; transform: scale(1.15); }
+    }
+    .star-twinkle {
+      animation: twinkle 4s ease-in-out infinite alternate;
+    }
+    .star-delay-1 { animation-delay: 1.2s; }
+    .star-delay-2 { animation-delay: 2.5s; }
+    .star-delay-3 { animation-delay: 3.7s; }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary">
+<!-- Ambient Cosmic Canvas: Deep Layer 0 Nebulae & Constellations -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute -top-32 left-1/4 w-96 h-96 bg-secondary-container/15 rounded-full blur-3xl"></div>
+<div class="absolute top-1/3 -right-20 w-[30rem] h-[30rem] bg-primary-container/10 rounded-full blur-[100px]"></div>
+<div class="absolute -bottom-40 left-10 w-[36rem] h-[36rem] bg-secondary/10 rounded-full blur-[120px]"></div>
+<!-- Micro Star Dust Dots -->
+<div class="absolute top-24 left-[15%] w-1.5 h-1.5 rounded-full bg-primary/40 star-twinkle"></div>
+<div class="absolute top-44 left-[68%] w-1 h-1 rounded-full bg-secondary/60 star-twinkle star-delay-1"></div>
+<div class="absolute top-[520px] left-[32%] w-1.5 h-1.5 rounded-full bg-tertiary/40 star-twinkle star-delay-2"></div>
+<div class="absolute top-[820px] left-[85%] w-2 h-2 rounded-full bg-primary/30 star-twinkle star-delay-3"></div>
+<div class="absolute top-[1100px] left-[8%] w-1 h-1 rounded-full bg-secondary/50 star-twinkle star-delay-1"></div>
+</div>
+<!-- Shared TopNavBar (JSON Blueprint Executed) -->
+<header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-md dark:bg-surface-container-lowest/80 border-b border-outline-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)]">
+<div class="flex justify-between items-center w-full px-6 md:px-12 max-w-7xl mx-auto h-20">
+<!-- Brand Logo Anchor -->
+<a class="font-display text-headline-md font-semibold tracking-tight text-primary dark:text-primary flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span>Cosmic Love</span>
+</a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors pb-1 text-label-md font-label-md" href="#">
+          Nuestro Tiempo
+        </a>
+<a class="text-primary dark:text-primary font-semibold border-b-2 border-primary pb-1 text-label-md font-label-md" href="#">
+          Razones para Amarte
+        </a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors pb-1 text-label-md font-label-md" href="#">
+          Recuerdos
+        </a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors pb-1 text-label-md font-label-md" href="#">
+          Carta de Amor
+        </a>
+</nav>
+<!-- Trailing Action Icons -->
+<div class="flex items-center gap-3">
+<button aria-label="Banda sonora" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-high/60 border border-outline-variant/30 text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="music_note">music_note</span>
+</button>
+<button aria-label="Bloqueo del portal" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-high/60 border border-outline-variant/30 text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="lock">lock</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Container -->
+<main class="relative z-10 pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
+<!-- Hero Milestone Section -->
+<section class="text-center max-w-3xl mx-auto mb-16">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container/70 border border-primary-container/30 text-primary mb-6 backdrop-blur-md">
+<span class="material-symbols-outlined text-base" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="text-label-sm font-label-sm uppercase tracking-widest">60 Días Juntos • 2 Meses de Amor</span>
+</div>
+<h1 class="font-display text-display text-on-surface mb-4 leading-tight">
+        100 Razones para Amarte
+      </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto font-light leading-relaxed">
+        Descubriendo cada día un nuevo motivo por el cual te elijo. Llevamos 60 días juntos en este universo y cada constelación me recuerda a ti.
+      </p>
+</section>
+<!-- Milestone Progress & Next Unlock Countdown Bento -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12">
+<!-- Progress Track Card (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container-low/75 backdrop-blur-2xl rounded-xl p-6 md:p-8 border border-outline-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)] flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-baseline mb-3">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-secondary">Progreso de la Colección</span>
+<span class="font-display text-headline-md font-semibold text-primary">60%</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">
+            60 de 100 razones desbloqueadas
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+            Comenzamos en el día 1 de nuestra historia y seguimos construyendo cada paso hasta el centenario cósmico y más allá.
+          </p>
+</div>
+<!-- Custom Glowing Progress Bar -->
+<div>
+<div class="w-full h-3 rounded-full bg-surface-container-highest/80 overflow-hidden p-0.5 border border-outline-variant/20">
+<div class="h-full rounded-full bg-gradient-to-r from-primary-container via-primary to-secondary transition-all duration-1000 shadow-[0_0_16px_rgba(244,114,182,0.4)]" style="width: 60%"></div>
+</div>
+<div class="flex justify-between items-center mt-3 text-label-sm font-label-sm text-on-surface-variant">
+<span>Día 1: Nuestro Primer Beso</span>
+<span class="text-primary font-semibold">Día 60: Dos Meses Juntos</span>
+<span>Meta: 100 Días</span>
+</div>
+</div>
+</div>
+<!-- Next Unlock Banner Card (5 cols) -->
+<div class="lg:col-span-5 bg-surface-container-low/75 backdrop-blur-2xl rounded-xl p-6 md:p-8 border border-primary-container/20 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_30px_rgba(192,132,252,0.08)] flex flex-col justify-between relative overflow-hidden">
+<!-- Subtle Top Glow -->
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-primary-container/20 rounded-full blur-2xl pointer-events-none"></div>
+<div>
+<div class="flex items-center gap-2 text-primary mb-2">
+<span class="material-symbols-outlined text-lg" data-icon="lock_clock">lock_clock</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider">Próximo Desbloqueo</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-1">
+            Razón #61 se desbloquea en:
+          </h3>
+<p class="text-label-md font-label-md text-on-surface-variant mb-6">
+            Cada amanecer revela una nueva razón guardada en el corazón.
+          </p>
+</div>
+<!-- Minimalist Countdown Metrics -->
+<div class="grid grid-cols-3 gap-3 text-center my-auto">
+<div class="bg-surface-container-lowest/80 border border-outline-variant/30 rounded-lg py-3 px-2">
+<span class="block font-display text-headline-lg font-semibold text-primary" id="timer-hours">05</span>
+<span class="text-label-sm font-label-sm uppercase tracking-widest text-on-surface-variant">Horas</span>
+</div>
+<div class="bg-surface-container-lowest/80 border border-outline-variant/30 rounded-lg py-3 px-2">
+<span class="block font-display text-headline-lg font-semibold text-primary" id="timer-minutes">24</span>
+<span class="text-label-sm font-label-sm uppercase tracking-widest text-on-surface-variant">Minutos</span>
+</div>
+<div class="bg-surface-container-lowest/80 border border-outline-variant/30 rounded-lg py-3 px-2">
+<span class="block font-display text-headline-lg font-semibold text-secondary" id="timer-seconds">11</span>
+<span class="text-label-sm font-label-sm uppercase tracking-widest text-on-surface-variant">Segundos</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/20 flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>Capítulo: Mes Tres</span>
+<span class="text-primary-container flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="sparkles">arrow_back_ios_new</span>
+            Amor Perpetuo
+          </span>
+</div>
+</div>
+</section>
+<!-- Filters Navigation Bar -->
+<div class="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-outline-variant/20">
+<div class="flex items-center gap-3">
+<!-- Active Filter -->
+<button class="px-5 py-2 rounded-full bg-primary/20 text-primary border border-primary/40 font-label-md text-label-md flex items-center gap-2 shadow-[0_4px_16px_rgba(255,175,211,0.15)] transition-all duration-300">
+<span class="material-symbols-outlined text-sm" data-icon="done_all">done_all</span>
+<span>Todas las desbloqueadas (60)</span>
+</button>
+<!-- Inactive Filters -->
+<button class="px-5 py-2 rounded-full bg-surface-container-high/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface border border-outline-variant/20 font-label-md text-label-md flex items-center gap-2 transition-all duration-300">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span>Favoritas (14)</span>
+</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface border border-outline-variant/20 font-label-md text-label-md flex items-center gap-2 transition-all duration-300">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
+<span>Últimos 7 días</span>
+</button>
+</div>
+<div class="text-label-md font-label-md text-on-surface-variant">
+        Mostrando razones recientes • Colección interactiva
+      </div>
+</div>
+<!-- 3-Column Bento Grid of Love Reasons -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Tarjeta Razón #60 (Hoy - 2 Meses) -->
+<article class="relative bg-surface-container-low/75 backdrop-blur-2xl rounded-xl p-6 border border-primary-container/40 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_30px_rgba(192,132,252,0.08)] flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1.5 hover:border-primary">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded-full bg-primary/20 text-primary text-label-sm font-label-sm font-semibold border border-primary/30">
+                #60
+              </span>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container/40 text-secondary text-label-sm font-label-sm border border-secondary/20">
+                2 Meses Cumplidos
+              </span>
+</div>
+<button aria-label="Favorito" class="text-primary hover:scale-110 transition-transform" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface italic font-serif leading-relaxed mb-6">
+            “Por la forma en que tus ojos brillan cuando me cuentas algo que te apasiona.”
+          </p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/20 text-label-sm font-label-sm text-on-surface-variant">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span>Hoy, 10:42 PM</span>
+</div>
+<span class="text-on-surface-variant/80">Día 60</span>
+</div>
+</article>
+<!-- Tarjeta Razón #59 -->
+<article class="relative bg-surface-container-low/75 backdrop-blur-2xl rounded-xl p-6 border border-outline-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)] flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1.5 hover:border-primary-container/40">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface text-label-sm font-label-sm font-semibold border border-outline-variant/30">
+              #59
+            </span>
+<button aria-label="Favorito" class="text-primary hover:scale-110 transition-transform" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface font-light leading-relaxed mb-6">
+            “Por hacerme reír incluso en mis días más grises con tus ocurrencias y esa sonrisa tan tuya.”
+          </p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/20 text-label-sm font-label-sm text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
+<span>Ayer</span>
+</div>
+<span class="text-on-surface-variant/80">Día 59</span>
+</div>
+</article>
+<!-- Tarjeta Razón #58 -->
+<article class="relative bg-surface-container-low/75 backdrop-blur-2xl rounded-xl p-6 border border-outline-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)] flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1.5 hover:border-primary-container/40">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface text-label-sm font-label-sm font-semibold border border-outline-variant/30">
+              #58
+            </span>
+<button aria-label="Favorito" class="text-on-surface-variant hover:text-primary hover:scale-110 transition-colors" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="favorite">favorite</span>
+</button>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface font-light leading-relaxed mb-6">
+            “Por la paz tan infinita que siento cuando me abrazas al despedirnos, haciendo que el tiempo se detenga.”
+          </p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/20 text-label-sm font-label-sm text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
+<span>Hace 2 días</span>
+</div>
+<span class="text-on-surface-variant/80">Día 58</span>
+</div>
+</article>
+<!-- Tarjeta Razón #57 -->
+<article class="relative bg-surface-container-low/75 backdrop-blur-2xl rounded-xl p-6 border border-outline-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)] flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1.5 hover:border-primary-container/40">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface text-label-sm font-label-sm font-semibold border border-outline-variant/30">
+              #57
+            </span>
+<button aria-label="Favorito" class="text-on-surface-variant hover:text-primary hover:scale-110 transition-colors" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="favorite">favorite</span>
+</button>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface font-light leading-relaxed mb-6">
+            “Por tu playlist compartida y cómo me enseñaste canciones que ahora son el soundtrack de nosotros dos.”
+          </p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/20 text-label-sm font-label-sm text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="music_note">music_note</span>
+<span>Hace 3 días</span>
+</div>
+<span class="text-on-surface-variant/80">Día 57</span>
+</div>
+</article>
+<!-- Tarjeta Razón #56 -->
+<article class="relative bg-surface-container-low/75 backdrop-blur-2xl rounded-xl p-6 border border-outline-variant/30 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)] flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1.5 hover:border-primary-container/40">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface text-label-sm font-label-sm font-semibold border border-outline-variant/30">
+              #56
+            </span>
+<button aria-label="Favorito" class="text-on-surface-variant hover:text-primary hover:scale-110 transition-colors" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="favorite">favorite</span>
+</button>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface font-light leading-relaxed mb-6">
+            “Por apoyar mis sueños y celebrar cada pequeño logro como si fuera tuyo con un abrazo sincero.”
+          </p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/20 text-label-sm font-label-sm text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
+<span>Hace 4 días</span>
+</div>
+<span class="text-on-surface-variant/80">Día 56</span>
+</div>
+</article>
+<!-- Tarjeta Bloqueada Razón #61 -->
+<article class="relative bg-surface-container-lowest/60 backdrop-blur-md rounded-xl p-6 border border-outline-variant/20 flex flex-col justify-between group overflow-hidden">
+<div class="absolute inset-0 bg-surface-container-lowest/40 backdrop-blur-[6px] z-10 flex flex-col items-center justify-center p-6 text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-primary-container mb-3 shadow-[0_0_20px_rgba(244,114,182,0.2)]">
+<span class="material-symbols-outlined text-2xl" data-icon="lock">lock</span>
+</div>
+<span class="text-label-md font-label-md font-semibold text-on-surface mb-1">Razón #61 Bloqueada</span>
+<p class="text-label-sm font-label-sm text-on-surface-variant max-w-xs">
+            Se desbloquea mañana al amanecer cuando renovemos nuestros votos de amor.
+          </p>
+</div>
+<div class="opacity-20 filter blur-sm select-none">
+<div class="flex items-center justify-between mb-4">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface text-label-sm font-label-sm">#61</span>
+<span class="material-symbols-outlined text-xl" data-icon="lock">lock</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface mb-6">
+            Este motivo misterioso aún descansa bajo el manto estelar del mañana.
+          </p>
+</div>
+<div class="opacity-20 filter blur-sm pt-4 border-t border-outline-variant/20 flex justify-between text-label-sm">
+<span>Mañana</span>
+<span>Día 61</span>
+</div>
+</article>
+<!-- Tarjeta Bloqueada Razón #62 -->
+<article class="relative bg-surface-container-lowest/50 backdrop-blur-md rounded-xl p-6 border border-outline-variant/15 flex flex-col justify-between group overflow-hidden">
+<div class="absolute inset-0 bg-surface-container-lowest/50 backdrop-blur-[8px] z-10 flex flex-col items-center justify-center p-6 text-center">
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant/20 flex items-center justify-center text-outline mb-2">
+<span class="material-symbols-outlined text-xl" data-icon="lock">lock</span>
+</div>
+<span class="text-label-sm font-label-sm font-semibold text-on-surface-variant">Razón #62</span>
+<span class="text-label-sm font-label-sm text-outline">En 2 días</span>
+</div>
+<div class="opacity-10 filter blur-md select-none">
+<div class="flex justify-between mb-4">
+<span>#62</span>
+</div>
+<p class="text-body-md mb-6">Contenido confidencial del universo.</p>
+</div>
+<div class="opacity-10 filter blur-md pt-4 border-t border-outline-variant/10 text-label-sm">
+<span>Pendiente</span>
+</div>
+</article>
+<!-- Tarjeta Bloqueada Razón #63 -->
+<article class="relative bg-surface-container-lowest/50 backdrop-blur-md rounded-xl p-6 border border-outline-variant/15 flex flex-col justify-between group overflow-hidden">
+<div class="absolute inset-0 bg-surface-container-lowest/50 backdrop-blur-[8px] z-10 flex flex-col items-center justify-center p-6 text-center">
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant/20 flex items-center justify-center text-outline mb-2">
+<span class="material-symbols-outlined text-xl" data-icon="lock">lock</span>
+</div>
+<span class="text-label-sm font-label-sm font-semibold text-on-surface-variant">Razón #63</span>
+<span class="text-label-sm font-label-sm text-outline">En 3 días</span>
+</div>
+<div class="opacity-10 filter blur-md select-none">
+<div class="flex justify-between mb-4">
+<span>#63</span>
+</div>
+<p class="text-body-md mb-6">Contenido confidencial del universo.</p>
+</div>
+<div class="opacity-10 filter blur-md pt-4 border-t border-outline-variant/10 text-label-sm">
+<span>Pendiente</span>
+</div>
+</article>
+<!-- Interactive Mini Action Card -->
+<article class="relative bg-gradient-to-br from-surface-container-low/90 to-surface-container/90 backdrop-blur-2xl rounded-xl p-6 border border-secondary/30 flex flex-col justify-between">
+<div>
+<div class="w-10 h-10 rounded-full bg-secondary-container/40 text-secondary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-xl" data-icon="history_edu">history_edu</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-2">
+            Explora las primeras 55 razones
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+            Revive las memorias escritas desde el primer instante en que nuestras órbitas se cruzaron.
+          </p>
+</div>
+<button class="w-full py-2.5 rounded-full bg-surface-container-high/60 hover:bg-surface-container-high text-primary border border-primary/30 font-label-md text-label-md transition-colors text-center">
+          Cargar razones anteriores
+        </button>
+</article>
+</section>
+<!-- Interactive CTA Section: Add Reason / Inmortalizar Motivo -->
+<section class="mt-20 relative bg-surface-container-low/80 backdrop-blur-3xl rounded-2xl p-8 md:p-12 border border-primary-container/30 shadow-[0_25px_60px_-12px_rgba(0,0,0,0.85)] text-center max-w-4xl mx-auto overflow-hidden">
+<!-- Atmosphere Pearlescent Under-glow -->
+<div class="absolute -bottom-20 -left-20 w-64 h-64 bg-primary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -top-20 -right-20 w-64 h-64 bg-secondary/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 max-w-2xl mx-auto">
+<div class="w-14 h-14 mx-auto mb-6 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center text-primary shadow-[0_0_20px_rgba(255,175,211,0.2)]">
+<span class="material-symbols-outlined text-3xl" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">
+          ¿Tienes una razón especial que quieras inmortalizar hoy?
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 font-light">
+          El amor no es estático; cada mirada, cada charla nocturna y cada coincidencia añade una nueva constelación a este santuario.
+        </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<!-- Primary CTA Button (Pill Gradient from Style Guide) -->
+<button class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-[#f472b6] to-[#c084fc] text-[#0b0914] font-title-lg font-semibold tracking-tight shadow-[0_8px_24px_-4px_rgba(244,114,182,0.4)] transition-all duration-300 hover:opacity-95 hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="stylus">stylus</span>
+<span>Añadir un Motivo a Nuestra Historia</span>
+</button>
+<!-- Secondary Ghost Button -->
+<button class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.14] hover:border-primary-container text-on-surface font-label-md text-label-md transition-all duration-300 active:scale-95" type="button">
+            Ver todas mis notas
+          </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Shared Footer (JSON Blueprint Executed) -->
+<footer class="w-full py-8 bg-surface-container-lowest/60 backdrop-blur-sm dark:bg-surface-container-lowest/60 border-t border-outline-variant/20 relative z-20">
+<div class="flex flex-col sm:flex-row justify-between items-center max-w-7xl mx-auto px-6 md:px-12 gap-4">
+<div class="font-display text-title-lg text-primary dark:text-primary">
+        Cosmic Love • 2 Meses de Amor Infinito
+      </div>
+<div class="flex items-center gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">
+          Nuestra Historia
+        </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">
+          Banda Sonora
+        </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">
+          Reiniciar Portal
+        </a>
+</div>
+</div>
+</footer>
+<!-- Light Micro-interactions Script (Live Countdown timer simulation) -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let seconds = 11;
+      let minutes = 24;
+      let hours = 5;
+
+      const secEl = document.getElementById('timer-seconds');
+      const minEl = document.getElementById('timer-minutes');
+      const hourEl = document.getElementById('timer-hours');
+
+      if (secEl && minEl && hourEl) {
+        setInterval(() => {
+          seconds--;
+          if (seconds < 0) {
+            seconds = 59;
+            minutes--;
+            if (minutes < 0) {
+              minutes = 59;
+              hours = Math.max(0, hours - 1);
+            }
+          }
+          secEl.textContent = String(seconds).padStart(2, '0');
+          minEl.textContent = String(minutes).padStart(2, '0');
+          hourEl.textContent = String(hours).padStart(2, '0');
+        }, 1000);
+      }
+    });
+  </script>
+</body></html>

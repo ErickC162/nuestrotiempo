@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#14121d">
+<title>Nuestro Tiempo · Razones</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="js/config.js"></script>
+<script src="js/theme.js"></script>
+<link rel="stylesheet" href="css/cosmic.css">
+</head>
+
+<body data-pagina="razones"
+      class="bg-background text-on-surface font-body-md antialiased min-h-screen relative overflow-x-hidden pb-28 lg:pb-0 flex flex-col
+             selection:bg-primary-container selection:text-on-primary-container">
+
+<main class="relative z-10 flex-1 w-full max-w-md md:max-w-container-max mx-auto pt-16 lg:pt-32 md:pb-24 px-space-md md:px-12 flex flex-col gap-4 md:gap-0">
+
+  <!-- Encabezado -->
+  <section class="text-center pt-2 pb-1 space-y-1 md:pt-0 md:pb-0 md:mb-16 md:max-w-3xl md:mx-auto md:space-y-0 enter">
+    <div class="inline-flex items-center gap-1.5 md:gap-2 px-2.5 md:px-4 py-0.5 md:py-1.5 rounded-full bg-secondary-container/40 md:bg-surface-container/70 border border-secondary/20 md:border-primary-container/30 md:text-primary md:backdrop-blur-md mb-0.5 md:mb-6">
+      <span class="material-symbols-outlined fill-icon text-[12px] md:text-base text-surface-tint md:text-current">favorite</span>
+      <span class="text-label-sm font-label-sm text-secondary-fixed md:text-current md:uppercase md:tracking-widest" data-etiqueta></span>
+    </div>
+
+    <h1 class="text-headline-lg-mobile font-headline-lg-mobile md:font-display md:text-display md:leading-tight md:mb-4 tracking-tight text-transparent md:text-on-surface bg-clip-text md:bg-none bg-gradient-to-r from-on-surface via-primary to-secondary" data-titulo></h1>
+
+    <p class="text-on-surface-variant text-body-md font-body-md text-xs md:text-body-lg md:font-body-lg md:font-light leading-relaxed max-w-xs md:max-w-2xl mx-auto">
+      <span class="md:hidden" data-subtitulo></span>
+      <span class="hidden md:inline" data-subtitulo-amplio></span>
+    </p>
+  </section>
+
+  <!-- Progreso + próximo desbloqueo -->
+  <section class="md:grid md:grid-cols-12 md:gap-6 md:mb-12 enter enter-1">
+
+    <!-- Tarjeta de progreso -->
+    <div class="frosted-glass-card md:bg-surface-container-low/75 md:backdrop-blur-2xl rounded-xl p-3.5 md:p-8 md:border md:border-outline-variant/30 space-y-2.5 md:space-y-0 relative overflow-hidden md:col-span-7 md:flex md:flex-col md:justify-between">
+      <div class="absolute -right-8 -top-8 w-28 h-28 bg-primary/10 rounded-full blur-2xl pointer-events-none md:hidden"></div>
+
+      <!-- Cabecera móvil: próxima entrega + temporizador -->
+      <div class="flex items-center justify-between md:hidden">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center border border-primary/20">
+            <span class="material-symbols-outlined text-[16px] text-primary">lock_clock</span>
+          </div>
+          <div>
+            <span class="text-label-sm font-label-sm text-on-surface-variant block leading-tight">Próxima entrega</span>
+            <span class="text-body-md font-semibold text-on-surface text-sm" data-proxima></span>
+          </div>
+        </div>
+        <div class="flex items-center gap-1 bg-surface-container-lowest/80 px-2.5 py-1 rounded-full border border-outline-variant/30 font-mono text-xs text-tertiary">
+          <span class="material-symbols-outlined text-[13px]">timer</span>
+          <span class="font-bold tracking-wider" data-cuenta-atras>--:--:--</span>
+        </div>
+      </div>
+
+      <!-- Cabecera escritorio -->
+      <div class="hidden md:block">
+        <div class="flex justify-between items-baseline mb-3">
+          <span class="text-label-sm font-label-sm uppercase tracking-wider text-secondary">Progreso de la Colección</span>
+          <span class="font-display text-headline-md font-semibold text-primary" data-pct-grande></span>
+        </div>
+        <h2 class="font-display text-headline-md text-on-surface mb-2" data-progreso-amplio></h2>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-6" data-progreso-descripcion></p>
+      </div>
+
+      <!-- Barra de progreso (compartida) -->
+      <div class="space-y-1.5 md:space-y-0 pt-0.5 md:pt-0">
+        <div class="flex justify-between items-center text-label-sm font-label-sm md:hidden">
+          <span class="text-on-surface-variant">Progreso del viaje</span>
+          <span class="text-primary font-bold" data-progreso></span>
+        </div>
+        <div class="w-full bg-surface-container-highest/60 md:bg-surface-container-highest/80 rounded-full h-2 md:h-3 p-0.5 overflow-hidden md:border md:border-outline-variant/20">
+          <div class="h-full rounded-full bg-gradient-to-r from-primary-container via-surface-tint md:via-primary to-secondary transition-all duration-1000 shadow-sm md:shadow-[0_0_16px_rgba(244,114,182,0.4)]" data-barra style="width:0%"></div>
+        </div>
+        <div class="hidden md:flex justify-between items-center mt-3 text-label-sm font-label-sm text-on-surface-variant">
+          <span data-jalon-inicio></span>
+          <span class="text-primary font-semibold" data-jalon-actual></span>
+          <span data-jalon-meta></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Próximo desbloqueo: solo escritorio -->
+    <div class="hidden md:flex md:col-span-5 bg-surface-container-low/75 backdrop-blur-2xl rounded-xl p-8 border border-primary-container/20 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_30px_rgba(192,132,252,0.08)] flex-col justify-between relative overflow-hidden">
+      <div class="absolute -top-12 -right-12 w-32 h-32 bg-primary-container/20 rounded-full blur-2xl pointer-events-none"></div>
+
+      <div>
+        <div class="flex items-center gap-2 text-primary mb-2">
+          <span class="material-symbols-outlined text-lg">lock_clock</span>
+          <span class="text-label-sm font-label-sm uppercase tracking-wider">Próximo Desbloqueo</span>
+        </div>
+        <h3 class="font-title-lg text-title-lg text-on-surface mb-1" data-proxima-amplia></h3>
+        <p class="text-label-md font-label-md text-on-surface-variant mb-6">Cada amanecer revela una nueva razón guardada en el corazón.</p>
+      </div>
+
+      <div class="grid grid-cols-3 gap-3 text-center my-auto">
+        <div class="bg-surface-container-lowest/80 border border-outline-variant/30 rounded-lg py-3 px-2">
+          <span class="block font-display text-headline-lg font-semibold text-primary" data-reloj="horas">00</span>
+          <span class="text-label-sm font-label-sm uppercase tracking-widest text-on-surface-variant">Horas</span>
+        </div>
+        <div class="bg-surface-container-lowest/80 border border-outline-variant/30 rounded-lg py-3 px-2">
+          <span class="block font-display text-headline-lg font-semibold text-primary" data-reloj="minutos">00</span>
+          <span class="text-label-sm font-label-sm uppercase tracking-widest text-on-surface-variant">Minutos</span>
+        </div>
+        <div class="bg-surface-container-lowest/80 border border-outline-variant/30 rounded-lg py-3 px-2">
+          <span class="block font-display text-headline-lg font-semibold text-secondary" data-reloj="segundos">00</span>
+          <span class="text-label-sm font-label-sm uppercase tracking-widest text-on-surface-variant">Segundos</span>
+        </div>
+      </div>
+
+      <div class="mt-4 pt-4 border-t border-outline-variant/20 flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+        <span data-capitulo></span>
+        <span class="text-primary-container flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">auto_awesome</span>
+          Amor Perpetuo
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filtros -->
+  <div class="md:flex md:flex-wrap md:items-center md:justify-between md:gap-4 md:mb-8 md:pb-4 md:border-b md:border-outline-variant/20">
+    <nav class="flex items-center gap-2 md:gap-3 overflow-x-auto md:overflow-visible no-scrollbar py-1 md:py-0 text-label-sm font-label-sm md:text-label-md md:font-label-md" id="filtros"></nav>
+    <div class="hidden md:block text-label-md font-label-md text-on-surface-variant">
+      Mostrando razones recientes • Colección interactiva
+    </div>
+  </div>
+
+  <!-- Razón de hoy: destacada, grande -->
+  <div id="hoy" class="enter enter-2"></div>
+
+  <!-- Histórico -->
+  <div id="historial-seccion" class="mt-5 md:mt-12 pb-6 md:pb-0 enter enter-3">
+    <h2 id="historial-titulo" class="flex items-center gap-2 font-display text-lg md:text-headline-md text-on-surface font-medium mb-3 md:mb-6">
+      <span class="material-symbols-outlined text-secondary text-base md:text-xl">history</span>
+      Histórico
+    </h2>
+    <div class="space-y-3 pt-1 md:space-y-0 md:pt-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6" id="historial"></div>
+  </div>
+</main>
+
+<script src="js/common.js"></script>
+<script>
+(function () {
+  Cosmic.acceso.exigir();
+
+  const c = COSMIC.razones;
+  const $ = (s) => document.querySelector(s);
+  const CLAVE_FAV = 'cosmic:favoritas';
+  const t = Cosmic.tiempo();
+
+  /* ── Calendario propio de las razones ──────────────────────
+     Independiente de la fecha de aniversario: usa razones.fechaInicio
+     si está definida (si no, cae de vuelta a la fecha global).       */
+  const inicioRazones = new Date((c.fechaInicio || COSMIC.fechaInicio) + 'T00:00:00');
+  const diasDesdeInicio = Math.floor((new Date() - inicioRazones) / 86400000);
+
+  /* ── Cuántas razones están desbloqueadas hoy (0 si aún no empieza) ── */
+  const desbloqueadas = c.desbloqueoDiario
+    ? Math.min(c.lista.length, Math.max(0, diasDesdeInicio + 1))
+    : c.lista.length;
+  const hayMas = desbloqueadas < c.lista.length;
+  const aunNoEmpieza = desbloqueadas === 0;
+
+  /* ── Favoritas persistentes ── */
+  let favoritas = new Set(c.favoritas || []);
+  try {
+    const guardadas = JSON.parse(localStorage.getItem(CLAVE_FAV));
+    if (Array.isArray(guardadas)) favoritas = new Set(guardadas);
+  } catch (e) {}
+  const guardarFavoritas = () => {
+    try { localStorage.setItem(CLAVE_FAV, JSON.stringify([...favoritas])); } catch (e) {}
+  };
+
+  /* ── Cabecera ── */
+  $('[data-etiqueta]').textContent         = Cosmic.etiquetaHito();
+  $('[data-titulo]').textContent           = c.titulo;
+  $('[data-subtitulo]').textContent        = Cosmic.texto(c.subtitulo);
+  $('[data-subtitulo-amplio]').textContent = 'Descubriendo cada día un nuevo motivo por el cual te elijo. ' + Cosmic.texto(c.subtitulo);
+
+  const pct = Math.min(100, Math.round((desbloqueadas / c.total) * 100));
+  $('[data-progreso]').textContent       = `${desbloqueadas} de ${c.total} razones (${pct}%)`;
+  $('[data-pct-grande]').textContent     = pct + '%';
+  $('[data-progreso-amplio]').textContent = `${desbloqueadas} de ${c.total} razones desbloqueadas`;
+  $('[data-progreso-descripcion]').textContent = aunNoEmpieza
+    ? `La primera razón se revela el ${Cosmic.fechaLarga(inicioRazones)} y, desde ahí, una nueva cada día.`
+    : 'Comenzamos en el día 1 de esta colección y seguimos sumando una razón por día.';
+  $('[data-jalon-inicio]').textContent = 'Día 1: El comienzo';
+  $('[data-jalon-actual]').textContent = `Día ${Cosmic.miles(desbloqueadas)} de ${Cosmic.miles(c.total)}`;
+  $('[data-jalon-meta]').textContent   = `Meta: ${Cosmic.miles(c.total)} Días`;
+  requestAnimationFrame(() => $('[data-barra]').style.width = pct + '%');
+
+  const textoProxima = aunNoEmpieza
+    ? 'Razón #1 en camino'
+    : (hayMas ? `Razón #${desbloqueadas + 1} en camino` : 'Todas las razones reveladas');
+  $('[data-proxima]').textContent = textoProxima;
+  $('[data-proxima-amplia]').textContent = aunNoEmpieza
+    ? 'Razón #1 se desbloquea en:'
+    : (hayMas ? `Razón #${desbloqueadas + 1} se desbloquea en:` : 'Todas las razones han sido reveladas');
+
+  const romanos = ['Uno','Dos','Tres','Cuatro','Cinco','Seis','Siete','Ocho','Nueve','Diez','Once','Doce'];
+  const mesRazones = Math.max(0, Math.floor(diasDesdeInicio / 30));
+  $('[data-capitulo]').textContent = 'Capítulo: Mes ' + (romanos[Math.min(11, mesRazones)] || 'Uno');
+
+  /* ── Cuenta atrás hasta medianoche ── */
+  const relojes = {};
+  document.querySelectorAll('[data-reloj]').forEach((el) => relojes[el.dataset.reloj] = el);
+
+  // Medianoche del día en que sale la próxima razón (día 1 si aún no
+  // ha empezado; si no, el día siguiente al último desbloqueado).
+  const proximoDesbloqueo = new Date(inicioRazones);
+  proximoDesbloqueo.setDate(proximoDesbloqueo.getDate() + desbloqueadas);
+
+  function cuentaAtras() {
+    if (!hayMas) {
+      $('[data-cuenta-atras]').textContent = '∞';
+      Object.values(relojes).forEach((el) => el.textContent = '∞');
+      return;
+    }
+    const s = Math.max(0, Math.floor((proximoDesbloqueo - new Date()) / 1000));
+    const h = Math.floor(s / 3600), m = Math.floor(s / 60) % 60, sg = s % 60;
+
+    $('[data-cuenta-atras]').textContent = [h, m, sg].map(Cosmic.pad).join(':');
+    relojes['horas'].textContent    = Cosmic.pad(h);
+    relojes['minutos'].textContent  = Cosmic.pad(m);
+    relojes['segundos'].textContent = Cosmic.pad(sg);
+  }
+  cuentaAtras();
+  setInterval(cuentaAtras, 1000);
+
+  /* ── Filtros (se aplican solo al histórico; "hoy" tiene su propia tarjeta) ── */
+  let filtro = 'todas';
+
+  function pintarFiltros() {
+    const defs = [
+      { id: 'todas',     icono: 'done_all',     corto: `Todas (${desbloqueadas})`,      largo: `Todas las desbloqueadas (${desbloqueadas})`, fill: false },
+      { id: 'favoritas', icono: 'favorite',     corto: `Favoritas (${favoritas.size})`, largo: `Favoritas (${favoritas.size})`,              fill: true  },
+      { id: 'mes1',      icono: 'auto_stories', corto: 'Mes 1 (#1-30)',                 largo: 'Mes 1 (#1-30)',                              fill: false },
+    ];
+
+    document.getElementById('filtros').innerHTML = defs.map((f) => {
+      const activo = f.id === filtro;
+      const base = activo
+        ? 'bg-primary md:bg-primary/20 text-on-primary md:text-primary md:border md:border-primary/40 font-semibold shadow-sm md:shadow-[0_4px_16px_rgba(255,175,211,0.15)]'
+        : 'frosted-glass-subsurface md:bg-surface-container-high/50 md:hover:bg-surface-container-high text-on-surface-variant hover:text-primary md:hover:text-on-surface md:border md:border-outline-variant/20';
+      return `<button type="button" data-filtro="${f.id}"
+                class="shrink-0 flex items-center gap-1.5 md:gap-2 px-3.5 md:px-5 py-1.5 md:py-2 rounded-full transition-all duration-300 active:scale-95 ${base}">
+                <span class="material-symbols-outlined text-[15px] md:text-sm ${f.fill ? 'fill-icon' : ''} ${activo ? '' : 'md:text-primary'}">${f.icono}</span>
+                <span class="md:hidden">${f.corto}</span>
+                <span class="hidden md:inline">${f.largo}</span>
+              </button>`;
+    }).join('');
+
+    document.querySelectorAll('[data-filtro]').forEach((b) =>
+      b.addEventListener('click', () => { filtro = b.dataset.filtro; pintarFiltros(); pintarHistorial(); }));
+  }
+
+  /* ── Fechas ── */
+  function fechaDeRazon(n) {
+    const d = new Date(inicioRazones);
+    d.setDate(d.getDate() + (n - 1));
+    return d;
+  }
+  function etiquetaDia(n) {
+    const dias = diasDesdeInicio - (n - 1);
+    if (dias === 0) return 'Hoy';
+    if (dias === 1) return 'Ayer';
+    return fechaDeRazon(n).toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
+  }
+
+  /* ── Razón de hoy: tarjeta grande y destacada, aparte del histórico ── */
+  function pintarHoy() {
+    const contenedor = document.getElementById('hoy');
+
+    if (!desbloqueadas) { contenedor.innerHTML = ''; return; }
+
+    const n = desbloqueadas;
+    const esDeHoy = (n - 1) === diasDesdeInicio; // deja de serlo si ya se revelaron todas y pasan más días
+    const fav = favoritas.has(n);
+
+    contenedor.innerHTML = `
+      <article class="frosted-glass-active md:bg-surface-container-low/80 md:backdrop-blur-2xl md:border md:border-primary-container/40 rounded-2xl p-5 md:p-10 relative overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.7)]">
+        <div class="hidden md:block absolute -right-14 -top-14 w-48 h-48 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
+        <div class="flex items-center justify-between mb-3 md:mb-6 relative z-10">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-1 md:px-3 md:py-1.5 rounded-full bg-primary-container/20 border border-primary-container/40 text-primary font-bold text-label-sm md:text-label-md font-label-sm">Razón #${n}${esDeHoy ? ' • Hoy' : ''}</span>
+            <span class="text-label-sm md:text-label-md font-label-sm text-on-surface-variant/70">${fechaDeRazon(n).toLocaleDateString('es-ES', { day: 'numeric', month: 'long' })}</span>
+          </div>
+          <button type="button" data-fav="${n}" aria-label="Marcar como favorita"
+                  class="w-9 h-9 md:w-11 md:h-11 rounded-full bg-surface-container/60 hover:bg-surface-variant/50 flex items-center justify-center transition-transform active:scale-90 ${fav ? 'text-primary' : 'text-on-surface-variant hover:text-primary'}">
+            <span class="material-symbols-outlined text-[20px] md:text-2xl ${fav ? 'fill-icon' : ''}">${fav ? 'favorite' : 'favorite_border'}</span>
+          </button>
+        </div>
+
+        <p class="relative z-10 text-on-surface font-display italic text-xl sm:text-2xl md:text-headline-lg leading-relaxed mb-4 md:mb-8">
+          “${c.lista[n - 1]}”
+        </p>
+
+        <div class="relative z-10 flex items-center gap-1.5 text-secondary font-medium tracking-wide text-label-sm md:text-label-md">
+          <span class="material-symbols-outlined text-[14px] md:text-base">auto_awesome</span>
+          <span>${Cosmic.etiquetaHito()}</span>
+        </div>
+      </article>`;
+  }
+
+  /* ── Histórico: razones anteriores a la de hoy, en tarjetas normales ── */
+  function pintarHistorial() {
+    let indices = Array.from({ length: Math.max(0, desbloqueadas - 1) }, (_, i) => i + 1);
+
+    if (filtro === 'favoritas') indices = indices.filter((n) => favoritas.has(n));
+    else if (filtro === 'mes1') indices = indices.filter((n) => n <= 30);
+
+    indices.reverse();
+
+    // El título "Histórico" solo tiene sentido si hay al menos una razón anterior a la de hoy.
+    document.getElementById('historial-titulo').style.display = desbloqueadas > 1 ? '' : 'none';
+
+    const tarjetas = indices.map((n) => {
+      const fav = favoritas.has(n);
+      const chip = `<span class="px-2 py-0.5 rounded-full bg-surface-container-high border border-outline-variant/30 text-secondary font-bold text-label-sm font-label-sm">Razón #${n}</span>`;
+
+      return `
+        <article class="frosted-glass-card md:bg-surface-container-low/75 md:border-outline-variant/30 hover:border-primary/40 md:backdrop-blur-2xl rounded-xl p-4 md:p-6 relative overflow-hidden md:flex md:flex-col md:justify-between transition-all duration-300 md:hover:-translate-y-1.5 md:hover:border-primary enter">
+          <div>
+            <div class="flex items-center justify-between mb-2.5 md:mb-4">
+              <div class="flex items-center gap-2">
+                ${chip}
+                <span class="text-label-sm font-label-sm text-on-surface-variant/70">${etiquetaDia(n)}</span>
+              </div>
+              <button type="button" data-fav="${n}" aria-label="Marcar como favorita"
+                      class="w-8 h-8 rounded-full bg-surface-container/60 hover:bg-surface-variant/50 flex items-center justify-center transition-transform active:scale-90 ${fav ? 'text-primary' : 'text-on-surface-variant hover:text-primary'}">
+                <span class="material-symbols-outlined text-[18px] ${fav ? 'fill-icon' : ''}">${fav ? 'favorite' : 'favorite_border'}</span>
+              </button>
+            </div>
+
+            <p class="text-on-surface font-display text-base md:text-title-lg md:leading-relaxed leading-relaxed mb-3 md:mb-6">
+              “${c.lista[n - 1]}”
+            </p>
+          </div>
+
+          <div class="flex items-center justify-between text-label-sm font-label-sm pt-2 md:pt-4 border-t border-white/5 md:border-outline-variant/20">
+            <div class="flex items-center gap-1 text-on-surface-variant">
+              <span class="material-symbols-outlined text-[14px] text-tertiary">calendar_month</span>
+              <span>${fechaDeRazon(n).toLocaleDateString('es-ES', { day: 'numeric', month: 'long' })}</span>
+            </div>
+            <span class="text-outline text-xs">Razón ${n} de ${c.total}</span>
+          </div>
+        </article>`;
+    }).join('');
+
+    const textoEspera = aunNoEmpieza
+      ? `Se desbloquea el ${proximoDesbloqueo.toLocaleDateString('es-ES', { day: 'numeric', month: 'long' })}`
+      : 'Se desbloquea mañana a las 00:00';
+
+    const bloqueada = (filtro === 'todas' && hayMas) ? `
+      <article class="frosted-glass-locked rounded-xl p-3.5 md:p-6 flex md:flex-col md:justify-center items-center md:items-start justify-between md:gap-4 text-on-surface-variant/70">
+        <div class="flex items-center md:flex-col md:items-start gap-3 md:gap-4">
+          <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface-container-low flex items-center justify-center border border-outline-variant/20 shrink-0">
+            <span class="material-symbols-outlined text-[20px] md:text-2xl text-outline">lock</span>
+          </div>
+          <div class="space-y-0.5 md:space-y-1">
+            <div class="flex items-center gap-1.5">
+              <span class="text-label-sm md:text-title-lg md:font-title-lg font-bold text-on-surface-variant">Razón #${desbloqueadas + 1}</span>
+              <span class="text-[10px] uppercase px-1.5 py-0.5 rounded bg-surface-container text-tertiary-fixed font-mono">Muy pronto</span>
+            </div>
+            <p class="text-xs md:text-body-md text-outline italic">${textoEspera}</p>
+          </div>
+        </div>
+        <span class="material-symbols-outlined text-[18px] md:hidden text-outline/50">hourglass_top</span>
+      </article>` : '';
+
+    // Si de todos modos va a aparecer la tarjeta de "próxima razón", no hace
+    // falta además un mensaje de "vacío" genérico encima.
+    const vacio = (!indices.length && !(filtro === 'todas' && hayMas)) ? `
+      <p class="md:col-span-2 lg:col-span-3 text-center text-on-surface-variant/70 text-body-md py-8 md:py-16">
+        Todavía no hay razones aquí.
+      </p>` : '';
+
+    document.getElementById('historial').innerHTML = vacio + tarjetas + bloqueada;
+
+    document.querySelectorAll('[data-fav]').forEach((b) =>
+      b.addEventListener('click', () => {
+        const n = Number(b.dataset.fav);
+        favoritas.has(n) ? favoritas.delete(n) : favoritas.add(n);
+        guardarFavoritas();
+        pintarFiltros();
+        pintarHoy();
+        pintarHistorial();
+      }));
+  }
+
+  pintarFiltros();
+  pintarHoy();
+  pintarHistorial();
+})();
+</script>
+</body>
+</html>

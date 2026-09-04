@@ -1,0 +1,2 @@
+Coloca aqui las fotos referenciadas en js/config.js
+(primera-cita.jpg, concierto.jpg, atardecer.jpg, paseo.jpg, cafe.jpg, ruta.jpg, cine.jpg)

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Cosmic Love - Portal Secreto</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-variant": "#363340",
+            "secondary-fixed": "#f0dbff",
+            "on-secondary": "#490081",
+            "on-tertiary": "#00354a",
+            "on-surface-variant": "#dac0c9",
+            "on-primary-fixed": "#3d0026",
+            "on-primary": "#620040",
+            "on-tertiary-container": "#003a51",
+            "surface-container-lowest": "#0f0d18",
+            "background": "#14121d",
+            "on-tertiary-fixed": "#001e2c",
+            "secondary": "#ddb8ff",
+            "outline": "#a28a93",
+            "inverse-primary": "#a43073",
+            "on-secondary-fixed-variant": "#62259b",
+            "surface-container-highest": "#363340",
+            "surface-container": "#201e2a",
+            "on-surface": "#e6e0f1",
+            "error": "#ffb4ab",
+            "surface-container-high": "#2b2835",
+            "outline-variant": "#544249",
+            "error-container": "#93000a",
+            "secondary-container": "#62259b",
+            "primary-container": "#f472b6",
+            "tertiary-fixed-dim": "#7bd0ff",
+            "on-background": "#e6e0f1",
+            "on-primary-fixed-variant": "#85145a",
+            "primary": "#ffafd3",
+            "surface-container-low": "#1c1a26",
+            "on-primary-container": "#6d0047",
+            "primary-fixed": "#ffd8e7",
+            "on-secondary-container": "#d1a1ff",
+            "inverse-surface": "#e6e0f1",
+            "secondary-fixed-dim": "#ddb8ff",
+            "surface-bright": "#3a3744",
+            "tertiary-fixed": "#c4e7ff",
+            "tertiary": "#7bd0ff",
+            "surface-dim": "#14121d",
+            "primary-fixed-dim": "#ffafd3",
+            "on-secondary-fixed": "#2c0051",
+            "tertiary-container": "#0aaae4",
+            "on-error": "#690005",
+            "on-tertiary-fixed-variant": "#004c69",
+            "surface": "#14121d",
+            "inverse-on-surface": "#312f3b",
+            "on-error-container": "#ffdad6",
+            "surface-tint": "#ffafd3"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "gutter-mobile": "1rem",
+            "space-xl": "2rem",
+            "container-max": "72rem",
+            "space-sm": "0.75rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.5rem",
+            "gutter-desktop": "2rem",
+            "space-3xl": "4rem",
+            "space-2xl": "3rem",
+            "space-2xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Playfair Display", "serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "display": ["Playfair Display", "serif"],
+            "headline-lg-mobile": ["Playfair Display", "serif"],
+            "title-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "label-md": ["Plus Jakarta Sans", "sans-serif"],
+            "display-mobile": ["Playfair Display", "serif"],
+            "headline-lg": ["Playfair Display", "serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "500" }],
+            "display": ["56px", { "lineHeight": "68px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "500" }],
+            "title-lg": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "display-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["36px", { "lineHeight": "46px", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+    
+    /* Subtle starry background shimmer */
+    @keyframes subtle-twinkle {
+      0%, 100% { opacity: 0.15; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.1); }
+    }
+    .twinkle-1 { animation: subtle-twinkle 4s ease-in-out infinite; }
+    .twinkle-2 { animation: subtle-twinkle 6s ease-in-out infinite 1.5s; }
+    .twinkle-3 { animation: subtle-twinkle 5s ease-in-out infinite 3s; }
+    
+    /* Gentle celestial breathing aura */
+    @keyframes celestial-pulse {
+      0%, 100% { transform: scale(1); opacity: 0.25; }
+      50% { transform: scale(1.08); opacity: 0.45; }
+    }
+    .cosmic-halo { animation: celestial-pulse 7s ease-in-out infinite; }
+    
+    /* Safe mobile viewport lock */
+    body {
+      min-height: 100dvh;
+      background: radial-gradient(circle at 50% 20%, #1e1533 0%, #14121d 60%, #0c0a14 100%);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container flex flex-col justify-between items-center relative">
+<!-- Ambient Cosmic Atmosphere Layer -->
+<div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+<!-- Star dust points -->
+<div class="absolute top-12 left-10 w-1 h-1 rounded-full bg-secondary-fixed twinkle-1"></div>
+<div class="absolute top-24 right-16 w-1.5 h-1.5 rounded-full bg-primary-fixed twinkle-2"></div>
+<div class="absolute top-48 left-1/4 w-1 h-1 rounded-full bg-tertiary-fixed twinkle-3"></div>
+<div class="absolute top-72 right-12 w-1 h-1 rounded-full bg-secondary twinkle-1"></div>
+<div class="absolute bottom-36 left-12 w-1.5 h-1.5 rounded-full bg-primary twinkle-2"></div>
+<div class="absolute bottom-20 right-1/3 w-1 h-1 rounded-full bg-secondary-fixed twinkle-3"></div>
+<!-- Soft diffuse nebula gradients (No harsh neons) -->
+<div class="cosmic-halo absolute -top-24 left-1/2 -translate-x-1/2 w-[340px] h-[340px] rounded-full bg-gradient-to-b from-secondary-container/20 to-primary/10 blur-[90px]"></div>
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] h-[260px] rounded-full bg-surface-container-high/30 blur-[80px]"></div>
+</div>
+<!-- Main Mobile Responsive Shell (PIN Flow suppresses bottom navigation per Destination/Linear Journey Rule) -->
+<main class="relative z-10 w-full max-w-sm mx-auto flex-1 flex flex-col justify-between items-center px-gutter-mobile py-space-lg select-none min-h-[884px]">
+<!-- Top Celestial Lock & Romantic Header -->
+<header class="w-full flex flex-col items-center text-center mt-space-xs">
+<!-- Sacred Cosmic Lock Emblem -->
+<div class="relative mb-space-md flex items-center justify-center">
+<div class="absolute inset-0 rounded-full bg-primary-container/20 blur-xl"></div>
+<div class="w-16 h-16 rounded-full bg-surface-container/80 backdrop-blur-xl border border-outline-variant/30 flex items-center justify-center shadow-lg relative z-10">
+<span class="material-symbols-outlined text-primary text-[30px]" data-icon="lock_open">lock_open</span>
+</div>
+<!-- Little orbital star badge -->
+<div class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-surface-container-high/90 border border-primary/40 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary-fixed text-[14px]" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+</div>
+<!-- Editorial Titles -->
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface tracking-tight">
+        2 Meses Juntos
+      </h1>
+<p class="font-body-md text-body-md text-on-surface-variant/90 max-w-[260px] mt-space-2xs leading-relaxed">
+        Ingresa nuestra fecha especial para abrir el portal
+      </p>
+<!-- Constellation / Secret Date Pin Indicator (6 Pips for DD/MM/YY) -->
+<div class="flex items-center justify-center gap-space-sm mt-space-lg" id="pin-display">
+<!-- Pip 1: Filled -->
+<div class="w-3.5 h-3.5 rounded-full bg-primary shadow-[0_0_12px_rgba(244,114,182,0.6)] border border-primary-container transition-all duration-300"></div>
+<!-- Pip 2: Filled -->
+<div class="w-3.5 h-3.5 rounded-full bg-primary shadow-[0_0_12px_rgba(244,114,182,0.6)] border border-primary-container transition-all duration-300"></div>
+<!-- Pip 3: Hollow pending -->
+<div class="w-3.5 h-3.5 rounded-full bg-surface-container/60 border border-outline-variant/60 transition-all duration-300"></div>
+<!-- Pip 4: Hollow pending -->
+<div class="w-3.5 h-3.5 rounded-full bg-surface-container/60 border border-outline-variant/60 transition-all duration-300"></div>
+<!-- Pip 5: Hollow pending -->
+<div class="w-3.5 h-3.5 rounded-full bg-surface-container/60 border border-outline-variant/60 transition-all duration-300"></div>
+<!-- Pip 6: Hollow pending -->
+<div class="w-3.5 h-3.5 rounded-full bg-surface-container/60 border border-outline-variant/60 transition-all duration-300"></div>
+</div>
+<div class="flex items-center gap-1.5 mt-space-xs text-on-surface-variant/60 font-label-sm text-label-sm tracking-widest uppercase">
+<span>D</span><span>D</span>
+<span class="mx-0.5 opacity-40">/</span>
+<span>M</span><span>M</span>
+<span class="mx-0.5 opacity-40">/</span>
+<span>A</span><span>A</span>
+</div>
+</header>
+<!-- Keypad Numerical Grid -->
+<section aria-label="Teclado numérico" class="w-full max-w-[290px] my-auto py-space-xs">
+<div class="grid grid-cols-3 gap-y-space-sm gap-x-space-md justify-items-center">
+<!-- Key 1 -->
+<button class="w-16 h-16 rounded-full bg-surface-container/50 hover:bg-surface-container-high/70 active:scale-95 active:bg-primary-container/20 border border-outline-variant/25 backdrop-blur-md flex flex-col items-center justify-center text-on-surface font-title-lg text-title-lg transition-all duration-150 focus:outline-none" type="button">
+<span>1</span>
+</button>
+<!-- Key 2 -->
+<button class="w-16 h-16 rounded-full bg-surface-container/50 hover:bg-surface-container-high/70 active:scale-95 active:bg-primary-container/20 border border-outline-variant/25 backdrop-blur-md flex flex-col items-center justify-center text-on-surface font-title-lg text-title-lg transition-all duration-150 focus:outline-none" type="button">
+<span>2</span>
+</button>
+<!-- Key 3 -->
+<button class="w-16 h-16 rounded-full bg-surface-container/50 hover:bg-surface-container-high/70 active:scale-95 active:bg-primary-container/20 border border-outline-variant/25 backdrop-blur-md flex flex-col items-center justify-center text-on-surface font-title-lg text-title-lg transition-all duration-150 focus:outline-none" type="button">
+<span>3</span>
+</button>
+<!-- Key 4 -->
+<button class="w-16 h-16 rounded-full bg-surface-container/50 hover:bg-surface-container-high/70 active:scale-95 active:bg-primary-container/20 border border-outline-variant/25 backdrop-blur-md flex flex-col items-center justify-center text-on-surface font-title-lg text-title-lg transition-all duration-150 focus:outline-none" type="button">
+<span>4</span>
+</button>
+<!-- Key 5 -->
+<button class="w-16 h-16 rounded-full bg-surface-container/50 hover:bg-surface-container-high/70 active:scale-95 active:bg-primary-container/20 border border-outline-variant/25 backdrop-blur-md flex flex-col items-center justify-center text-on-surface font-title-lg text-title-lg transition-all duration-150 focus:outline-none" type="button">
+<span>5</span>
+</button>
+<!-- Key 6 -->
+<button class="w-16 h-16 rounded-full bg-surface-container/50 hover:bg-surface-container-high/70 active:scale-95 active:bg-primary-container/20 border border-outline-variant/25 backdrop-blur-md flex flex-col items-center justify-center text-on-surface font-title-lg text-title-lg transition-all duration-150 focus:outline-none" type="button">
+<span>6</span>
+</button>
+<!-- Key 7 -->
+<button class="w-16 h-16 rounded-full bg-surface-container/50 hover:bg-surface-container-high/70 active:scale-95 active:bg-primary-container/20 border border-outline-variant/25 backdrop-blur-md flex flex-col items-center justify-center text-on-surface font-title-lg text-title-lg transition-all duration-150 focus:outline-none" type="button">
+<span>7</span>
+</button>
+<!-- Key 8 -->
+<button class="w-16 h-16 rounded-full bg-surface-container/50 hover:bg-surface-container-high/70 active:scale-95 active:bg-primary-container/20 border border-outline-variant/25 backdrop-blur-md flex flex-col items-center justify-center text-on-surface font-title-lg text-title-lg transition-all duration-150 focus:outline-none" type="button">
+<span>8</span>
+</button>
+<!-- Key 9 -->
+<button class="w-16 h-16 rounded-full bg-surface-container/50 hover:bg-surface-container-high/70 active:scale-95 active:bg-primary-container/20 border border-outline-variant/25 backdrop-blur-md flex flex-col items-center justify-center text-on-surface font-title-lg text-title-lg transition-all duration-150 focus:outline-none" type="button">
+<span>9</span>
+</button>
+<!-- Key C (Clear) -->
+<button class="w-16 h-16 rounded-full bg-transparent hover:bg-surface-container-high/40 active:scale-95 border border-transparent hover:border-outline-variant/20 flex items-center justify-center text-on-surface-variant font-label-md text-label-md transition-all duration-150 focus:outline-none" type="button">
+<span>C</span>
+</button>
+<!-- Key 0 -->
+<button class="w-16 h-16 rounded-full bg-surface-container/50 hover:bg-surface-container-high/70 active:scale-95 active:bg-primary-container/20 border border-outline-variant/25 backdrop-blur-md flex flex-col items-center justify-center text-on-surface font-title-lg text-title-lg transition-all duration-150 focus:outline-none" type="button">
+<span>0</span>
+</button>
+<!-- Backspace Key -->
+<button aria-label="Borrar último dígito" class="w-16 h-16 rounded-full bg-transparent hover:bg-surface-container-high/40 active:scale-95 border border-transparent hover:border-outline-variant/20 flex items-center justify-center text-on-surface-variant transition-all duration-150 focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="backspace">backspace</span>
+</button>
+</div>
+</section>
+<!-- Bottom Romantic Hint & Direct Navigation Actions -->
+<footer class="w-full flex flex-col items-center gap-space-sm mb-space-xs">
+<!-- Romantic Date Hint Capsule -->
+<button class="group flex items-center gap-space-xs px-space-md py-space-2xs rounded-full bg-surface-container-low/80 hover:bg-surface-container/80 border border-outline-variant/30 text-secondary-fixed transition-all duration-200" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-body-md text-body-md group-hover:text-primary transition-colors">
+          ¿Olvidaste la fecha? Nuestra primera mirada
+        </span>
+</button>
+<!-- Direct Entry Alternative (Bypass/Explore) -->
+<button class="font-label-sm text-label-sm text-on-surface-variant/70 hover:text-primary active:scale-95 transition-all flex items-center gap-1 py-1" type="button">
+<span>Saltar clave y entrar directamente al portal</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</footer>
+</main>
+<!-- Interactive Pin Keypad Vanilla Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const pips = document.querySelectorAll('#pin-display > div');
+      let currentDigits = 2; // Starts with 2 filled as preview requested
+      
+      const updatePips = () => {
+        pips.forEach((pip, index) => {
+          if (index < currentDigits) {
+            pip.className = "w-3.5 h-3.5 rounded-full bg-primary shadow-[0_0_12px_rgba(244,114,182,0.6)] border border-primary-container transition-all duration-300";
+          } else {
+            pip.className = "w-3.5 h-3.5 rounded-full bg-surface-container/60 border border-outline-variant/60 transition-all duration-300";
+          }
+        });
+      };
+
+      const buttons = document.querySelectorAll('section button');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const text = btn.innerText.trim();
+          const isBackspace = btn.querySelector('[data-icon="backspace"]');
+          
+          if (isBackspace) {
+            if (currentDigits > 0) currentDigits--;
+          } else if (text === 'C') {
+            currentDigits = 0;
+          } else if (!isNaN(parseInt(text))) {
+            if (currentDigits < 6) currentDigits++;
+          }
+          updatePips();
+        });
+      });
+    });
+  </script>
+</body></html>

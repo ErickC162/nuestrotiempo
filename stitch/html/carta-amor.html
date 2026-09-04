@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Carta para Ti • Cosmic Love</title>
+<!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-variant": "#363340",
+            "secondary-fixed": "#f0dbff",
+            "on-secondary": "#490081",
+            "on-tertiary": "#00354a",
+            "on-surface-variant": "#dac0c9",
+            "on-primary-fixed": "#3d0026",
+            "on-primary": "#620040",
+            "on-tertiary-container": "#003a51",
+            "surface-container-lowest": "#0f0d18",
+            "background": "#14121d",
+            "on-tertiary-fixed": "#001e2c",
+            "secondary": "#ddb8ff",
+            "outline": "#a28a93",
+            "inverse-primary": "#a43073",
+            "on-secondary-fixed-variant": "#62259b",
+            "surface-container-highest": "#363340",
+            "surface-container": "#201e2a",
+            "on-surface": "#e6e0f1",
+            "error": "#ffb4ab",
+            "surface-container-high": "#2b2835",
+            "outline-variant": "#544249",
+            "error-container": "#93000a",
+            "secondary-container": "#62259b",
+            "primary-container": "#f472b6",
+            "tertiary-fixed-dim": "#7bd0ff",
+            "on-background": "#e6e0f1",
+            "on-primary-fixed-variant": "#85145a",
+            "primary": "#ffafd3",
+            "surface-container-low": "#1c1a26",
+            "on-primary-container": "#6d0047",
+            "primary-fixed": "#ffd8e7",
+            "on-secondary-container": "#d1a1ff",
+            "inverse-surface": "#e6e0f1",
+            "secondary-fixed-dim": "#ddb8ff",
+            "surface-bright": "#3a3744",
+            "tertiary-fixed": "#c4e7ff",
+            "tertiary": "#7bd0ff",
+            "surface-dim": "#14121d",
+            "primary-fixed-dim": "#ffafd3",
+            "on-secondary-fixed": "#2c0051",
+            "tertiary-container": "#0aaae4",
+            "on-error": "#690005",
+            "on-tertiary-fixed-variant": "#004c69",
+            "surface": "#14121d",
+            "inverse-on-surface": "#312f3b",
+            "on-error-container": "#ffdad6",
+            "surface-tint": "#ffafd3"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "gutter-mobile": "1rem",
+            "space-xl": "2rem",
+            "container-max": "72rem",
+            "space-sm": "0.75rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.5rem",
+            "gutter-desktop": "2rem",
+            "space-3xl": "4rem",
+            "space-2xl": "3rem",
+            "space-2xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Playfair Display", "serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "display": ["Playfair Display", "serif"],
+            "headline-lg-mobile": ["Playfair Display", "serif"],
+            "title-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "label-md": ["Plus Jakarta Sans", "sans-serif"],
+            "display-mobile": ["Playfair Display", "serif"],
+            "headline-lg": ["Playfair Display", "serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "500" }],
+            "display": ["56px", { "lineHeight": "68px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "500" }],
+            "title-lg": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "display-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["36px", { "lineHeight": "46px", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    @keyframes pulse-gentle {
+      0%, 100% { opacity: 0.35; transform: scale(1); }
+      50% { opacity: 0.65; transform: scale(1.04); }
+    }
+
+    @keyframes audio-wave-1 {
+      0%, 100% { height: 6px; }
+      50% { height: 18px; }
+    }
+    @keyframes audio-wave-2 {
+      0%, 100% { height: 16px; }
+      50% { height: 8px; }
+    }
+    @keyframes audio-wave-3 {
+      0%, 100% { height: 10px; }
+      50% { height: 22px; }
+    }
+    @keyframes audio-wave-4 {
+      0%, 100% { height: 14px; }
+      50% { height: 7px; }
+    }
+
+    .animate-wave-1 { animation: audio-wave-1 1.2s ease-in-out infinite; }
+    .animate-wave-2 { animation: audio-wave-2 0.9s ease-in-out infinite; }
+    .animate-wave-3 { animation: audio-wave-3 1.4s ease-in-out infinite; }
+    .animate-wave-4 { animation: audio-wave-4 1.1s ease-in-out infinite; }
+    .animate-cosmic-glow { animation: pulse-gentle 7s ease-in-out infinite; }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container relative min-h-screen overflow-x-hidden pb-28">
+<!-- Ambient Celestial Background -->
+<div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden bg-background">
+<!-- Nebular Gradient Blooms -->
+<div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[340px] h-[340px] rounded-full bg-secondary/10 blur-[100px] animate-cosmic-glow"></div>
+<div class="absolute top-[38%] -right-20 w-[280px] h-[280px] rounded-full bg-primary/10 blur-[90px]"></div>
+<div class="absolute bottom-20 -left-16 w-[300px] h-[300px] rounded-full bg-tertiary/10 blur-[110px]"></div>
+<!-- Fine Subtle Stardust Canvas -->
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(rgba(255, 255, 255, 0.45) 1px, transparent 1px); background-size: 44px 44px;"></div>
+</div>
+<!-- Shared Component: TopAppBar -->
+<!-- Mapped using style_shell_layout, style_bg_color, style_typography, style_brand_logo, style_separation_logic, style_shadows_and_elevation -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-space-md h-14 max-w-container-max mx-auto bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant/20 dark:border-outline-variant/20 shadow-sm dark:shadow-none">
+<button aria-label="Constelación romántica" class="flex items-center justify-center w-9 h-9 rounded-full text-primary dark:text-primary hover:text-primary dark:hover:text-primary hover:bg-surface-variant/30 dark:hover:bg-surface-variant/30 transition-colors active:scale-95 duration-150 ease-out">
+<span class="material-symbols-outlined text-[20px]" data-icon="auto_awesome">auto_awesome</span>
+</button>
+<h1 class="text-title-lg font-display tracking-tight text-primary dark:text-primary">Cosmic Love</h1>
+<button aria-label="Favoritos celestiales" class="flex items-center justify-center w-9 h-9 rounded-full text-primary dark:text-primary hover:text-primary dark:hover:text-primary hover:bg-surface-variant/30 dark:hover:bg-surface-variant/30 transition-colors active:scale-95 duration-150 ease-out">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-md mx-auto px-gutter-mobile pt-20">
+<!-- Section Header Block -->
+<section class="text-center pt-space-xs pb-space-md">
+<!-- Romantic Milestone Chip -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high/60 backdrop-blur-md border border-outline-variant/30 shadow-sm mb-3">
+<span class="material-symbols-outlined text-[13px] text-primary" data-icon="sparkles">auto_awesome</span>
+<span class="text-label-sm font-label-sm text-secondary tracking-widest uppercase">Capítulo 2 • 60 Días</span>
+</div>
+<!-- Headline -->
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface tracking-tight">
+        Carta para Ti
+      </h2>
+<!-- Subtitle -->
+<p class="text-body-md font-body-md text-on-surface-variant mt-1.5 max-w-xs mx-auto leading-relaxed">
+        Palabras salidas del corazón para la persona que ilumina mi universo.
+      </p>
+</section>
+<!-- Celestial Interactive Audio Capsule Player -->
+<section class="mb-space-md">
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low/80 backdrop-blur-xl border border-outline-variant/30 p-space-sm shadow-md transition-all duration-300">
+<div class="flex items-center justify-between gap-3">
+<!-- Vinyl / Music Glyph Cover -->
+<div class="relative flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-tr from-surface-container-highest to-surface-variant flex items-center justify-center border border-white/10 shadow-inner">
+<span class="material-symbols-outlined text-primary text-[24px]" data-icon="music_note" style="font-variation-settings: 'FILL' 1;">music_note</span>
+<span class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+</span>
+</div>
+<!-- Track Info & Audio Animation -->
+<div class="flex-1 min-w-0 pr-1">
+<div class="flex items-center justify-between">
+<p class="text-label-md font-label-md text-on-surface truncate">Golden Hour (Acoustic)</p>
+<!-- Subtle Audio Visualizer Wave -->
+<div class="flex items-end gap-[3px] h-5 px-1">
+<span class="w-[2.5px] bg-primary rounded-full animate-wave-1"></span>
+<span class="w-[2.5px] bg-secondary rounded-full animate-wave-2"></span>
+<span class="w-[2.5px] bg-tertiary rounded-full animate-wave-3"></span>
+<span class="w-[2.5px] bg-primary rounded-full animate-wave-4"></span>
+</div>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant truncate mt-0.5">Banda sonora de nuestro día</p>
+</div>
+<!-- Play / Pause Button -->
+<button aria-label="Pausar o reproducir música" class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-sm active:scale-90 transition-transform duration-150" id="audio-toggle-btn">
+<span class="material-symbols-outlined text-[20px]" data-icon="pause" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+</div>
+<!-- Progress bar and timing -->
+<div class="mt-3 pt-2 border-t border-outline-variant/15">
+<div class="w-full bg-surface-variant/50 h-1 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-primary to-secondary h-full rounded-full w-[49%] transition-all duration-300"></div>
+</div>
+<div class="flex justify-between items-center text-label-sm font-label-sm text-outline mt-1.5 px-0.5">
+<span>01:42</span>
+<span class="text-[10px] tracking-wider text-secondary/80 uppercase">Celestial Audio</span>
+<span>03:29</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Love Letter Interactive Card (Level 2 Elevation with Soft Glass Sheen) -->
+<article class="relative rounded-2xl bg-surface-container/70 backdrop-blur-2xl border border-primary/20 p-space-lg shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_30px_rgba(192,132,252,0.08)] mb-space-lg">
+<!-- Top Letter Crest / Constellation Seal -->
+<div class="flex items-center justify-between pb-space-sm border-b border-outline-variant/20 mb-space-md">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary/70"></span>
+<span class="text-label-sm font-label-sm text-secondary/90 tracking-wider uppercase">02 Meses • 14 de Febrero</span>
+</div>
+<div class="flex items-center text-primary-fixed-dim opacity-80">
+<span class="material-symbols-outlined text-[18px]" data-icon="auto_awesome">auto_awesome</span>
+</div>
+</div>
+<!-- Emotional Salutation in Serif Display -->
+<h3 class="text-headline-md font-headline-md text-primary-fixed mb-4 italic tracking-tight">
+        Amor de mi vida,
+      </h3>
+<!-- Letter Body Paragraphs -->
+<div class="space-y-4 text-body-md font-body-md text-on-surface/90 leading-[26px]">
+<p>
+          Apenas llevamos dos meses juntos, pero se sienten como un regalo que esperé toda la vida. Gracias por llenar mis días de paz, por cada risa, cada conversación infinita y hasta por los silencios donde solo basta sentir tu mano.
+        </p>
+<p>
+          Eres mi persona favorita y mi refugio. En este breve tiempo has logrado que cada instante cotidiano se transforme en una pequeña constelación de recuerdos que guardo con devoción.
+        </p>
+<p>
+          Quiero seguir descubriendo cada rincón de tu mundo día a día, caminar a tu ritmo y construir un espacio seguro donde siempre puedas florecer tal como eres.
+        </p>
+<!-- Accent Highlight Quote Card -->
+<div class="p-3.5 my-3 rounded-xl bg-surface-container-high/60 border-l-2 border-primary/60 backdrop-blur-sm">
+<p class="font-headline-md text-body-lg text-primary tracking-wide italic">
+            «Felices 2 meses, mi cielo. Y por todos los que vienen.»
+          </p>
+</div>
+</div>
+<!-- Letter Sign-off and Wax Seal/Badge -->
+<div class="mt-space-lg pt-space-md border-t border-outline-variant/20 flex flex-col items-start gap-4">
+<div>
+<p class="text-label-sm font-label-sm text-outline tracking-wider uppercase">Con amor infinito,</p>
+<p class="text-headline-md font-headline-md text-on-surface italic mt-0.5">
+            Tu compañero de viaje celestial
+          </p>
+</div>
+<!-- Romantic Glow Badge -->
+<div class="self-end inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-primary shadow-[0_0_15px_rgba(244,114,182,0.15)]">
+<span class="material-symbols-outlined text-[16px]" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="text-label-sm font-label-sm tracking-wide">Love You Forever</span>
+</div>
+</div>
+<!-- Action Buttons within Letter Context -->
+<div class="mt-space-lg grid grid-cols-1 gap-2.5 pt-space-xs">
+<!-- Primary CTA: Dedicar una respuesta -->
+<button class="w-full py-3 px-4 rounded-full bg-gradient-to-r from-primary-container to-secondary text-on-primary-fixed font-title-lg text-body-md font-semibold flex items-center justify-center gap-2 shadow-[0_8px_24px_-4px_rgba(244,114,182,0.35)] active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-[18px]" data-icon="send">send</span>
+<span>Dedicar una respuesta</span>
+</button>
+<!-- Secondary Ghost: Releer desde el inicio -->
+<button class="w-full py-2.5 px-4 rounded-full bg-surface-variant/30 hover:bg-surface-variant/50 border border-outline-variant/40 text-on-surface-variant hover:text-primary text-label-md font-label-md flex items-center justify-center gap-1.5 active:scale-95 transition-all duration-150" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+<span class="material-symbols-outlined text-[16px]" data-icon="restart_alt">restart_alt</span>
+<span>Releer desde el inicio</span>
+</button>
+</div>
+</article>
+<!-- Sweet Memory Quote Capsule Footer Note -->
+<div class="text-center pb-6">
+<p class="text-label-sm font-label-sm text-outline/80 tracking-widest uppercase flex items-center justify-center gap-2">
+<span class="inline-block w-6 h-px bg-outline-variant/40"></span>
+<span>2 Meses de Amor Cósmico</span>
+<span class="inline-block w-6 h-px bg-outline-variant/40"></span>
+</p>
+</div>
+</main>
+<!-- Shared Component: BottomNavBar -->
+<!-- Exact match active tab: "Carta" -->
+<!-- Executing style_* commands from JSON: style_bg_color, style_separation_logic, style_active_navigation, style_inactive_navigation, style_shell_layout, style_interactions -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-xs py-space-2xs pb-safe max-w-container-max mx-auto bg-surface-container-lowest/85 dark:bg-surface-container-lowest/85 backdrop-blur-lg border-t border-outline-variant/20 dark:border-outline-variant/20 shadow-lg dark:shadow-none">
+<!-- Tab 1: Tiempo -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 hover:text-primary dark:hover:text-primary transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined text-[22px]" data-icon="schedule">schedule</span>
+<span class="text-label-sm font-label-sm mt-0.5">Tiempo</span>
+</button>
+<!-- Tab 2: Razones -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 hover:text-primary dark:hover:text-primary transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined text-[22px]" data-icon="favorite_border">favorite_border</span>
+<span class="text-label-sm font-label-sm mt-0.5">Razones</span>
+</button>
+<!-- Tab 3: Recuerdos -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 hover:text-primary dark:hover:text-primary transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined text-[22px]" data-icon="photo_library">photo_library</span>
+<span class="text-label-sm font-label-sm mt-0.5">Recuerdos</span>
+</button>
+<!-- Tab 4: Carta (ACTIVE) -->
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary font-medium py-1 active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined text-[22px]" data-icon="mail" style="font-variation-settings: 'FILL' 1;">mail</span>
+<span class="text-label-sm font-label-sm font-bold mt-0.5 text-primary">Carta</span>
+</button>
+</nav>
+<!-- Lightweight Script for Audio Toggle Interaction -->
+<script>
+    const audioBtn = document.getElementById('audio-toggle-btn');
+    if (audioBtn) {
+      let isPlaying = true;
+      audioBtn.addEventListener('click', () => {
+        isPlaying = !isPlaying;
+        const iconSpan = audioBtn.querySelector('.material-symbols-outlined');
+        if (iconSpan) {
+          iconSpan.textContent = isPlaying ? 'pause' : 'play_arrow';
+        }
+      });
+    }
+  </script>
+</body></html>

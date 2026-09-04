@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Cosmic Love - Nuestro Tiempo Juntos</title>
+<!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-variant": "#363340",
+            "secondary-fixed": "#f0dbff",
+            "on-secondary": "#490081",
+            "on-tertiary": "#00354a",
+            "on-surface-variant": "#dac0c9",
+            "on-primary-fixed": "#3d0026",
+            "on-primary": "#620040",
+            "on-tertiary-container": "#003a51",
+            "surface-container-lowest": "#0f0d18",
+            "background": "#14121d",
+            "on-tertiary-fixed": "#001e2c",
+            "secondary": "#ddb8ff",
+            "outline": "#a28a93",
+            "inverse-primary": "#a43073",
+            "on-secondary-fixed-variant": "#62259b",
+            "surface-container-highest": "#363340",
+            "surface-container": "#201e2a",
+            "on-surface": "#e6e0f1",
+            "error": "#ffb4ab",
+            "surface-container-high": "#2b2835",
+            "outline-variant": "#544249",
+            "error-container": "#93000a",
+            "secondary-container": "#62259b",
+            "primary-container": "#f472b6",
+            "tertiary-fixed-dim": "#7bd0ff",
+            "on-background": "#e6e0f1",
+            "on-primary-fixed-variant": "#85145a",
+            "primary": "#ffafd3",
+            "surface-container-low": "#1c1a26",
+            "on-primary-container": "#6d0047",
+            "primary-fixed": "#ffd8e7",
+            "on-secondary-container": "#d1a1ff",
+            "inverse-surface": "#e6e0f1",
+            "secondary-fixed-dim": "#ddb8ff",
+            "surface-bright": "#3a3744",
+            "tertiary-fixed": "#c4e7ff",
+            "tertiary": "#7bd0ff",
+            "surface-dim": "#14121d",
+            "primary-fixed-dim": "#ffafd3",
+            "on-secondary-fixed": "#2c0051",
+            "tertiary-container": "#0aaae4",
+            "on-error": "#690005",
+            "on-tertiary-fixed-variant": "#004c69",
+            "surface": "#14121d",
+            "inverse-on-surface": "#312f3b",
+            "on-error-container": "#ffdad6",
+            "surface-tint": "#ffafd3"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "gutter-mobile": "1rem",
+            "space-xl": "2rem",
+            "container-max": "72rem",
+            "space-sm": "0.75rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.5rem",
+            "gutter-desktop": "2rem",
+            "space-3xl": "4rem",
+            "space-2xl": "3rem",
+            "space-2xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Playfair Display", "serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "display": ["Playfair Display", "serif"],
+            "headline-lg-mobile": ["Playfair Display", "serif"],
+            "title-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "label-md": ["Plus Jakarta Sans", "sans-serif"],
+            "display-mobile": ["Playfair Display", "serif"],
+            "headline-lg": ["Playfair Display", "serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "500" }],
+            "display": ["56px", { "lineHeight": "68px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "500" }],
+            "title-lg": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "display-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["36px", { "lineHeight": "46px", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #0d0b16;
+      color: #e6e0f1;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 350, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .stardust-bg {
+      background-image: 
+        radial-gradient(1.5px 1.5px at 20px 30px, rgba(253, 244, 255, 0.45), rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 85px 120px, rgba(221, 184, 255, 0.35), rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 160px 45px, rgba(244, 114, 182, 0.4), rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 240px 190px, rgba(253, 244, 255, 0.3), rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 310px 80px, rgba(221, 184, 255, 0.45), rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 350px 260px, rgba(244, 114, 182, 0.35), rgba(0,0,0,0));
+      background-repeat: repeat;
+      background-size: 380px 380px;
+    }
+    @keyframes cosmic-pulse {
+      0%, 100% { opacity: 0.35; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.08); }
+    }
+    .animate-cosmic-pulse {
+      animation: cosmic-pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes subtle-float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-4px); }
+    }
+    .animate-subtle-float {
+      animation: subtle-float 5s ease-in-out infinite;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen relative flex flex-col justify-between selection:bg-primary-container selection:text-on-primary-container">
+<!-- Ambient Celestial Underglows -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[420px] h-[420px] rounded-full bg-secondary-container/20 blur-[110px]"></div>
+<div class="absolute top-[38%] -right-28 w-[320px] h-[320px] rounded-full bg-primary-container/15 blur-[120px]"></div>
+<div class="absolute bottom-16 -left-24 w-[340px] h-[340px] rounded-full bg-surface-variant/30 blur-[100px]"></div>
+<div class="absolute inset-0 stardust-bg opacity-70"></div>
+</div>
+<!-- TOP APP BAR (Shared Component Anchor) -->
+<!-- Shell Layout & Rules Applied from JSON: fixed top-0, docked full-width, no border line, backdrop-blur -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-space-md h-14 max-w-container-max mx-auto bg-surface/80 dark:bg-surface/80 backdrop-blur-md shadow-sm dark:shadow-none transition-colors">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary dark:text-primary active:scale-95 transition-transform duration-150 ease-out" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="text-title-lg font-display tracking-tight text-primary dark:text-primary font-bold">Cosmic Love</span>
+</div>
+<!-- Right Controls: Audio Pill & Favorite -->
+<div class="flex items-center space-x-2">
+<!-- Mini audio capsule button -->
+<button class="flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/60 border border-secondary/20 hover:border-primary-container/40 active:scale-95 transition-all text-secondary" title="Reproducir Nuestra Canción">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="music_note">music_note</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden sm:inline">Nuestra Canción</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+</button>
+<button aria-label="Favorito" class="p-2 text-primary dark:text-primary hover:text-primary dark:hover:text-primary hover:bg-surface-variant/30 dark:hover:bg-surface-variant/30 rounded-full transition-colors active:scale-95 duration-150 ease-out flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT CANVAS -->
+<main class="relative z-10 flex-1 w-full max-w-lg mx-auto pt-20 pb-28 px-space-md flex flex-col gap-6">
+<!-- 1. HERO HEADER SECTION -->
+<section class="text-center pt-2 pb-1">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-low/70 border border-secondary/20 backdrop-blur-md mb-3">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Nuestra Historia de Amor</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile sm:font-headline-lg sm:text-headline-lg text-transparent bg-clip-text bg-gradient-to-r from-on-surface via-primary-fixed to-primary font-medium tracking-tight">
+        Nuestro Tiempo Juntos
+      </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-xs mx-auto leading-relaxed">
+        60 días construyendo nuestro propio universo, latido a latido.
+      </p>
+<!-- Live Heartbeat Indicator -->
+<div class="flex items-center justify-center gap-2 mt-3 text-on-surface-variant font-label-sm text-label-sm">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="tracking-wider text-secondary">Tiempo en órbita continua</span>
+</div>
+</section>
+<!-- 2. LIVE COSMIC COUNTER (Level 2 Elevated Frosted Glass Tile) -->
+<section class="relative bg-surface-container-lowest/75 backdrop-blur-2xl rounded-2xl p-5 border border-primary-container/20 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_24px_rgba(192,132,252,0.06)]">
+<div class="flex items-center justify-between mb-4 border-b border-outline-variant/15 pb-3">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="timelapse">timelapse</span>
+<span class="font-label-md text-label-md text-secondary tracking-wide">Cronómetro Estelar</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/40 text-secondary-fixed font-label-sm text-label-sm">
+          2 Meses Cumplidos
+        </span>
+</div>
+<!-- Counter Grid: 6 Distinct Micro-Glass Metric Tiles -->
+<div class="grid grid-cols-3 gap-2.5 sm:gap-3">
+<!-- Años -->
+<div class="flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-high/40 border border-outline-variant/20 hover:border-primary/30 transition-colors">
+<span class="font-headline-md text-headline-md font-display text-on-surface" id="counter-years">00</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-1">Años</span>
+</div>
+<!-- Meses -->
+<div class="flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-high/60 border border-primary-container/30 relative overflow-hidden group">
+<div class="absolute inset-0 bg-primary-container/5 opacity-50"></div>
+<span class="font-headline-md text-headline-md font-display text-primary font-semibold" id="counter-months">02</span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider mt-1 font-medium">Meses</span>
+</div>
+<!-- Días -->
+<div class="flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-high/60 border border-primary-container/30 relative overflow-hidden">
+<div class="absolute inset-0 bg-primary-container/5 opacity-50"></div>
+<span class="font-headline-md text-headline-md font-display text-primary font-semibold" id="counter-days">60</span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider mt-1 font-medium">Días</span>
+</div>
+<!-- Horas -->
+<div class="flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-high/40 border border-outline-variant/20">
+<span class="font-headline-md text-headline-md font-display text-on-surface" id="counter-hours">14</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-1">Horas</span>
+</div>
+<!-- Minutos -->
+<div class="flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-high/40 border border-outline-variant/20">
+<span class="font-headline-md text-headline-md font-display text-on-surface" id="counter-minutes">38</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mt-1">Minutos</span>
+</div>
+<!-- Segundos (Live ticking pulse) -->
+<div class="flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-high/40 border border-outline-variant/20 relative">
+<span class="font-headline-md text-headline-md font-display text-secondary font-medium" id="counter-seconds">49</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider mt-1">Segundos</span>
+<span class="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+</div>
+</div>
+<!-- Pulse Footer inside counter module -->
+<div class="mt-4 pt-3 border-t border-outline-variant/15 flex items-center justify-between text-on-surface-variant text-xs font-body-md">
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-primary text-sm animate-pulse" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span>Cada segundo cuenta contigo</span>
+</div>
+<span class="text-secondary font-label-sm text-label-sm">Desde el 19 de Enero</span>
+</div>
+</section>
+<!-- 3. NUESTROS HITOS CÓSMICOS (Stats Bento & Milestone Bar) -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center justify-between px-1">
+<h2 class="font-headline-md text-headline-md text-on-surface font-medium text-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="flare">flare</span>
+          Nuestros Hitos Cósmicos
+        </h2>
+<span class="font-label-sm text-label-sm text-secondary">Etapa II</span>
+</div>
+<!-- Bento Micro Cards -->
+<div class="grid grid-cols-3 gap-2.5">
+<!-- Stat 1 -->
+<div class="p-3 rounded-xl bg-surface-container-low/80 border border-outline-variant/20 flex flex-col items-center text-center">
+<div class="w-7 h-7 rounded-full bg-surface-variant/50 flex items-center justify-center mb-1.5 text-secondary">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+</div>
+<span class="font-title-lg text-title-lg font-bold text-on-surface">1,440</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant leading-tight mt-0.5">Horas juntos</span>
+</div>
+<!-- Stat 2 -->
+<div class="p-3 rounded-xl bg-surface-container-low/80 border border-outline-variant/20 flex flex-col items-center text-center">
+<div class="w-7 h-7 rounded-full bg-surface-variant/50 flex items-center justify-center mb-1.5 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="sentiment_very_satisfied">sentiment_very_satisfied</span>
+</div>
+<span class="font-title-lg text-title-lg font-bold text-on-surface">∞</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant leading-tight mt-0.5">Risas cósmicas</span>
+</div>
+<!-- Stat 3 -->
+<div class="p-3 rounded-xl bg-surface-container-low/80 border border-outline-variant/20 flex flex-col items-center text-center">
+<div class="w-7 h-7 rounded-full bg-surface-variant/50 flex items-center justify-center mb-1.5 text-secondary-fixed">
+<span class="material-symbols-outlined text-sm" data-icon="all_inclusive">all_inclusive</span>
+</div>
+<span class="font-title-lg text-title-lg font-bold text-on-surface">01</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant leading-tight mt-0.5">Constelación</span>
+</div>
+</div>
+<!-- Next Goal Milestone Card with Progress Bar -->
+<div class="p-4 rounded-xl bg-surface-container-low/90 border border-secondary/20 shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="flag">flag</span>
+<span class="font-title-lg text-body-md font-semibold text-on-surface">Meta: 100 Días de Amor</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary">60%</span>
+</div>
+<!-- Progress bar shell -->
+<div class="w-full bg-surface-variant/60 h-2.5 rounded-full overflow-hidden p-0.5 border border-outline-variant/20">
+<div class="bg-gradient-to-r from-primary via-primary-container to-secondary h-full rounded-full transition-all duration-1000 shadow-[0_0_8px_rgba(244,114,182,0.5)]" style="width: 60%"></div>
+</div>
+<div class="flex justify-between items-center mt-2.5 text-xs text-on-surface-variant font-label-sm text-label-sm">
+<span>Día actual: 60</span>
+<span class="text-secondary font-medium">Faltan solo 40 días ✨</span>
+</div>
+</div>
+</section>
+<!-- 4. ROMANTIC QUICK ACTIONS -->
+<section class="flex flex-col gap-3 pt-1">
+<!-- Primary Pill CTA (Style Guidance: gradient #f472b6 to #c084fc, text deep #0b0914) -->
+<button class="w-full h-13 py-3.5 px-6 rounded-full bg-gradient-to-r from-primary-container via-primary to-secondary text-surface-container-lowest font-label-md text-label-md font-bold flex items-center justify-center space-x-2 shadow-[0_8px_24px_-4px_rgba(244,114,182,0.4)] active:scale-95 transition-transform duration-150 ease-out">
+<span class="material-symbols-outlined text-lg" data-icon="mail" style="font-variation-settings: 'FILL' 1;">mail</span>
+<span>Leer Carta de Amor</span>
+</button>
+<!-- Secondary Frosted Ghost Button -->
+<button class="w-full h-12 py-3 px-6 rounded-full bg-surface-container-low/60 border border-outline/30 hover:border-primary-container/40 text-on-surface font-label-md text-label-md font-semibold flex items-center justify-center space-x-2 active:scale-95 transition-transform duration-150 ease-out backdrop-blur-md">
+<span class="material-symbols-outlined text-lg text-secondary" data-icon="photo_library">photo_library</span>
+<span>Ver Nuestros Recuerdos</span>
+</button>
+</section>
+<!-- 5. SECRET NOTE / PHRASE OF THE DAY (Parchment Tinted Frosted Card) -->
+<section class="p-4 rounded-xl bg-surface-container-lowest/80 border border-outline-variant/20 backdrop-blur-md flex items-start space-x-3.5 animate-subtle-float">
+<div class="p-2 rounded-full bg-secondary-container/30 text-secondary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-sm" data-icon="format_quote">format_quote</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-medium block mb-0.5">Frase de hoy</span>
+<p class="font-headline-md text-body-md text-on-surface/90 italic leading-relaxed">
+          "Cada segundo a tu lado es mi momento favorito en el infinito."
+        </p>
+</div>
+</section>
+</main>
+<!-- BOTTOM NAVIGATION BAR (Shared Component Anchor) -->
+<!-- Active state strictly mapped to 'Tiempo' based on page intent -->
+<!-- Separation logic: border-t banned, elevation via subtle shadow and tonal shift -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-xs py-space-2xs pb-safe max-w-container-max mx-auto bg-surface-container-lowest/85 dark:bg-surface-container-lowest/85 backdrop-blur-lg shadow-lg dark:shadow-none">
+<!-- Item 1: Tiempo (ACTIVE) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary font-medium py-1 active:scale-90 transition-transform duration-150 group" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="schedule" style="font-variation-settings: 'FILL' 1;">schedule</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-bold">Tiempo</span>
+</a>
+<!-- Item 2: Razones (INACTIVE) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 hover:text-primary dark:hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="favorite_border">favorite_border</span>
+<span class="text-label-sm font-label-sm mt-0.5">Razones</span>
+</a>
+<!-- Item 3: Recuerdos (INACTIVE) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 hover:text-primary dark:hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="photo_library">photo_library</span>
+<span class="text-label-sm font-label-sm mt-0.5">Recuerdos</span>
+</a>
+<!-- Item 4: Carta (INACTIVE) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 hover:text-primary dark:hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="mail">mail</span>
+<span class="text-label-sm font-label-sm mt-0.5">Carta</span>
+</a>
+</nav>
+<!-- Lightweight Live Seconds Simulator -->
+<script>
+    (function() {
+      let sec = 49;
+      let min = 38;
+      let hr = 14;
+      
+      const secEl = document.getElementById('counter-seconds');
+      const minEl = document.getElementById('counter-minutes');
+      const hrEl = document.getElementById('counter-hours');
+
+      setInterval(function() {
+        sec++;
+        if (sec >= 60) {
+          sec = 0;
+          min++;
+          if (min >= 60) {
+            min = 0;
+            hr++;
+            if (hrEl) hrEl.textContent = String(hr).padStart(2, '0');
+          }
+          if (minEl) minEl.textContent = String(min).padStart(2, '0');
+        }
+        if (secEl) {
+          secEl.textContent = String(sec).padStart(2, '0');
+        }
+      }, 1000);
+    })();
+  </script>
+</body></html>

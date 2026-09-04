@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Recuerdos y Momentos - Cosmic Love</title>
+<!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration with Design System Tokens -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-background": "#e6e0f1",
+            "surface-tint": "#ffafd3",
+            "tertiary-fixed": "#c4e7ff",
+            "surface-variant": "#363340",
+            "inverse-on-surface": "#312f3b",
+            "surface-container": "#201e2a",
+            "on-surface-variant": "#dac0c9",
+            "outline": "#a28a93",
+            "on-secondary-fixed-variant": "#62259b",
+            "inverse-surface": "#e6e0f1",
+            "outline-variant": "#544249",
+            "surface-container-highest": "#363340",
+            "surface": "#14121d",
+            "on-primary-fixed": "#3d0026",
+            "surface-container-low": "#1c1a26",
+            "secondary-fixed": "#f0dbff",
+            "tertiary-container": "#0aaae4",
+            "secondary-container": "#62259b",
+            "on-primary-fixed-variant": "#85145a",
+            "on-tertiary-container": "#003a51",
+            "background": "#14121d",
+            "primary": "#ffafd3",
+            "on-primary": "#620040",
+            "on-secondary-fixed": "#2c0051",
+            "surface-container-high": "#2b2835",
+            "on-tertiary-fixed-variant": "#004c69",
+            "inverse-primary": "#a43073",
+            "on-surface": "#e6e0f1",
+            "error-container": "#93000a",
+            "error": "#ffb4ab",
+            "secondary-fixed-dim": "#ddb8ff",
+            "primary-fixed-dim": "#ffafd3",
+            "surface-bright": "#3a3744",
+            "on-secondary": "#490081",
+            "secondary": "#ddb8ff",
+            "on-tertiary-fixed": "#001e2c",
+            "surface-dim": "#14121d",
+            "primary-container": "#f472b6",
+            "on-primary-container": "#6d0047",
+            "on-secondary-container": "#d1a1ff",
+            "tertiary-fixed-dim": "#7bd0ff",
+            "surface-container-lowest": "#0f0d18",
+            "tertiary": "#7bd0ff",
+            "on-tertiary": "#00354a",
+            "on-error": "#690005",
+            "on-error-container": "#ffdad6",
+            "primary-fixed": "#ffd8e7"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-2xl": "3rem",
+            "space-3xl": "4rem",
+            "gutter-desktop": "2rem",
+            "space-md": "1rem",
+            "space-2xs": "0.25rem",
+            "space-sm": "0.75rem",
+            "space-lg": "1.5rem",
+            "container-max": "72rem",
+            "gutter-mobile": "1rem",
+            "space-xl": "2rem",
+            "space-xs": "0.5rem"
+          },
+          "fontFamily": {
+            "label-md": ["Plus Jakarta Sans", "sans-serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "display": ["Playfair Display", "serif"],
+            "headline-lg-mobile": ["Playfair Display", "serif"],
+            "headline-md": ["Playfair Display", "serif"],
+            "headline-lg": ["Playfair Display", "serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "display-mobile": ["Playfair Display", "serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "title-lg": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "display": ["56px", { "lineHeight": "68px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+            "headline-lg": ["36px", { "lineHeight": "46px", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "display-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "500" }],
+            "title-lg": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    /* Custom utility for clean mobile scrolling */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased selection:bg-primary selection:text-on-primary min-h-screen relative overflow-x-hidden pb-28">
+<!-- Atmospheric Cosmic Underlay (Subtle starlight gradient & diffused glow) -->
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[22rem] h-[22rem] rounded-full bg-secondary-container/20 blur-[100px]"></div>
+<div class="absolute top-1/3 -right-20 w-[18rem] h-[18rem] rounded-full bg-primary-container/10 blur-[110px]"></div>
+<div class="absolute bottom-1/4 -left-20 w-[16rem] h-[16rem] rounded-full bg-tertiary/10 blur-[90px]"></div>
+<!-- Soft celestial dust particles simulated with subtle opacity points -->
+<div class="absolute top-24 left-8 w-1 h-1 bg-white/40 rounded-full blur-[0.5px]"></div>
+<div class="absolute top-36 right-12 w-1.5 h-1.5 bg-primary/40 rounded-full blur-[0.5px]"></div>
+<div class="absolute top-2/3 left-1/4 w-1 h-1 bg-secondary/30 rounded-full blur-[0.5px]"></div>
+<div class="absolute top-1/2 right-1/4 w-1 h-1 bg-white/30 rounded-full blur-[0.5px]"></div>
+</div>
+<!-- TopAppBar (Derived strictly from Shared Components JSON) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-space-md h-14 max-w-container-max mx-auto bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant/20 dark:border-outline-variant/20 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary dark:text-primary" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="text-title-lg font-display tracking-tight text-primary dark:text-primary">Cosmic Love</span>
+</div>
+<!-- Quick Audio Player Access Pill -->
+<div class="flex items-center gap-space-xs">
+<button aria-label="Reproducir melodía de nuestro universo" class="flex items-center gap-1.5 px-space-xs py-1 rounded-full bg-surface-container-low/70 border border-outline-variant/30 text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" type="button">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="music_note">music_note</span>
+<span class="text-label-sm font-label-sm tracking-wider text-secondary">Nuestra Canción</span>
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="play_circle">play_circle</span>
+</button>
+<button aria-label="Favoritos" class="p-1.5 hover:text-primary dark:hover:text-primary hover:bg-surface-variant/30 dark:hover:bg-surface-variant/30 rounded-full transition-colors active:scale-95 duration-150 ease-out text-primary dark:text-primary" type="button">
+<span class="material-symbols-outlined fill-icon" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas Mobile Content Container -->
+<main class="relative z-10 pt-16 px-gutter-mobile max-w-lg mx-auto flex flex-col gap-space-md">
+<!-- Header Section: Direct & Intimate Editorial Tone -->
+<section class="mt-space-xs flex items-end justify-between">
+<div>
+<span class="text-label-sm font-label-sm uppercase text-secondary tracking-widest block mb-0.5">2 Meses Compartiendo la Eternidad</span>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile text-on-background tracking-tight">Nuestros Recuerdos</h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-0.5">Momentos grabados bajo el mismo cielo.</p>
+</div>
+<!-- Action Button: '+ Añadir Foto' Tactile Pill -->
+<button class="shrink-0 flex items-center gap-1 px-3.5 py-2 rounded-full bg-gradient-to-r from-primary-container to-secondary text-on-primary font-label-md text-label-md shadow-[0_4px_16px_-2px_rgba(244,114,182,0.35)] active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_photo_alternate">add_photo_alternate</span>
+<span>Añadir</span>
+</button>
+</section>
+<!-- Swipeable Horizontal Snap Carousel: Featured Moments (Vertical 4:5 Cards) -->
+<section class="mt-space-xs">
+<div class="flex items-center justify-between mb-space-2xs">
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-[14px]" data-icon="stars">stars</span>
+<span>Momentos Destacados</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant/70">Desliza • 3 recuerdos</span>
+</div>
+<!-- Carousel Scroll Container -->
+<div class="flex gap-space-sm overflow-x-auto snap-x snap-mandatory no-scrollbar pb-1 -mx-gutter-mobile px-gutter-mobile">
+<!-- Foto 1: Nuestra Primera Cita -->
+<article class="snap-center shrink-0 w-[78vw] max-w-[290px] aspect-[4/5] rounded-xl overflow-hidden relative bg-surface-container-high border border-primary/20 shadow-[0_12px_28px_-8px_rgba(0,0,0,0.7)] group">
+<img class="w-full h-full object-cover" data-alt="Intimate romantic portrait of a happy young couple on their first date sitting closely at a quaint twilight bistro table with glowing candle lamps and soft ambient fairy lights in the violet evening air, muted lavender tones, cozy romantic cinematography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQgxtXCtUO9yfluapV1jcITAdJp7B6_Y1bOGVrvO84fitg746p1z6Y-K6O-sC-UBdUwOeQXsVZbrQP6w3TSOHLnW9M-kWl9kayg_E6cVFuOhOFrtRzOA178TOBYkT9Z1TnIPZU8dvRxJZmhUP6J5OCiSa7KyxTKWtp_ifLubl-Qoeub1YOG5f36sPIFKcM_BH3-7dmDozl1XHZ1kH7rSZwsMedwVUBO0rmka_HATQo2ioDocU8cHza"/>
+<!-- Glassmorphism Vignette Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent flex flex-col justify-end p-space-md">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="px-2 py-0.5 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-primary text-label-sm font-label-sm">28 Octubre</span>
+<span class="text-label-sm font-label-sm text-tertiary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]" data-icon="schedule">schedule</span> 19:30
+              </span>
+</div>
+<h2 class="text-title-lg font-display text-on-background">Nuestra Primera Cita</h2>
+<p class="text-body-md font-body-md text-on-surface-variant italic mt-0.5 line-clamp-2">"Las horas se sintieron como minutos."</p>
+</div>
+<div class="absolute top-space-xs right-space-xs p-1.5 rounded-full bg-surface-container-lowest/60 backdrop-blur-md text-primary">
+<span class="material-symbols-outlined text-[16px] fill-icon" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+</article>
+<!-- Foto 2: El concierto bajo la lluvia -->
+<article class="snap-center shrink-0 w-[78vw] max-w-[290px] aspect-[4/5] rounded-xl overflow-hidden relative bg-surface-container-high border border-outline-variant/30 shadow-[0_12px_28px_-8px_rgba(0,0,0,0.7)] group">
+<img class="w-full h-full object-cover" data-alt="Two lovers embracing affectionately under a transparent umbrella during a nocturnal live music concert with dreamy violet and indigo spotlights reflecting on wet asphalt puddles with romantic atmospheric depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFC-CIYtsgQhaVxITDfbfR1LQ8CRdKVSolTNcRX2XQLlgj_c5-Odgc9F7xW1pVHrUP9sOy3qsi_gaVMB2fAXSeiJseKDwOAhgkG-Hz32xcSdBem7uJ_wF32ICnLgOzbr4O7SUhnnPzFB-aJZOWV4KFu4ke7zDDLDzN2DRbIetBiNNuiBB59kwZJGSBY_aX_47L-BojIFJ2VyPDPxImJXzAqXDuB6cAGNyWt8amkyycGvvBbuw1CeyK"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent flex flex-col justify-end p-space-md">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="px-2 py-0.5 rounded-full bg-secondary/20 backdrop-blur-md border border-secondary/30 text-secondary text-label-sm font-label-sm">19 Octubre</span>
+<span class="text-label-sm font-label-sm text-tertiary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]" data-icon="water_drop">water_drop</span> Lluvia
+              </span>
+</div>
+<h2 class="text-title-lg font-display text-on-background">El concierto bajo la lluvia</h2>
+<p class="text-body-md font-body-md text-on-surface-variant italic mt-0.5 line-clamp-2">Cantando juntos empapados y riendo sin parar.</p>
+</div>
+<div class="absolute top-space-xs right-space-xs p-1.5 rounded-full bg-surface-container-lowest/60 backdrop-blur-md text-secondary">
+<span class="material-symbols-outlined text-[16px]" data-icon="favorite_border">favorite_border</span>
+</div>
+</article>
+<!-- Foto 3: Atardecer en la bahía -->
+<article class="snap-center shrink-0 w-[78vw] max-w-[290px] aspect-[4/5] rounded-xl overflow-hidden relative bg-surface-container-high border border-outline-variant/30 shadow-[0_12px_28px_-8px_rgba(0,0,0,0.7)] group">
+<img class="w-full h-full object-cover" data-alt="Silhouette of two partners holding hands at the edge of a serene oceanic bay shore at sunset with pastel sky painted in subtle tones of dusty rose, periwinkle and deep twilight purple, cinematic reflections on calm water." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1P1CCjrbMHX2-KCnPqrEugHkfwwCbgwcUTuJ2XDZR_TCOaganBZ_jZBxDuHy4ikt0Z39_rkqEdyq8qDptDNWLmgLLQT_UiDWRLLEcPo3_wUXVcKsteDQnWGnValHTV-ZveRSR46JB6xy3CDNdAbl79rsXIRXdoBAjdUFQqy8TWEtuEBdsEkfbvPt3vNtNRhH0_jLuZbyITCDcE8GPPf0tHtjx3vB_xJ_IZZAq-_HxLcQKjfL-CUH6"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent flex flex-col justify-end p-space-md">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed/20 backdrop-blur-md border border-tertiary/30 text-tertiary text-label-sm font-label-sm">25 Octubre</span>
+<span class="text-label-sm font-label-sm text-secondary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]" data-icon="wb_twilight">wb_twilight</span> Dorado
+              </span>
+</div>
+<h2 class="text-title-lg font-display text-on-background">Atardecer en la bahía</h2>
+<p class="text-body-md font-body-md text-on-surface-variant italic mt-0.5 line-clamp-2">El cielo copió los colores de tu sonrisa.</p>
+</div>
+<div class="absolute top-space-xs right-space-xs p-1.5 rounded-full bg-surface-container-lowest/60 backdrop-blur-md text-primary">
+<span class="material-symbols-outlined text-[16px] fill-icon" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+</article>
+</div>
+</section>
+<!-- Timeline Quick Switcher Tabs (Segmented Control) -->
+<section class="mt-space-2xs">
+<div class="p-1 rounded-full bg-surface-container-lowest/80 border border-outline-variant/30 flex items-center backdrop-blur-md">
+<button class="flex-1 py-1.5 rounded-full text-center text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors" type="button">
+          Mes 1 (30 Días)
+        </button>
+<button class="flex-1 py-1.5 rounded-full text-center text-label-md font-label-md bg-surface-variant text-primary font-bold shadow-sm border border-primary/20" type="button">
+          Mes 2 (Hoy)
+        </button>
+</div>
+</section>
+<!-- Compact 2-Column Grid: Recent Photographic Memories -->
+<section class="mt-space-2xs">
+<div class="flex items-center justify-between mb-space-xs">
+<h3 class="text-title-lg font-headline-md text-on-background">Galería de Instantes</h3>
+<span class="text-label-sm font-label-sm text-primary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> 14 guardados
+        </span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Memory Item 1 -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-container-low border border-outline-variant/20 hover:border-primary/30 transition-all">
+<div class="aspect-square w-full relative">
+<img class="w-full h-full object-cover" data-alt="Close up photography of two hands interlocked tightly with delicate silver matching rings on a dark cozy woolen celestial violet sweater, soft emotional atmospheric lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSW6fQhwXlb2I1F0EL09EFe2kE_UtS_JzsspKfIDhBAXLriHnbERkNmfXvGhCZBXSLfMM6Z4yK-Vg5cEsyLaHoZkZVbCTXwgM21bb_Xl3KF64kJOjp7pjYWpdThMRBSe8zWvzKOEgDOC2XKkcbBK9fGTsRu80bHQxD7fTmkG7FDB2v-mYBmwU8MmcKuJz92fEXA98nf3MAAsLGjyH7v3ey1VBAjsvAy9fuqAXOW-uWu9ubRdr-GUDU"/>
+<div class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-[10px] font-label-sm text-secondary border border-outline-variant/20">
+              03 Nov
+            </div>
+</div>
+<div class="p-space-xs bg-surface-container-lowest/60">
+<p class="font-label-md text-label-md text-on-background truncate">Paseo nocturno</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Tus manos frías y las mías</p>
+</div>
+</div>
+<!-- Memory Item 2 -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-container-low border border-outline-variant/20 hover:border-primary/30 transition-all">
+<div class="aspect-square w-full relative">
+<img class="w-full h-full object-cover" data-alt="Two ceramic vintage coffee mugs resting on a tiny wooden table with handwritten love note in Spanish reading Te quiero surrounded by dim fairy lights in lavender night atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxi9Z6cDZjdCnbJqpcgUsarXmszeaNWFhtIf2JQeHO_O8pjBU4IxJEUnekOVZQEIU66bJRIKk5wk8GsSpCkXFC6u0knOsk_yywCr__x2C1ijtFqF6FqFdqyvEVIH-i5A5_wHcsovp-LfaXMzu9Ris48sEgtX0uMj1pLULKdHKeZyrmG7wLI_rYM2T5DgE3U93zNAYL0X1u4KcxpddEePhpC5-8HH1ma5Osi48kXF3BlFePCY95WYaB"/>
+<div class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-[10px] font-label-sm text-secondary border border-outline-variant/20">
+              11 Nov
+            </div>
+</div>
+<div class="p-space-xs bg-surface-container-lowest/60">
+<p class="font-label-md text-label-md text-on-background truncate">Café de media tarde</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Nuestras charlas infinitas</p>
+</div>
+</div>
+<!-- Memory Item 3 -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-container-low border border-outline-variant/20 hover:border-primary/30 transition-all">
+<div class="aspect-square w-full relative">
+<img class="w-full h-full object-cover" data-alt="Candid moment of two smiling eyes reflected in rearview car mirror during a twilight road trip under starry violet sky, quiet romantic nostalgic cinematography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWtqNlA6FdpYhDVxCUvhFuBIThYRkwSumt2wxMuM1yXTczcVD1c90_f5aHUN9x-zVjkGN88H2_X_bkT3PtjjqsWtMN0Ib1IGMBDp4dQwHw2qA6ndSdOzZIsPWh2S4dlaMTfpvzJTTZe6O-6g6_xbMZE8ltISqcK2c5vTBPE9RX794ocP4Zq-krT3wPC5tAX9KIjohmf0kZEqfl31S7hbQdVJJKelbWtX0UwpjlzZV9kxDWb-7HbsOG"/>
+<div class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-[10px] font-label-sm text-secondary border border-outline-variant/20">
+              18 Nov
+            </div>
+</div>
+<div class="p-space-xs bg-surface-container-lowest/60">
+<p class="font-label-md text-label-md text-on-background truncate">Ruta sin rumbo</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Solo siguiendo constelaciones</p>
+</div>
+</div>
+<!-- Memory Item 4 -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-container-low border border-outline-variant/20 hover:border-primary/30 transition-all">
+<div class="aspect-square w-full relative">
+<img class="w-full h-full object-cover" data-alt="A pair of tickets and a dried pressed rose inside a transparent glass memory box surrounded by faint lavender fairy lights and star dust sparkle in soft twilight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCIRPued35gIVzXrwWDo7bITk9T_gDSCDgwB-ehN1gPT_yDzh-74veXZ_NvvBHFOMi1QGAuV5vgvTwi5Ii-i-uL4lDwbg7J8IayB_ykfmbia9VeoZQZjpS5sfKsnDYXcXfoqgd6rRsW7tBrKEl9mn29I1tgDU6EZseitXNPLqtg3XXUGOAc8jc8nH0uMEry8L3hD11AlJVkLpBwjHanfzP5gbBkjD9qQvfpP7LpIO1pArZpG0dHwbp"/>
+<div class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-[10px] font-label-sm text-secondary border border-outline-variant/20">
+              26 Nov
+            </div>
+</div>
+<div class="p-space-xs bg-surface-container-lowest/60">
+<p class="font-label-md text-label-md text-on-background truncate">Noche de cine &amp; helado</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Coleccionando instantes</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Intimate Keepsake Footnote Capsule -->
+<div class="my-space-xs p-space-sm rounded-xl bg-surface-container-lowest/70 border border-primary/20 backdrop-blur-md flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="favorite_border">favorite_border</span>
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-on-background">60 Días de Historia</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Cada día es mi favorito a tu lado</span>
+</div>
+</div>
+<span class="text-label-sm font-label-sm text-tertiary px-2 py-0.5 rounded-full bg-surface-variant border border-outline-variant/20">Infinito</span>
+</div>
+</main>
+<!-- BottomNavBar (Derived strictly from Shared Components JSON) -->
+<!-- Contextual Active Tab Logic: Current page is 'Recuerdos' -> exact match active style applied -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-xs py-space-2xs pb-safe max-w-container-max mx-auto bg-surface-container-lowest/85 dark:bg-surface-container-lowest/85 backdrop-blur-lg border-t border-outline-variant/20 dark:border-outline-variant/20 shadow-lg dark:shadow-none">
+<!-- Tab 1: Tiempo (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 hover:text-primary dark:hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="schedule">schedule</span>
+<span class="text-label-sm font-label-sm mt-0.5">Tiempo</span>
+</a>
+<!-- Tab 2: Razones (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 hover:text-primary dark:hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="favorite_border">favorite_border</span>
+<span class="text-label-sm font-label-sm mt-0.5">Razones</span>
+</a>
+<!-- Tab 3: Recuerdos (ACTIVE MATCH for this screen) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary font-medium py-1 active:scale-90 duration-150 relative" href="#">
+<span class="material-symbols-outlined text-[22px] fill-icon" data-icon="photo_library" style="font-variation-settings: 'FILL' 1;">photo_library</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-bold">Recuerdos</span>
+<!-- Active celestial indicator glow dot -->
+<span class="w-1 h-1 rounded-full bg-primary absolute -bottom-0.5"></span>
+</a>
+<!-- Tab 4: Carta (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 hover:text-primary dark:hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="mail">mail</span>
+<span class="text-label-sm font-label-sm mt-0.5">Carta</span>
+</a>
+</nav>
+</body></html>
