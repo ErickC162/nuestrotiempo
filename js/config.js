@@ -243,7 +243,18 @@ window.COSMIC = {
          sin ningún control — nadie puede pausarlo ni tocarlo, es 100%
          automático. Un elemento usa `foto` O `video`, nunca los dos.
          `poster` (opcional) es una imagen de vista previa mientras
-         el video carga.                                                */
+         el video carga.
+
+       ▸ SI UNA FOTO/VIDEO SE VE MAL RECORTADO (porque su tamaño no
+         coincide con el recuadro): agrega `posicion: 'X% Y%'`, donde X
+         es horizontal e Y vertical (0% = arriba/izquierda, 50% = centro,
+         100% = abajo/derecha). Ej: `posicion: '50% 20%'` prioriza la
+         parte de arriba de la imagen. La forma más fácil de encontrar el
+         valor correcto: abre esa foto/video en la web (botón "Ajustar
+         encuadre" dentro del visor), movela con las flechas hasta que se
+         vea bien, y copiá la línea que te da con el botón "Copiar línea
+         para config.js" — pegala acá abajo, en el recuerdo que corresponda.
+         Si no lo pones, queda centrado (o el encuadre de siempre en video). */
     destacados: [
       {
         titulo: 'Cafecito Juan Valdéz',
@@ -314,7 +325,8 @@ window.COSMIC = {
       },
     ],
 
-    /* Galería en cuadrícula de 2 columnas */
+    /* Galería en cuadrícula de 2 columnas. Acepta `posicion` igual que
+       los destacados de arriba, para corregir recortes feos.           */
     galeria: [
       { titulo: 'Cafecito Juan Valdéz', nota: 'El puntapié inicial', fecha: '12 Mayo', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212535/nuestro-tiempo/fotos/juanValdez.jpg' },
       { titulo: 'Nuestro primer beso', nota: 'La entrada que lo cambió todo', fecha: '23 Mayo', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212533/nuestro-tiempo/fotos/entradaCine.png' },

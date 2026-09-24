@@ -294,9 +294,14 @@
    *  `alt` va vacío a propósito: el navegador dibujaría el texto alternativo
    *  sobre la tarjeta mientras la imagen falla. El nombre viaja en `title`
    *  y siempre aparece como texto visible junto a la foto.               */
-  function foto(src, alt, clases = 'w-full h-full object-cover') {
+  /** `posicion` (opcional) es un valor CSS `object-position`, ej. '50% 20%':
+   *  qué parte de la foto/video se prioriza cuando el recorte automático
+   *  (`object-cover`) no deja ver lo importante. Si no se indica, se usa
+   *  el centro de siempre — no cambia nada en las fotos que ya tenías.  */
+  function foto(src, alt, clases = 'w-full h-full object-cover', posicion) {
     const seguro = String(alt || '').replace(/"/g, '&quot;');
-    return `<img src="${src}" alt="" title="${seguro}" class="${clases}" loading="lazy"
+    const estilo = posicion ? ` style="object-position:${String(posicion).replace(/"/g, '')}"` : '';
+    return `<img src="${src}" alt="" title="${seguro}" class="${clases}" loading="lazy"${estilo}
                  onerror="Cosmic.fallaFoto(this)">`;
   }
 
@@ -304,26 +309,32 @@
    *  sonido y sin ningún control — nadie puede pausarlo, buscar en él
    *  ni verlo a pantalla completa desde el propio reproductor. Si el
    *  archivo falta, usa el mismo marcador gris que las fotos.
-   *  `poster` (opcional) es una imagen que se ve mientras carga.        */
-  function video(src, alt, clases = 'w-full h-full object-cover', poster) {
+   *  `poster` (opcional) es una imagen que se ve mientras carga.
+   *  `posicion` (opcional): ver comentario de `foto()` arriba — si no se
+   *  indica, se mantiene el encuadre de siempre (50% 15%, algo más arriba
+   *  del centro, pensado para bustos/rostros de pie).                   */
+  function video(src, alt, clases = 'w-full h-full object-cover', poster, posicion) {
     const seguro = String(alt || '').replace(/"/g, '&quot;');
     const posterAttr = poster ? ` poster="${poster}"` : '';
+    const claseObjeto = posicion ? '' : ' object-[50%_15%]';
+    const estilo = posicion ? ` style="object-position:${String(posicion).replace(/"/g, '')}"` : '';
     // `src` va directo en <video> (no en un <source> hijo): así el evento
     // `error` se dispara sobre el propio <video> y el marcador de respaldo
     // funciona igual que en las fotos si el archivo no existe.
-    return `<video src="${src}" class="${clases} object-[50%_15%]" title="${seguro}" aria-label="${seguro}"
+    return `<video src="${src}" class="${clases}${claseObjeto}" title="${seguro}" aria-label="${seguro}"
                    autoplay muted loop playsinline preload="auto"
                    disablepictureinpicture disableremoteplayback
                    oncontextmenu="return false"
-                   onerror="Cosmic.fallaFoto(this)"${posterAttr}></video>`;
+                   onerror="Cosmic.fallaFoto(this)"${posterAttr}${estilo}></video>`;
   }
 
   /** Foto o video de un recuerdo: usa `item.video` si existe; si no, `item.foto`.
-   *  Así un mismo carrusel puede mezclar fotos y videos sin distinción. */
+   *  Así un mismo carrusel puede mezclar fotos y videos sin distinción.
+   *  Si el recuerdo tiene `item.posicion` (ver `foto()`), se respeta.   */
   function medio(item, clases = 'w-full h-full object-cover') {
     return item.video
-      ? video(item.video, item.titulo, clases, item.poster)
-      : foto(item.foto, item.titulo, clases);
+      ? video(item.video, item.titulo, clases, item.poster, item.posicion)
+      : foto(item.foto, item.titulo, clases, item.posicion);
   }
 
   function marcadorFoto() {

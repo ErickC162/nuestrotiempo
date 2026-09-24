@@ -251,6 +251,19 @@
           <input type="file" name="archivo" accept="image/*,video/*" required
             class="w-full rounded-xl bg-surface-container/70 border border-outline-variant/40 p-3 text-on-surface text-sm font-body-md file:mr-3 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-primary-container file:text-on-primary file:text-label-sm file:font-label-sm">
         </label>
+
+        <!-- Previsualización: arrastrá la foto/video para elegir qué parte
+             se prioriza cuando el recorte automático no la deja ver bien. -->
+        <div id="previsualizacion" class="hidden flex-col gap-2">
+          <div class="flex items-center justify-between">
+            <span class="text-label-md font-label-md text-on-surface-variant">Arrastrá para encuadrar</span>
+            <button type="button" id="centrar-previsualizacion"
+              class="text-label-sm font-label-sm text-primary underline underline-offset-2">Centrar</button>
+          </div>
+          <div id="marco-previsualizacion"
+            class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-surface-container-high border border-outline-variant/40 cursor-grab active:cursor-grabbing touch-none select-none"></div>
+        </div>
+
         <label class="flex flex-col gap-2">
           <span class="text-label-md font-label-md text-on-surface-variant">Título</span>
           <input type="text" name="titulo" maxlength="60" placeholder="Ej: Tarde de café" required
@@ -302,7 +315,8 @@
       $('[data-cita-hoy]').textContent = Cosmic.miles(t.diasTotales) + ' días después';
 
       /* ── Destacados: carrusel móvil ── */
-      document.getElementById('destacados-movil').innerHTML = c.destacados.map((r, i) => `
+      function pintarDestacadosMovil() {
+        document.getElementById('destacados-movil').innerHTML = c.destacados.map((r, i) => `
     <article data-abrir="d${i}"
              class="snap-center shrink-0 w-[78vw] max-w-[290px] aspect-[4/5] rounded-xl overflow-hidden relative bg-surface-container-high border border-${r.acento}/20 shadow-[0_12px_28px_-8px_rgba(0,0,0,0.7)] cursor-pointer active:scale-[0.98] transition-transform">
       ${Cosmic.medio(r)}
@@ -320,6 +334,9 @@
         <span class="material-symbols-outlined text-[16px] ${r.favorito ? 'fill-icon' : ''}">${r.favorito ? 'favorite' : 'favorite_border'}</span>
       </div>
     </article>`).join('');
+        conectar();
+      }
+      pintarDestacadosMovil();
 
       /* ── Destacados: protagonista en escritorio ── */
       let actual = 0;
@@ -500,6 +517,13 @@
       const estadoSubir = document.getElementById('subir-estado');
       const botonSubir = document.getElementById('subir-boton');
 
+      let previewUrl = null;
+      let previewPosX = 50;
+      let previewPosY = 50;
+      const inputArchivo = formSubir.querySelector('input[name="archivo"]');
+      const previsualizacion = document.getElementById('previsualizacion');
+      const marcoPreview = document.getElementById('marco-previsualizacion');
+
       function abrirSubir() {
         if (!cloudCfg || !cloudCfg.cloudName || !cloudCfg.presetSubidas) {
           alert('Falta configurar Cloudinary en js/config.js (bloque "cloudinary").');
@@ -508,23 +532,93 @@
         formSubir.reset();
         estadoSubir.textContent = '';
         estadoSubir.classList.remove('text-error');
+        ocultarPreview();
         modalSubir.classList.replace('hidden', 'flex');
       }
       const cerrarSubir = () => modalSubir.classList.replace('flex', 'hidden');
+
+      function ocultarPreview() {
+        if (previewUrl) { URL.revokeObjectURL(previewUrl); previewUrl = null; }
+        marcoPreview.innerHTML = '';
+        previsualizacion.classList.add('hidden');
+        previsualizacion.classList.remove('flex');
+        previewPosX = 50;
+        previewPosY = 50;
+      }
+
+      /** Al elegir un archivo, se muestra en el recuadro de previsualización
+       *  para poder arrastrarlo y elegir qué parte se prioriza — la misma
+       *  idea que "reposicionar" una foto de portada en redes sociales.  */
+      inputArchivo.addEventListener('change', () => {
+        const archivo = inputArchivo.files[0];
+        if (previewUrl) URL.revokeObjectURL(previewUrl);
+        if (!archivo) { ocultarPreview(); return; }
+
+        previewUrl = URL.createObjectURL(archivo);
+        previewPosX = 50;
+        previewPosY = 50;
+        const esVideo = archivo.type.startsWith('video/');
+        marcoPreview.innerHTML = esVideo
+          ? `<video src="${previewUrl}" class="w-full h-full object-cover pointer-events-none" style="object-position:50% 50%" autoplay muted loop playsinline></video>`
+          : `<img src="${previewUrl}" class="w-full h-full object-cover pointer-events-none" style="object-position:50% 50%">`;
+        previsualizacion.classList.remove('hidden');
+        previsualizacion.classList.add('flex');
+      });
+
+      function aplicarPosicionPreview() {
+        const media = marcoPreview.querySelector('img, video');
+        if (media) media.style.objectPosition = `${previewPosX}% ${previewPosY}%`;
+      }
+
+      document.getElementById('centrar-previsualizacion').addEventListener('click', () => {
+        previewPosX = 50;
+        previewPosY = 50;
+        aplicarPosicionPreview();
+      });
+
+      // Arrastrar dentro del recuadro mueve la foto/video, no la página
+      // (touch-none en el HTML evita que el dedo haga scroll al arrastrar).
+      let arrastrandoPreview = false;
+      marcoPreview.addEventListener('pointerdown', (e) => {
+        if (!marcoPreview.querySelector('img, video')) return;
+        arrastrandoPreview = true;
+        marcoPreview.setPointerCapture(e.pointerId);
+      });
+      marcoPreview.addEventListener('pointermove', (e) => {
+        if (!arrastrandoPreview) return;
+        const rect = marcoPreview.getBoundingClientRect();
+        // Arrastrar hacia la izquierda debe "revelar" más de la derecha de
+        // la imagen, por eso se resta (no se suma) el movimiento del mouse/dedo.
+        previewPosX = Math.min(100, Math.max(0, previewPosX - (e.movementX / rect.width) * 100));
+        previewPosY = Math.min(100, Math.max(0, previewPosY - (e.movementY / rect.height) * 100));
+        aplicarPosicionPreview();
+      });
+      ['pointerup', 'pointercancel'].forEach((ev) =>
+        marcoPreview.addEventListener(ev, () => { arrastrandoPreview = false; }));
 
       function generarSlug(s) {
         return s.normalize('NFD').replace(/\p{Diacritic}/gu, '')
           .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-+|-+$)/g, '');
       }
 
-      /** Convierte una respuesta de Cloudinary (o la que armamos justo
-       *  después de subir) en un elemento listo para `recuerdos.galeria`. */
-      function itemDesdeCloudinary({ public_id, resource_type, secure_url, created_at, nota }) {
-        const nombre = public_id.split('/').pop().replace(/-\d{14}$/, '');
+      /** Convierte una respuesta de Cloudinary (recién subida, o del listado
+       *  público) en un elemento listo para `recuerdos.galeria`. La nota y
+       *  la posición viajan en `context` (metadatos de Cloudinary) para que
+       *  se puedan reconstruir después, en cualquier dispositivo.        */
+      function itemDesdeCloudinary(r) {
+        const nombre = r.public_id.split('/').pop().replace(/-\d{14}$/, '');
         const titulo = nombre.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()) || 'Nuevo recuerdo';
-        const fecha = new Date(created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'short' });
-        const url = secure_url.replace('/upload/', '/upload/f_auto,q_auto/');
-        return { titulo, nota: nota || '', fecha, ...(resource_type === 'video' ? { video: url } : { foto: url }) };
+        const fecha = new Date(r.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'short' });
+        const url = r.secure_url.replace('/upload/', '/upload/f_auto,q_auto/');
+        const custom = (r.context && r.context.custom) || {};
+        const nota = r.nota !== undefined ? r.nota : (custom.caption || '');
+        const posicion = (custom.posx !== undefined && custom.posy !== undefined)
+          ? `${custom.posx}% ${custom.posy}%` : undefined;
+        return {
+          titulo, nota, fecha,
+          ...(posicion ? { posicion } : {}),
+          ...(r.resource_type === 'video' ? { video: url } : { foto: url }),
+        };
       }
 
       function agregarAGaleria(item) {
@@ -546,12 +640,18 @@
         const sello = new Date().toISOString().replace(/[-:.TZ]/g, '').slice(0, 14);
         const publicId = `${generarSlug(titulo) || 'recuerdo'}-${sello}`;
 
+        // El encuadre elegido en la previsualización viaja como metadato
+        // (context) de Cloudinary — así cualquiera que abra la web después
+        // ve la foto/video ya recortado como lo dejaste, no solo vos.
+        const contexto = [`posx=${Math.round(previewPosX)}`, `posy=${Math.round(previewPosY)}`];
+        if (nota) contexto.unshift(`caption=${nota.replace(/[|=]/g, ' ')}`);
+
         const cuerpo = new FormData();
         cuerpo.append('file', archivo);
         cuerpo.append('upload_preset', cloudCfg.presetSubidas);
         cuerpo.append('public_id', publicId);
         cuerpo.append('tags', cloudCfg.etiquetaSubidas);
-        if (nota) cuerpo.append('context', `caption=${nota}`);
+        cuerpo.append('context', contexto.join('|'));
 
         botonSubir.disabled = true;
         estadoSubir.classList.remove('text-error');
