@@ -228,15 +228,22 @@ window.COSMIC = {
     subtituloColeccion: 'Explora las memorias guardadas por mes o inmortaliza una nueva fecha especial.',
 
     /* Momentos destacados → carrusel.
-       Pon las fotos en assets/fotos/ y referencia la ruta.
        `insignia`, `lugar` y `etiquetas` solo se ven en escritorio.
 
-       ▸ VIDEOS EN EL CARRUSEL: en vez de `foto`, pon `video` con la ruta
-         a un archivo en assets/videos/ (mp4). Se reproduce solo, en
-         bucle, sin sonido y sin ningún control — nadie puede pausarlo
-         ni tocarlo, es 100% automático. Un elemento usa `foto` O `video`,
-         nunca los dos. `poster` (opcional) es una imagen de vista previa
-         mientras el video carga.                                       */
+       ▸ CÓMO AÑADIR UNA FOTO O VIDEO NUEVO (con Cloudinary, gratis y
+         ya optimizado — recomendado para no engordar el repositorio):
+           1. Copia el archivo original en assets/fotos/ o assets/videos/.
+           2. Corre: python scripts/subir_a_cloudinary.py
+           3. Pega la URL que te imprime en `foto:` (o `video:`) abajo.
+         También puedes seguir usando una ruta local como 'assets/fotos/x.jpg'
+         si prefieres no usar Cloudinary — ambas formas funcionan igual.
+
+       ▸ VIDEOS EN EL CARRUSEL: en vez de `foto`, pon `video` con la URL
+         o ruta del archivo. Se reproduce solo, en bucle, sin sonido y
+         sin ningún control — nadie puede pausarlo ni tocarlo, es 100%
+         automático. Un elemento usa `foto` O `video`, nunca los dos.
+         `poster` (opcional) es una imagen de vista previa mientras
+         el video carga.                                                */
     destacados: [
       {
         titulo: 'Cafecito Juan Valdéz',
@@ -245,7 +252,7 @@ window.COSMIC = {
         fecha: '12 Mayo',
         detalle: '18:30',
         iconoDetalle: 'schedule',
-        foto: 'assets/fotos/juanValdez.jpg',
+        foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212535/nuestro-tiempo/fotos/juanValdez.jpg',
         favorito: true,
         acento: 'primary',
         insignia: 'Primer Destello',
@@ -261,7 +268,7 @@ window.COSMIC = {
         fecha: '23 Mayo',
         detalle: 'Lluvia',
         iconoDetalle: 'water_drop',
-        foto: 'assets/fotos/entradaCine.png',
+        foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212533/nuestro-tiempo/fotos/entradaCine.png',
         favorito: false,
         acento: 'secondary',
         insignia: 'Película de m**rd*',
@@ -277,7 +284,7 @@ window.COSMIC = {
         fecha: '24 Junio',
         detalle: 'Dorado',
         iconoDetalle: 'wb_twilight',
-        foto: 'assets/fotos/porque_si.jpg',
+        foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212541/nuestro-tiempo/fotos/porque_si.jpg',
         favorito: true,
         acento: 'tertiary',
         insignia: 'Hora Dorada',
@@ -295,7 +302,7 @@ window.COSMIC = {
         fecha: '22 Agosto',
         detalle: 'Video',
         iconoDetalle: 'videocam',
-        video: 'assets/videos/bolos.mp4',
+        video: 'https://res.cloudinary.com/fm7lsoqf/video/upload/f_auto,q_auto/v1790212546/nuestro-tiempo/videos/bolos.mp4',
         // poster: 'assets/fotos/portada-video.jpg', // opcional
         favorito: false,
         acento: 'primary',
@@ -309,14 +316,14 @@ window.COSMIC = {
 
     /* Galería en cuadrícula de 2 columnas */
     galeria: [
-      { titulo: 'Cafecito Juan Valdéz', nota: 'El puntapié inicial', fecha: '12 Mayo', foto: 'assets/fotos/juanValdez.jpg' },
-      { titulo: 'Nuestro primer beso', nota: 'La entrada que lo cambió todo', fecha: '23 Mayo', foto: 'assets/fotos/entradaCine.png' },
-      { titulo: 'Cumpleaños de Juli', nota: 'Almuerzo de celebración', fecha: '07 Jun', foto: 'assets/fotos/cumpleJuli.jpg' },
-      { titulo: 'Cafecito de tarde-noche', nota: 'Tarde de planes', fecha: '09 Jun', foto: 'assets/fotos/planes.jpg' },
-      { titulo: 'Mi lugar seguro', nota: 'Salida por mi cumpleaños', fecha: '20 Jun', foto: 'assets/fotos/mi_lugar_seguro.jpg' },
-      { titulo: 'Una salida porque sí', nota: 'El cielo copió los colores de tu sonrisa', fecha: '24 Jun', foto: 'assets/fotos/porque_si.jpg' },
-      { titulo: 'Lámpara de recuerdo', nota: 'Regalo para la pedida de noviazgo', fecha: '04 Jul', foto: 'assets/fotos/lampara.jpg' },
-      { titulo: 'Siempre contigo', nota: 'Defensa de tesis', fecha: '07 Jul', foto: 'assets/fotos/contigo_siempre.jpg' },
+      { titulo: 'Cafecito Juan Valdéz', nota: 'El puntapié inicial', fecha: '12 Mayo', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212535/nuestro-tiempo/fotos/juanValdez.jpg' },
+      { titulo: 'Nuestro primer beso', nota: 'La entrada que lo cambió todo', fecha: '23 Mayo', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212533/nuestro-tiempo/fotos/entradaCine.png' },
+      { titulo: 'Cumpleaños de Juli', nota: 'Almuerzo de celebración', fecha: '07 Jun', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212532/nuestro-tiempo/fotos/cumpleJuli.jpg' },
+      { titulo: 'Cafecito de tarde-noche', nota: 'Tarde de planes', fecha: '09 Jun', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212540/nuestro-tiempo/fotos/planes.jpg' },
+      { titulo: 'Mi lugar seguro', nota: 'Salida por mi cumpleaños', fecha: '20 Jun', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212538/nuestro-tiempo/fotos/mi_lugar_seguro.jpg' },
+      { titulo: 'Una salida porque sí', nota: 'El cielo copió los colores de tu sonrisa', fecha: '24 Jun', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212541/nuestro-tiempo/fotos/porque_si.jpg' },
+      { titulo: 'Lámpara de recuerdo', nota: 'Regalo para la pedida de noviazgo', fecha: '04 Jul', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212537/nuestro-tiempo/fotos/lampara.jpg' },
+      { titulo: 'Siempre contigo', nota: 'Defensa de tesis', fecha: '07 Jul', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212530/nuestro-tiempo/fotos/contigo_siempre.jpg' },
     ],
 
 
@@ -350,7 +357,34 @@ window.COSMIC = {
     piePagina: '{hito} Juntos',
   },
 
-  /* ── 9. NAVEGACIÓN ─────────────────────────────────────────
+  /* ── 9. SUBIR FOTOS/VIDEOS DESDE LA WEB ────────────────────
+     Permite que cualquiera con acceso a la web (vos o tu pareja)
+     suba una foto o video directo desde el botón "Añadir Nuevo
+     Recuerdo" de la página de Recuerdos, sin tocar código.
+
+     Se sube directo a Cloudinary usando un "preset sin firmar"
+     (unsigned upload preset). Estos dos valores son PÚBLICOS a
+     propósito — la subida NO necesita tu api_secret para nada,
+     así que no hay ningún riesgo en que estén aquí, visibles en
+     el código de la web.
+
+     ▸ Para que las fotos/videos subidos por la web aparezcan
+       automáticamente para las dos personas (no solo en el
+       celular de quien subió), hay que habilitar una vez el
+       listado público en Cloudinary:
+       Dashboard → ⚙ Settings → Security → sección "Restricted
+       media types" → activa "Resource list". Si no lo activas,
+       la subida igual funciona, pero cada quien solo ve en el
+       momento lo que subió (y hay que avisarle a la otra persona
+       o pegar el link a mano en `recuerdos.galeria` para que
+       quede para siempre).                                      */
+  cloudinary: {
+    cloudName: 'fm7lsoqf',
+    presetSubidas: 'nuestro_tiempo_recuerdos',
+    etiquetaSubidas: 'recuerdos',
+  },
+
+  /* ── 10. NAVEGACIÓN ─────────────────────────────────────────
      `etiqueta`      → barra inferior (móvil)
      `etiquetaLarga` → enlaces de la barra superior (escritorio)   */
   nav: [
