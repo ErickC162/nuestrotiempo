@@ -4,7 +4,10 @@ Web construida a partir del proyecto de Google Stitch
 *Regalo Digital Violeta* (ID `3079186228867308853`),
 siguiendo tanto los diseños móviles como los de escritorio.
 
-HTML estático + Tailwind por CDN. **No necesita build ni `npm install`.**
+HTML estático — para *usarla* (verla, subir fotos, personalizarla en
+`config.js`) no hace falta build ni `npm install`, ningún paso extra.
+El único momento en que hace falta Node es si vos (o quien te ayude a
+programar) cambian algo del *diseño* — ver "Rendimiento" más abajo.
 
 ## Responsive: tres tamaños
 
@@ -83,6 +86,42 @@ de antes de esa fecha se agrupan aparte, bajo `recuerdos.etiquetaPrevia`.
 
 ---
 
+## Rendimiento
+
+Al principio, cada página cargaba Tailwind por CDN (`cdn.tailwindcss.com`),
+que compila los estilos **en el navegador de quien visita la web**, cada
+vez que el contenido cambia — y en este sitio el contenido cambia todo
+el tiempo (abrir un modal, marcar un favorito, repintar la galería...).
+En un celular, eso se sentía lento y trabado.
+
+Ahora el CSS se compila **una sola vez** (acá, con Tailwind CLI) a
+`css/tailwind.css`, y la web solo carga ese archivo ya listo — el
+navegador de quien la visita no compila nada. Si en algún momento vos
+(o quien te ayude a programar) cambian un color, tipografía o cualquier
+clase de Tailwind nueva en el HTML, hay que avisarle al compilador y
+generar el archivo de nuevo:
+
+```bash
+npm install        # una sola vez, instala el compilador (no toca la web)
+npm run build:css  # cada vez que cambies algo de diseño
+```
+
+El tema (colores, tipografías) vive en `tailwind.config.js` — es una
+copia de lo que antes tenía `js/theme.js` (ese archivo ya no se carga
+en la web, queda solo de referencia). Si agregás una clase de Tailwind
+que arma su nombre con JavaScript (como `` `bg-${variable}` ``, algo
+que ya se usa para los colores de acento), agregala también a la
+`safelist` de `tailwind.config.js` — si no, el compilador no la
+encuentra y esa clase no funciona. Hay un ejemplo comentado ahí mismo.
+
+Otras dos cosas que ayudan a que ande fluido en celular:
+- Las fotos/videos de Cloudinary se piden a un tamaño razonable
+  (`w_1600` fotos, `w_1280` video) en vez del original de la cámara.
+- Los videos se pausan solos cuando salen de la pantalla (y al cerrar
+  el visor), para no seguir decodificando de fondo sin necesidad.
+
+---
+
 ## Estructura
 
 ```
@@ -93,13 +132,21 @@ recuerdos.html    Destacados, galería y visor a pantalla completa
 carta.html        Carta, reproductor y panel de acciones
 
 js/config.js      ← EL ÚNICO ARCHIVO QUE NECESITAS TOCAR
-js/theme.js       Paleta y tipografía del design system de Stitch
+js/theme.js       Paleta/tipografía (referencia — ya no se carga, ver tailwind.config.js)
 js/common.js      Fondo, barra superior, navegación, pie, acceso, audio
 css/cosmic.css    Animaciones y superficies de cristal
+css/tailwind.css  CSS de Tailwind ya compilado (lo que la web carga de verdad)
+
+tailwind.config.js     Tema de Tailwind — usado solo al compilar (ver "Rendimiento")
+css/tailwind.input.css Entrada del compilador (no se toca)
+package.json            Dependencias del compilador (no de la web en sí)
 
 assets/fotos/     Tus imágenes
 assets/videos/    Tus videos (para el carrusel de destacados)
 assets/audio/     Tu canción
+
+netlify/functions/recuerdos.js   Guarda favoritos/destacados/ediciones compartidos
+scripts/subir_a_cloudinary.py    Sube fotos/videos a Cloudinary en lote, desde la terminal
 
 stitch/html/               Diseños móviles originales (referencia)
 stitch/html-desktop/       Diseños de escritorio originales (referencia)

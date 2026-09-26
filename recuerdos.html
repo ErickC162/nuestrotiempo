@@ -15,9 +15,8 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
 
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script src="js/config.js"></script>
-  <script src="js/theme.js"></script>
+  <link rel="stylesheet" href="css/tailwind.css">
   <link rel="stylesheet" href="css/cosmic.css">
 </head>
 
@@ -672,7 +671,13 @@
         pintarVisorFavorito(r);
         visor.classList.replace('hidden', 'flex');
       }
-      const cerrar = () => visor.classList.replace('flex', 'hidden');
+      function cerrar() {
+        visor.classList.replace('flex', 'hidden');
+        // Si había un video, sin esto seguiría reproduciéndose (y
+        // decodificando) escondido de fondo hasta que se abra otro.
+        const video = document.querySelector('#visor-marco video');
+        if (video) video.pause();
+      }
 
       visorFavorito.addEventListener('click', async () => {
         if (iVisor === null) return;
@@ -713,7 +718,22 @@
             alternarDestacado(Number(el.dataset.destacado.slice(1)));
           });
         });
+        // Videos fuera de pantalla se pausan solos — si hay varios
+        // (carrusel + galería), no todos decodifican a la vez de fondo
+        // mientras se navega, que es pesado para un celular.
+        document.querySelectorAll('#destacados-movil video, #protagonista video, #galeria video').forEach((v) => {
+          if (v.dataset.observado) return;
+          v.dataset.observado = '1';
+          observadorVideo.observe(v);
+        });
       }
+
+      const observadorVideo = new IntersectionObserver((entradas) => {
+        entradas.forEach((entrada) => {
+          if (entrada.isIntersecting) entrada.target.play().catch(() => {});
+          else entrada.target.pause();
+        });
+      }, { threshold: 0.25 });
 
       document.querySelectorAll('[data-carrusel]').forEach((b) =>
         b.addEventListener('click', () => mover(Number(b.dataset.carrusel))));
@@ -793,6 +813,18 @@
        *  a uno existente.                                                */
       const cloudCfg = COSMIC.cloudinary;
 
+      /** Además de "el formato y calidad que mejor le queden al navegador"
+       *  (f_auto,q_auto, ya lo hacíamos), limita el ANCHO de la imagen o
+       *  video a algo razonable para pantalla — sin esto, una foto de
+       *  cámara de 4000px de ancho se descarga entera aunque se vea del
+       *  tamaño de una miniatura, lo cual pesa innecesariamente y hace
+       *  más lento el celular. `c_limit` solo achica, nunca agranda una
+       *  foto más chica que el límite.                                  */
+      function optimizarUrl(url, esVideo) {
+        const transformacion = esVideo ? 'f_auto,q_auto,w_1280,c_limit' : 'f_auto,q_auto,w_1600,c_limit';
+        return url.replace('/upload/', `/upload/${transformacion}/`);
+      }
+
       async function subirArchivo(archivo, { titulo, nota, fecha, posX, posY }) {
         const esVideo = archivo.type.startsWith('video/');
         const sello = new Date().toISOString().replace(/[-:.TZ]/g, '').slice(0, 14);
@@ -830,7 +862,7 @@
         // NO trae `secure_url` — hay que armarla a mano con lo que sí trae.
         const secureUrl = r.secure_url
           || `https://res.cloudinary.com/${cloudCfg.cloudName}/${r.resource_type}/upload/v${r.version}/${r.public_id}.${r.format}`;
-        const url = secureUrl.replace('/upload/', '/upload/f_auto,q_auto/');
+        const url = optimizarUrl(secureUrl, r.resource_type === 'video');
         const custom = (r.context && r.context.custom) || {};
         const nota = r.nota !== undefined ? r.nota : (custom.caption || '');
         const fecha = r.fecha !== undefined ? r.fecha : (custom.fecha || new Date(r.created_at).toISOString().slice(0, 10));
@@ -994,8 +1026,8 @@
           if (archivoNuevo && archivoNuevo.size) {
             estadoEditar.textContent = 'Subiendo el nuevo archivo…';
             const resultado = await subirArchivo(archivoNuevo, { titulo, nota, fecha, posX: encuadreEditar.estado.posX, posY: encuadreEditar.estado.posY });
-            if (resultado.esVideo) { cambios.video = resultado.secure_url.replace('/upload/', '/upload/f_auto,q_auto/'); }
-            else { cambios.foto = resultado.secure_url.replace('/upload/', '/upload/f_auto,q_auto/'); }
+            if (resultado.esVideo) { cambios.video = optimizarUrl(resultado.secure_url, true); }
+            else { cambios.foto = optimizarUrl(resultado.secure_url, false); }
           }
 
           aplicarCambiosAItem(r, cambios);
@@ -1071,8 +1103,14 @@
             .filter(Boolean);
 
           c.galeria = [...nuevos, ...c.galeria];
+          // Ojo: esto corre los índices de todo lo que ya estaba (se
+          // insertan adelante) — el carrusel/protagonista ya pintado con
+          // los índices viejos quedaría señalando a la foto equivocada
+          // si no se vuelve a pintar acá también.
           pintarMeses();
           pintarGaleria();
+          pintarDestacadosMovil();
+          pintarProtagonista();
           actualizarConteos();
         } catch (e) {
           // Silencioso a propósito — ver comentario arriba.
@@ -1182,8 +1220,11 @@
       async function alternarFavorito(i) {
         const r = c.galeria[i];
         r.favorito = !r.favorito;
-        pintarDestacadosMovil();
-        pintarProtagonista();
+        // Marcar un favorito no cambia quién es destacado — repintar el
+        // carrusel/protagonista (con sus videos autoreproduciéndose) solo
+        // hace falta si esta foto puntual está ahí. La mayoría de las
+        // veces no lo está, así que se ahorra ese trabajo.
+        if (r.destacado) { pintarDestacadosMovil(); pintarProtagonista(); }
         pintarGaleria();
         await guardarCambios(claveDe(r), { favorito: r.favorito });
       }

@@ -1,2 +1,7 @@
 # Credenciales locales — nunca se suben al repo
 .env
+
+# Dependencias para compilar css/tailwind.css (ver README → "Rendimiento").
+# No hace falta subirlas: el archivo ya compilado (css/tailwind.css) sí
+# se sube, y es el único que la web usa en producción.
+node_modules/

@@ -286,7 +286,7 @@ window.COSMIC = {
     galeria: [
       {
         id: 'juan-valdez', titulo: 'Cafecito Juan Valdéz', nota: 'El puntapié inicial',
-        fecha: '2026-05-12', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212535/nuestro-tiempo/fotos/juanValdez.jpg',
+        fecha: '2026-05-12', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto,w_1600,c_limit/v1790212535/nuestro-tiempo/fotos/juanValdez.jpg',
         favorito: true, destacado: true,
         frase: '"El puntapié incial."',
         fraseAmplia: '"La primera conversación frente a frente que tuvimos, y que marcó el inicio de todo."',
@@ -296,7 +296,7 @@ window.COSMIC = {
       },
       {
         id: 'entrada-cine', titulo: 'Nuestro primer beso', nota: 'La entrada que lo cambió todo',
-        fecha: '2026-05-23', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212533/nuestro-tiempo/fotos/entradaCine.png',
+        fecha: '2026-05-23', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto,w_1600,c_limit/v1790212533/nuestro-tiempo/fotos/entradaCine.png',
         destacado: true,
         frase: 'La entrada que lo cambió todo.',
         fraseAmplia: 'Nuestra primera salida que también terminó siendo nuestro primer beso .',
@@ -304,12 +304,12 @@ window.COSMIC = {
         insignia: 'Película de m**rd*', lugar: 'CCI',
         etiquetas: [{ icono: 'movie', texto: 'Película', color: 'secondary' }],
       },
-      { id: 'cumple-juli', titulo: 'Cumpleaños de Juli', nota: 'Almuerzo de celebración', fecha: '2026-06-07', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212532/nuestro-tiempo/fotos/cumpleJuli.jpg' },
-      { id: 'tarde-planes', titulo: 'Cafecito de tarde-noche', nota: 'Tarde de planes', fecha: '2026-06-09', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212540/nuestro-tiempo/fotos/planes.jpg' },
-      { id: 'mi-lugar-seguro', titulo: 'Mi lugar seguro', nota: 'Salida por mi cumpleaños', fecha: '2026-06-20', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212538/nuestro-tiempo/fotos/mi_lugar_seguro.jpg' },
+      { id: 'cumple-juli', titulo: 'Cumpleaños de Juli', nota: 'Almuerzo de celebración', fecha: '2026-06-07', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto,w_1600,c_limit/v1790212532/nuestro-tiempo/fotos/cumpleJuli.jpg' },
+      { id: 'tarde-planes', titulo: 'Cafecito de tarde-noche', nota: 'Tarde de planes', fecha: '2026-06-09', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto,w_1600,c_limit/v1790212540/nuestro-tiempo/fotos/planes.jpg' },
+      { id: 'mi-lugar-seguro', titulo: 'Mi lugar seguro', nota: 'Salida por mi cumpleaños', fecha: '2026-06-20', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto,w_1600,c_limit/v1790212538/nuestro-tiempo/fotos/mi_lugar_seguro.jpg' },
       {
         id: 'porque-si', titulo: 'Una salida porque sí', nota: 'El cielo copió los colores de tu sonrisa',
-        fecha: '2026-06-24', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212541/nuestro-tiempo/fotos/porque_si.jpg',
+        fecha: '2026-06-24', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto,w_1600,c_limit/v1790212541/nuestro-tiempo/fotos/porque_si.jpg',
         favorito: true, destacado: true,
         frase: 'El cielo copió los colores de tu sonrisa.',
         fraseAmplia: 'Un día común y corriente se convierte en el mejor cuando te veo.',
@@ -317,13 +317,13 @@ window.COSMIC = {
         insignia: 'Hora Dorada', lugar: 'McDonalds - Ejido',
         etiquetas: [{ icono: 'favorite', texto: 'Silencio a dos', color: 'primary' }],
       },
-      { id: 'lampara', titulo: 'Lámpara de recuerdo', nota: 'Regalo para la pedida de noviazgo', fecha: '2026-07-04', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212537/nuestro-tiempo/fotos/lampara.jpg' },
-      { id: 'contigo-siempre', titulo: 'Siempre contigo', nota: 'Defensa de tesis', fecha: '2026-07-07', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212530/nuestro-tiempo/fotos/contigo_siempre.jpg' },
+      { id: 'lampara', titulo: 'Lámpara de recuerdo', nota: 'Regalo para la pedida de noviazgo', fecha: '2026-07-04', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto,w_1600,c_limit/v1790212537/nuestro-tiempo/fotos/lampara.jpg' },
+      { id: 'contigo-siempre', titulo: 'Siempre contigo', nota: 'Defensa de tesis', fecha: '2026-07-07', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto,w_1600,c_limit/v1790212530/nuestro-tiempo/fotos/contigo_siempre.jpg' },
       {
         // ▸ Ejemplo de video destacado — reemplázalo por el tuyo (o borra
         //   este elemento y su `destacado: true` si no vas a usar videos).
         id: 'bolos', titulo: 'Un momento en video', nota: 'Contigo a todo lado',
-        fecha: '2026-08-22', video: 'https://res.cloudinary.com/fm7lsoqf/video/upload/f_auto,q_auto/v1790212546/nuestro-tiempo/videos/bolos.mp4',
+        fecha: '2026-08-22', video: 'https://res.cloudinary.com/fm7lsoqf/video/upload/f_auto,q_auto,w_1280,c_limit/v1790212546/nuestro-tiempo/videos/bolos.mp4',
         destacado: true,
         frase: 'Contigo a todo lado.', fraseAmplia: 'Cualquier plan contigo es inolvidable',
         detalle: 'Video', iconoDetalle: 'videocam', acento: 'primary',

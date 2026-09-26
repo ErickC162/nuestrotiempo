@@ -1,19 +1,47 @@
 /* ============================================================
-   TEMA TAILWIND — paleta y tipografía del design system
-   Exportado desde el Design System de Stitch.
+   CONFIGURACIÓN DE TAILWIND — usada solo para compilar css/tailwind.css
+   ------------------------------------------------------------
+   Antes, cada página cargaba el "Play CDN" de Tailwind
+   (cdn.tailwindcss.com), que compila los estilos EN EL NAVEGADOR
+   de quien visita la web, cada vez que el contenido de la página
+   cambia (por ejemplo, al abrir un modal o repintar la galería).
+   Eso es cómodo para probar cosas rápido, pero Tailwind mismo
+   avisa que no está pensado para producción — y en un sitio como
+   este, que repinta la galería y el carrusel todo el tiempo, hacía
+   que el celular tuviera que recompilar CSS constantemente. Por
+   eso ahora el CSS se compila UNA VEZ acá (con este archivo) y la
+   web solo carga el resultado ya listo (css/tailwind.css) — el
+   navegador de quien la visita no tiene que compilar nada.
 
-   ▸ Este archivo YA NO SE CARGA en las páginas. El CSS de Tailwind
-     ahora se compila una sola vez a css/tailwind.css (ver
-     tailwind.config.js y "Rendimiento" en el README) en vez de
-     compilarse en el navegador de cada visita — por eso este mismo
-     tema vive también copiado en tailwind.config.js, que es el que
-     de verdad se usa. Este archivo queda como referencia/respaldo;
-     si cambiás un color o tamaño, cambialo en tailwind.config.js
-     (no acá) y volvé a correr `npm run build:css`.
+   El tema (colores, tipografías, medidas) es el mismo que antes
+   vivía en js/theme.js — ese archivo ya no se carga en la web,
+   queda como referencia. Si algún día cambiás un color o tamaño,
+   cambialo ACÁ y volvé a correr `npm run build:css` (ver README).
    ============================================================ */
 
-tailwind.config = {
+module.exports = {
   darkMode: 'class',
+  content: ['./*.html', './js/*.js'],
+
+  // Estas clases se arman con JavaScript pegando texto (por ejemplo
+  // `bg-${item.acento}/20`, donde `acento` puede ser 'primary',
+  // 'secondary' o 'tertiary' — ver recuerdos.html, tiempo.html y
+  // carta.html). Como Tailwind compila leyendo los archivos de texto
+  // y no sabe qué va a valer esa variable en el navegador, hay que
+  // decirle a mano cuáles existen para que no las borre pensando que
+  // no se usan. Si agregás un color nuevo a esas listas en config.js
+  // (fuera de primary/secondary/tertiary), agregalo también acá.
+  safelist: [
+    'text-primary', 'text-secondary', 'text-tertiary',
+    'text-primary/40', 'text-secondary/40', 'text-tertiary/40',
+    'bg-primary/15', 'bg-secondary/15', 'bg-tertiary/15',
+    'bg-primary/20', 'bg-secondary/20', 'bg-tertiary/20',
+    'border-primary/20', 'border-secondary/20', 'border-tertiary/20',
+    'border-primary/30', 'border-secondary/30', 'border-tertiary/30',
+    'hover:border-primary/30', 'hover:border-secondary/30', 'hover:border-tertiary/30',
+    'md:group-hover:text-primary', 'md:group-hover:text-secondary', 'md:group-hover:text-tertiary',
+  ],
+
   theme: {
     extend: {
       colors: {
@@ -110,4 +138,9 @@ tailwind.config = {
       },
     },
   },
+
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/container-queries'),
+  ],
 };
