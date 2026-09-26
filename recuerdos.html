@@ -157,19 +157,31 @@
           <p class="font-body-md text-body-md text-on-surface-variant mt-1" data-subtitulo-coleccion></p>
         </div>
 
-        <!-- Selector de mes -->
-        <div
-          class="p-1 rounded-full bg-surface-container-lowest/80 border border-outline-variant/30 flex items-center backdrop-blur-md md:self-auto md:w-auto"
-          id="meses"></div>
+        <div class="flex items-center gap-3">
+          <!-- Selector de mes -->
+          <div
+            class="p-1 rounded-full bg-surface-container-lowest/80 border border-outline-variant/30 flex items-center backdrop-blur-md md:self-auto md:w-auto"
+            id="meses"></div>
+          <button type="button" id="alternar-favoritas" aria-label="Ver solo favoritas"
+            class="shrink-0 w-9 h-9 rounded-full bg-surface-container-lowest/80 border border-outline-variant/30 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-[18px]">favorite_border</span>
+          </button>
+        </div>
       </div>
 
       <!-- Cabecera de galería (solo móvil) -->
       <div class="flex items-center justify-between mb-space-xs md:hidden">
         <h2 class="text-title-lg font-display text-on-background">Galería de Instantes</h2>
-        <span class="text-label-sm font-label-sm text-primary flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-          <span data-conteo-galeria></span>
-        </span>
+        <div class="flex items-center gap-3">
+          <span class="text-label-sm font-label-sm text-primary flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+            <span data-conteo-galeria></span>
+          </span>
+          <button type="button" id="alternar-favoritas-movil" aria-label="Ver solo favoritas"
+            class="text-on-surface-variant">
+            <span class="material-symbols-outlined text-[20px]">favorite_border</span>
+          </button>
+        </div>
       </div>
 
       <!-- Rejilla -->
@@ -221,6 +233,10 @@
       class="absolute top-4 right-4 w-10 h-10 rounded-full bg-surface-container/80 border border-outline-variant/30 text-on-surface flex items-center justify-center active:scale-90 transition-transform">
       <span class="material-symbols-outlined">close</span>
     </button>
+    <button type="button" id="visor-favorito" aria-label="Marcar como favorito"
+      class="absolute top-4 left-4 w-10 h-10 rounded-full bg-surface-container/80 border border-outline-variant/30 flex items-center justify-center active:scale-90 transition-transform">
+      <span class="material-symbols-outlined">favorite_border</span>
+    </button>
     <figure class="max-w-lg md:max-w-3xl w-full">
       <div
         class="rounded-xl overflow-hidden border border-white/10 shadow-[0_25px_60px_-12px_rgba(0,0,0,0.85)] aspect-[4/5] md:aspect-[16/10] bg-surface-container-high"
@@ -267,6 +283,11 @@
         <label class="flex flex-col gap-2">
           <span class="text-label-md font-label-md text-on-surface-variant">Título</span>
           <input type="text" name="titulo" maxlength="60" placeholder="Ej: Tarde de café" required
+            class="w-full rounded-xl bg-surface-container/70 border border-outline-variant/40 p-3 text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm font-body-md">
+        </label>
+        <label class="flex flex-col gap-2">
+          <span class="text-label-md font-label-md text-on-surface-variant">¿De qué fecha es?</span>
+          <input type="date" name="fecha" required
             class="w-full rounded-xl bg-surface-container/70 border border-outline-variant/40 p-3 text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm font-body-md">
         </label>
         <label class="flex flex-col gap-2">
@@ -322,7 +343,7 @@
       ${Cosmic.medio(r)}
       <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent flex flex-col justify-end p-space-md">
         <div class="flex items-center gap-1.5 mb-1">
-          <span class="px-2 py-0.5 rounded-full bg-${r.acento}/20 backdrop-blur-md border border-${r.acento}/30 text-${r.acento} text-label-sm font-label-sm">${r.fecha}</span>
+          <span class="px-2 py-0.5 rounded-full bg-${r.acento}/20 backdrop-blur-md border border-${r.acento}/30 text-${r.acento} text-label-sm font-label-sm">${Cosmic.fechaCorta(r.fecha)}</span>
           <span class="text-label-sm font-label-sm text-tertiary flex items-center gap-0.5">
             <span class="material-symbols-outlined text-[12px]">${r.iconoDetalle}</span> ${r.detalle}
           </span>
@@ -330,9 +351,10 @@
         <h3 class="text-title-lg font-display text-on-background">${r.titulo}</h3>
         <p class="text-body-md font-body-md text-on-surface-variant italic mt-0.5 line-clamp-2">${r.frase}</p>
       </div>
-      <div class="absolute top-space-xs right-space-xs p-1.5 rounded-full bg-surface-container-lowest/60 backdrop-blur-md ${r.favorito ? 'text-primary' : 'text-secondary'}">
+      <button type="button" data-favorito="d${i}" aria-label="${r.favorito ? 'Quitar de favoritos' : 'Marcar como favorito'}"
+        class="absolute top-space-xs right-space-xs p-1.5 rounded-full bg-surface-container-lowest/60 backdrop-blur-md active:scale-90 transition-transform ${r.favorito ? 'text-primary' : 'text-secondary'}">
         <span class="material-symbols-outlined text-[16px] ${r.favorito ? 'fill-icon' : ''}">${r.favorito ? 'favorite' : 'favorite_border'}</span>
-      </div>
+      </button>
     </article>`).join('');
         conectar();
       }
@@ -354,10 +376,14 @@
         <div class="md:col-span-6 relative group overflow-hidden rounded-xl aspect-[4/3] bg-surface-container-lowest border border-white/10 cursor-pointer" data-abrir="d${actual}">
           ${Cosmic.medio(r, 'w-full h-full object-cover transition-transform duration-700 group-hover:scale-105')}
           <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-surface-container-lowest/20 to-transparent pointer-events-none"></div>
+          <button type="button" data-favorito="d${actual}" aria-label="${r.favorito ? 'Quitar de favoritos' : 'Marcar como favorito'}"
+            class="absolute top-3 right-3 p-1.5 rounded-full bg-surface-container-lowest/70 backdrop-blur-md active:scale-90 transition-transform ${r.favorito ? 'text-primary' : 'text-on-surface'}">
+            <span class="material-symbols-outlined text-[18px] ${r.favorito ? 'fill-icon' : ''}">${r.favorito ? 'favorite' : 'favorite_border'}</span>
+          </button>
           <div class="absolute bottom-3 left-3 right-3 flex justify-between items-center text-label-sm font-label-sm text-on-surface pointer-events-none">
             ${r.lugar ? `<span class="flex items-center gap-1 bg-surface-container-lowest/70 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
               <span class="material-symbols-outlined text-[14px] text-tertiary">location_on</span>${r.lugar}</span>` : '<span></span>'}
-            <span class="bg-surface-container-lowest/70 backdrop-blur-md px-2 py-1 rounded-full border border-white/10 text-primary">${r.fecha}</span>
+            <span class="bg-surface-container-lowest/70 backdrop-blur-md px-2 py-1 rounded-full border border-white/10 text-primary">${Cosmic.fechaCorta(r.fecha)}</span>
           </div>
         </div>
 
@@ -391,14 +417,28 @@
         pintarProtagonista();
       }
 
-      /* ── Selector de meses ── */
-      const totalMeses = Math.max(1, t.mesesTotales);
-      let mesActivo = 0; // 0 = todos
+      /* ── Selector de meses ──
+         El "mes" de cada recuerdo se calcula de su `fecha` real (no de su
+         posición en la lista): mes 0 = antes de `fechaInicio` (todavía no
+         éramos nosotros), mes 1 = el primer mes de relación, etc. — el
+         mismo cálculo de "meses de calendario" que usa el resto del sitio. */
+      let mesActivo = 0; // 0 = todos, -1 = antes de nosotros, N = mes N
+      let soloFavoritas = false;
+
+      function mesesConFotos() {
+        const meses = c.galeria.map((r) => Cosmic.mesDeRelacion(r.fecha));
+        return Math.max(t.mesesTotales + 1, 0, ...meses);
+      }
 
       function pintarMeses() {
+        const hayPrevias = c.galeria.some((r) => Cosmic.mesDeRelacion(r.fecha) === 0);
+        const totalMeses = mesesConFotos();
+        const mesActual = t.mesesTotales + 1;
+
         const botones = [{ id: 0, corto: 'Todos', largo: `Todos (${c.galeria.length})` }];
+        if (hayPrevias) botones.push({ id: -1, corto: c.etiquetaPrevia || 'Antes', largo: c.etiquetaPrevia || 'Antes de nosotros' });
         for (let m = 1; m <= totalMeses; m++) {
-          botones.push({ id: m, corto: `Mes ${m}`, largo: m === totalMeses ? `Mes ${m} (Hoy)` : `Mes ${m}` });
+          botones.push({ id: m, corto: `Mes ${m}`, largo: m === mesActual ? `Mes ${m} (Hoy)` : `Mes ${m}` });
         }
         document.getElementById('meses').innerHTML = botones.map((b) => {
           const activo = b.id === mesActivo;
@@ -414,12 +454,29 @@
           b.addEventListener('click', () => { mesActivo = Number(b.dataset.mes); pintarMeses(); pintarGaleria(); }));
       }
 
+      function pintarBotonFavoritas(boton) {
+        boton.classList.toggle('text-primary', soloFavoritas);
+        boton.classList.toggle('text-on-surface-variant', !soloFavoritas);
+        boton.querySelector('.material-symbols-outlined').textContent = soloFavoritas ? 'favorite' : 'favorite_border';
+        boton.querySelector('.material-symbols-outlined').classList.toggle('fill-icon', soloFavoritas);
+      }
+
+      function alternarSoloFavoritas() {
+        soloFavoritas = !soloFavoritas;
+        pintarBotonFavoritas(document.getElementById('alternar-favoritas'));
+        pintarBotonFavoritas(document.getElementById('alternar-favoritas-movil'));
+        pintarGaleria();
+      }
+      document.getElementById('alternar-favoritas').addEventListener('click', alternarSoloFavoritas);
+      document.getElementById('alternar-favoritas-movil').addEventListener('click', alternarSoloFavoritas);
+
       /* ── Galería ── */
       function pintarGaleria() {
-        // Reparte los recuerdos entre los meses disponibles cuando se filtra
         const items = c.galeria
-          .map((r, i) => ({ ...r, i, mes: (r.mes || Math.min(totalMeses, Math.floor(i / Math.ceil(c.galeria.length / totalMeses)) + 1)) }))
-          .filter((r) => !mesActivo || r.mes === mesActivo);
+          .map((r, i) => ({ ...r, i, mes: Cosmic.mesDeRelacion(r.fecha) }))
+          .filter((r) => mesActivo === 0 || r.mes === mesActivo)
+          .filter((r) => !soloFavoritas || r.favorito)
+          .sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
         // Tarjeta para añadir (solo escritorio)
         const tarjetaAnadir = `
@@ -444,8 +501,12 @@
            class="group relative rounded-xl md:rounded-2xl overflow-hidden md:overflow-visible bg-surface-container-low md:bg-surface-container/75 md:backdrop-blur-xl border border-outline-variant/20 md:border-white/10 hover:border-primary/30 md:hover:border-primary/40 md:p-3.5 md:flex md:flex-col transition-all duration-300 md:hover:-translate-y-1.5 md:hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_25px_rgba(192,132,252,0.12)] cursor-pointer active:scale-[0.98]">
         <div class="aspect-square md:aspect-[4/3] w-full relative md:overflow-hidden md:rounded-xl md:mb-4 md:bg-surface-container-lowest">
           ${Cosmic.medio(r, 'w-full h-full object-cover md:transition-transform md:duration-500 md:group-hover:scale-105')}
-          <div class="absolute top-2 md:top-3 left-2 md:left-3 px-1.5 md:px-2.5 py-0.5 rounded md:rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-[10px] md:text-label-sm font-label-sm text-secondary border border-outline-variant/20 md:border-white/10">${r.fecha}</div>
-          <div class="hidden md:block absolute bottom-3 right-3 px-2 py-0.5 rounded-md bg-surface-container-lowest/80 backdrop-blur-md text-[11px] text-on-surface-variant">Mes ${r.mes}</div>
+          <div class="absolute top-2 md:top-3 left-2 md:left-3 px-1.5 md:px-2.5 py-0.5 rounded md:rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-[10px] md:text-label-sm font-label-sm text-secondary border border-outline-variant/20 md:border-white/10">${Cosmic.fechaCorta(r.fecha)}</div>
+          <button type="button" data-favorito="g${r.i}" aria-label="${r.favorito ? 'Quitar de favoritos' : 'Marcar como favorito'}"
+            class="absolute top-2 md:top-3 right-2 md:right-3 p-1 md:p-1.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-md active:scale-90 transition-transform ${r.favorito ? 'text-primary' : 'text-on-surface'}">
+            <span class="material-symbols-outlined text-[14px] md:text-[16px] ${r.favorito ? 'fill-icon' : ''}">${r.favorito ? 'favorite' : 'favorite_border'}</span>
+          </button>
+          <div class="hidden md:block absolute bottom-3 right-3 px-2 py-0.5 rounded-md bg-surface-container-lowest/80 backdrop-blur-md text-[11px] text-on-surface-variant">${r.mes === 0 ? (c.etiquetaPrevia || 'Antes') : `Mes ${r.mes}`}</div>
         </div>
         <div class="p-space-xs md:p-0 md:pb-1 bg-surface-container-lowest/60 md:bg-transparent">
           <p class="font-label-md text-label-md md:text-title-lg md:font-display text-on-background truncate md:whitespace-normal">${r.titulo}</p>
@@ -465,16 +526,37 @@
       /* ── Visor ── */
       const visor = document.getElementById('visor');
 
+      let tipoVisor = null;
+      let iVisor = null;
+      const visorFavorito = document.getElementById('visor-favorito');
+
+      function pintarVisorFavorito(r) {
+        visorFavorito.classList.toggle('text-primary', !!r.favorito);
+        visorFavorito.classList.toggle('text-on-surface', !r.favorito);
+        visorFavorito.setAttribute('aria-label', r.favorito ? 'Quitar de favoritos' : 'Marcar como favorito');
+        const icono = visorFavorito.querySelector('.material-symbols-outlined');
+        icono.textContent = r.favorito ? 'favorite' : 'favorite_border';
+        icono.classList.toggle('fill-icon', !!r.favorito);
+      }
+
       function abrir(clave) {
-        const tipo = clave[0];
-        const i = Number(clave.slice(1));
-        const r = tipo === 'd' ? c.destacados[i] : c.galeria[i];
+        tipoVisor = clave[0];
+        iVisor = Number(clave.slice(1));
+        const r = tipoVisor === 'd' ? c.destacados[iVisor] : c.galeria[iVisor];
         document.getElementById('visor-marco').innerHTML = Cosmic.medio(r);
         document.getElementById('visor-titulo').textContent = r.titulo;
         document.getElementById('visor-nota').textContent = r.fraseAmplia || r.frase || r.nota || '';
+        pintarVisorFavorito(r);
         visor.classList.replace('hidden', 'flex');
       }
       const cerrar = () => visor.classList.replace('flex', 'hidden');
+
+      visorFavorito.addEventListener('click', async () => {
+        if (tipoVisor === null) return;
+        await alternarFavorito(tipoVisor, iVisor);
+        const r = tipoVisor === 'd' ? c.destacados[iVisor] : c.galeria[iVisor];
+        pintarVisorFavorito(r);
+      });
 
       /* ── Conexión de eventos (se repite tras cada repintado) ── */
       function conectar() {
@@ -490,6 +572,15 @@
         });
         document.querySelectorAll('[data-punto]').forEach((el) =>
           el.addEventListener('click', () => { actual = Number(el.dataset.punto); pintarProtagonista(); }));
+        document.querySelectorAll('[data-favorito]').forEach((el) => {
+          if (el.dataset.conectado) return;
+          el.dataset.conectado = '1';
+          el.addEventListener('click', (e) => {
+            e.stopPropagation(); // no abrir el visor al tocar el corazón
+            const clave = el.dataset.favorito;
+            alternarFavorito(clave[0], Number(clave.slice(1)));
+          });
+        });
       }
 
       document.querySelectorAll('[data-carrusel]').forEach((b) =>
@@ -530,6 +621,7 @@
           return;
         }
         formSubir.reset();
+        formSubir.querySelector('input[name="fecha"]').value = new Date().toISOString().slice(0, 10);
         estadoSubir.textContent = '';
         estadoSubir.classList.remove('text-error');
         ocultarPreview();
@@ -602,20 +694,26 @@
       }
 
       /** Convierte una respuesta de Cloudinary (recién subida, o del listado
-       *  público) en un elemento listo para `recuerdos.galeria`. La nota y
-       *  la posición viajan en `context` (metadatos de Cloudinary) para que
-       *  se puedan reconstruir después, en cualquier dispositivo.        */
+       *  público) en un elemento listo para `recuerdos.galeria`. La nota, la
+       *  fecha elegida y la posición viajan en `context` (metadatos de
+       *  Cloudinary) para que se puedan reconstruir después, en cualquier
+       *  dispositivo. `publicId` queda guardado para poder identificar la
+       *  foto/video de forma estable si más adelante se marca favorita.  */
       function itemDesdeCloudinary(r) {
         const nombre = r.public_id.split('/').pop().replace(/-\d{14}$/, '');
         const titulo = nombre.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()) || 'Nuevo recuerdo';
-        const fecha = new Date(r.created_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'short' });
-        const url = r.secure_url.replace('/upload/', '/upload/f_auto,q_auto/');
+        // El listado público (a diferencia de la respuesta justo al subir)
+        // NO trae `secure_url` — hay que armarla a mano con lo que sí trae.
+        const secureUrl = r.secure_url
+          || `https://res.cloudinary.com/${cloudCfg.cloudName}/${r.resource_type}/upload/v${r.version}/${r.public_id}.${r.format}`;
+        const url = secureUrl.replace('/upload/', '/upload/f_auto,q_auto/');
         const custom = (r.context && r.context.custom) || {};
         const nota = r.nota !== undefined ? r.nota : (custom.caption || '');
+        const fecha = r.fecha !== undefined ? r.fecha : (custom.fecha || new Date(r.created_at).toISOString().slice(0, 10));
         const posicion = (custom.posx !== undefined && custom.posy !== undefined)
           ? `${custom.posx}% ${custom.posy}%` : undefined;
         return {
-          titulo, nota, fecha,
+          titulo, nota, fecha, publicId: r.public_id,
           ...(posicion ? { posicion } : {}),
           ...(r.resource_type === 'video' ? { video: url } : { foto: url }),
         };
@@ -634,16 +732,18 @@
         const archivo = datos.get('archivo');
         const titulo = (datos.get('titulo') || '').trim() || 'Nuevo recuerdo';
         const nota = (datos.get('nota') || '').trim();
+        const fecha = datos.get('fecha') || new Date().toISOString().slice(0, 10);
         if (!archivo || !archivo.size) return;
 
         const esVideo = archivo.type.startsWith('video/');
         const sello = new Date().toISOString().replace(/[-:.TZ]/g, '').slice(0, 14);
         const publicId = `${generarSlug(titulo) || 'recuerdo'}-${sello}`;
 
-        // El encuadre elegido en la previsualización viaja como metadato
-        // (context) de Cloudinary — así cualquiera que abra la web después
-        // ve la foto/video ya recortado como lo dejaste, no solo vos.
-        const contexto = [`posx=${Math.round(previewPosX)}`, `posy=${Math.round(previewPosY)}`];
+        // El encuadre elegido en la previsualización y la fecha que pusiste
+        // viajan como metadato (context) de Cloudinary — así cualquiera que
+        // abra la web después ve la foto/video igual como lo dejaste, no
+        // solo vos.
+        const contexto = [`posx=${Math.round(previewPosX)}`, `posy=${Math.round(previewPosY)}`, `fecha=${fecha}`];
         if (nota) contexto.unshift(`caption=${nota.replace(/[|=]/g, ' ')}`);
 
         const cuerpo = new FormData();
@@ -665,7 +765,7 @@
           const resultado = await resp.json();
           if (!resp.ok || !resultado.secure_url) throw new Error((resultado.error && resultado.error.message) || 'No se pudo subir.');
 
-          agregarAGaleria(itemDesdeCloudinary({ ...resultado, nota }));
+          agregarAGaleria(itemDesdeCloudinary({ ...resultado, nota, fecha }));
           estadoSubir.textContent = '¡Listo! Ya se ve en la galería.';
           setTimeout(cerrarSubir, 900);
         } catch (err) {
@@ -690,14 +790,18 @@
           const listas = await Promise.all(['image', 'video'].map((tipo) =>
             fetch(`https://res.cloudinary.com/${cloudCfg.cloudName}/${tipo}/list/${cloudCfg.etiquetaSubidas}.json`)
               .then((r) => (r.ok ? r.json() : { resources: [] }))
-              .catch(() => ({ resources: [] }))
+              .then((datos) => (datos.resources || []).map((r) => ({ ...r, resource_type: tipo })))
+              .catch(() => [])
           ));
-          const recursos = listas.flatMap((l) => l.resources || []);
+          const recursos = listas.flat();
           if (!recursos.length) return;
 
+          // Cada foto/video se convierte por separado: si uno falla (por
+          // ejemplo, un dato inesperado de Cloudinary), no se pierden los demás.
           const nuevos = recursos
             .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-            .map((r) => itemDesdeCloudinary(r));
+            .map((r) => { try { return itemDesdeCloudinary(r); } catch (e) { return null; } })
+            .filter(Boolean);
 
           c.galeria = [...nuevos, ...c.galeria];
           pintarMeses();
@@ -708,10 +812,101 @@
         }
       }
 
+      /** Favoritos compartidos, sin necesitar cuenta ni contraseña.
+       *
+       *  Tanto leerlos como guardarlos pasa por una función de Netlify
+       *  (netlify/functions/favoritos.js) y no por una URL directa de
+       *  Cloudinary. Guardar necesita el secreto de Cloudinary (nunca en
+       *  el navegador); leer, en teoría, no lo necesitaría —pero se probó
+       *  en vivo que la CDN de Cloudinary puede tardar en mostrar la
+       *  versión más nueva de un archivo, así que la función usa la API
+       *  autenticada (sin ese problema) para encontrar siempre la versión
+       *  correcta. Ver el comentario de ese archivo para el detalle.
+       *
+       *  Cada recuerdo se identifica con una clave estable (no con su
+       *  posición en la lista, que cambia cada vez que alguien sube algo
+       *  nuevo): `d0`, `d1`... para destacados (fijos, de config.js), y el
+       *  `id` de config.js o el `publicId` de Cloudinary para la galería. */
+      function claveFavorito(tipo, i) {
+        if (tipo === 'd') return 'd' + i;
+        const r = c.galeria[i];
+        return r.id || r.publicId || ('g' + i);
+      }
+
+      const CLAVE_FAVORITOS_LOCAL = 'cosmic:favoritos-recuerdos';
+
+      async function cargarFavoritos() {
+        let favoritos = null;
+        try {
+          const resp = await fetch('/.netlify/functions/favoritos');
+          if (resp.ok) {
+            const datos = await resp.json();
+            if (Array.isArray(datos.favoritos)) favoritos = datos.favoritos;
+          }
+        } catch (e) { /* sin conexión con la función — se prueba con lo local */ }
+
+        // Si no hay Netlify (por ejemplo, la web está en otro hosting) o
+        // falló la red, se usa lo último guardado en este navegador, para
+        // que el corazón no "se olvide" ni siquiera en ese caso.
+        if (!favoritos) {
+          try {
+            const guardado = JSON.parse(localStorage.getItem(CLAVE_FAVORITOS_LOCAL) || 'null');
+            if (Array.isArray(guardado)) favoritos = guardado;
+          } catch (e) { /* localStorage no disponible — queda lo de config.js */ }
+        }
+        if (!favoritos) return;
+
+        const set = new Set(favoritos);
+        c.destacados.forEach((r, i) => { r.favorito = set.has(claveFavorito('d', i)); });
+        c.galeria.forEach((r, i) => { r.favorito = set.has(claveFavorito('g', i)); });
+        pintarDestacadosMovil();
+        pintarProtagonista();
+        pintarGaleria();
+      }
+
+      /** El corazón ya cambió en pantalla antes de llamar a esto. Se guarda
+       *  primero en este navegador (instantáneo, nunca falla) y después se
+       *  intenta sincronizar con Netlify para que se vea igual del otro
+       *  lado — si eso falla (sin conexión, o la web no está en Netlify),
+       *  el cambio local queda igual, solo que no se comparte todavía.    */
+      async function guardarFavoritos() {
+        const favoritos = [
+          ...c.destacados.map((r, i) => (r.favorito ? claveFavorito('d', i) : null)),
+          ...c.galeria.map((r, i) => (r.favorito ? claveFavorito('g', i) : null)),
+        ].filter(Boolean);
+
+        try { localStorage.setItem(CLAVE_FAVORITOS_LOCAL, JSON.stringify(favoritos)); } catch (e) {}
+
+        try {
+          await fetch('/.netlify/functions/favoritos', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ favoritos }),
+          });
+        } catch (e) {
+          // Silencioso a propósito — ver comentario de arriba.
+        }
+      }
+
+      async function alternarFavorito(tipo, i) {
+        const r = tipo === 'd' ? c.destacados[i] : c.galeria[i];
+        r.favorito = !r.favorito;
+        if (tipo === 'd') {
+          pintarDestacadosMovil();
+          if (i === actual) pintarProtagonista();
+        } else {
+          pintarGaleria();
+        }
+        await guardarFavoritos();
+      }
+
       pintarProtagonista();
       pintarMeses();
       pintarGaleria();
-      cargarSubidas();
+      (async () => {
+        await cargarSubidas();
+        await cargarFavoritos();
+      })();
     })();
   </script>
 </body>

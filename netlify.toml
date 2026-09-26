@@ -1,0 +1,9 @@
+# Configuración de Netlify.
+# El sitio sigue siendo estático (se sirve tal cual, sin build) — lo único
+# que agrega esto es la carpeta de funciones, para que Netlify sepa dónde
+# están (netlify/functions/favoritos.js, usada para guardar los favoritos
+# de "Recuerdos" — ver el comentario dentro de ese archivo).
+
+[build]
+  publish = "."
+  functions = "netlify/functions"

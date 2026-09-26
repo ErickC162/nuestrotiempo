@@ -91,6 +91,27 @@
     return d.toLocaleDateString('es-ES', { day: 'numeric', month: 'long' });
   }
 
+  /** Convierte 'AAAA-MM-DD' en algo corto para mostrar, ej. "12 May".
+   *  Acepta también un objeto Date directamente.                       */
+  function fechaCorta(fecha) {
+    const d = fecha instanceof Date ? fecha : new Date(`${fecha}T00:00:00`);
+    if (isNaN(d)) return '';
+    const texto = d.toLocaleDateString('es-ES', { day: '2-digit', month: 'short' });
+    // Pone en mayúscula la primera LETRA (no el día, que también es \w)
+    return texto.replace(/[a-záéíóúñ]/i, (l) => l.toUpperCase()).replace(/\.$/, '');
+  }
+
+  /** ¿En qué "mes de relación" (1, 2, 3…) cae una fecha, contando desde
+   *  `cfg.fechaInicio`? Usa el mismo cálculo de meses de calendario que
+   *  el resto del sitio (calcularTiempo). Si la fecha es anterior al
+   *  inicio de la relación, devuelve 0 — significa "todavía no éramos
+   *  nosotros", y quien llama debe tratarlo aparte (ver recuerdos.html). */
+  function mesDeRelacion(fecha) {
+    const d = fecha instanceof Date ? fecha : new Date(`${fecha}T00:00:00`);
+    if (isNaN(d) || d < inicio) return 0;
+    return calcularTiempo(d).mesesTotales + 1;
+  }
+
   /* ── Acceso (PIN) ─────────────────────────────────────── */
 
   /** PIN efectivo: el de config, o DDMMAA derivado de fechaInicio. */
@@ -377,7 +398,7 @@
   window.Cosmic = {
     cfg, inicio,
     tiempo: calcularTiempo,
-    texto, tituloHito, etiquetaHito, hito, fechaLarga,
+    texto, tituloHito, etiquetaHito, hito, fechaLarga, fechaCorta, mesDeRelacion,
     pad, miles,
     pinEsperado, acceso,
     fondoCosmico, barraSuperior, navegacion, piePagina,

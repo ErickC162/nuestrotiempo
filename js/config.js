@@ -227,6 +227,12 @@ window.COSMIC = {
     tituloColeccion: 'Nuestra Colección de Momentos',
     subtituloColeccion: 'Explora las memorias guardadas por mes o inmortaliza una nueva fecha especial.',
 
+    // Cómo se llama, en los filtros de la galería, el grupo de fotos/videos
+    // con fecha anterior a `fechaInicio` (arriba del todo en este archivo)
+    // — no se cuentan como "Mes 1", "Mes 2"... porque todavía no eran
+    // pareja oficialmente.
+    etiquetaPrevia: 'Antes de nosotros',
+
     /* Momentos destacados → carrusel.
        `insignia`, `lugar` y `etiquetas` solo se ven en escritorio.
 
@@ -237,6 +243,8 @@ window.COSMIC = {
            3. Pega la URL que te imprime en `foto:` (o `video:`) abajo.
          También puedes seguir usando una ruta local como 'assets/fotos/x.jpg'
          si prefieres no usar Cloudinary — ambas formas funcionan igual.
+         (Para fotos/videos del día a día, es más fácil usar el botón
+         "Añadir Nuevo Recuerdo" directo en la web — ver README.)
 
        ▸ VIDEOS EN EL CARRUSEL: en vez de `foto`, pon `video` con la URL
          o ruta del archivo. Se reproduce solo, en bucle, sin sonido y
@@ -245,22 +253,28 @@ window.COSMIC = {
          `poster` (opcional) es una imagen de vista previa mientras
          el video carga.
 
+       ▸ `fecha` va en formato AAAA-MM-DD. Con eso la web arma sola el
+         "Mes 1", "Mes 2"... contando desde el `fechaInicio` de arriba,
+         y agrupa aparte (sin número de mes) todo lo anterior a esa fecha.
+
+       ▸ `favorito: true` la marca de fábrica. El corazón de la web
+         también se puede tocar para marcar/desmarcar, y eso se guarda
+         solo, para siempre y para los dos (ver README).
+
        ▸ SI UNA FOTO/VIDEO SE VE MAL RECORTADO (porque su tamaño no
          coincide con el recuadro): agrega `posicion: 'X% Y%'`, donde X
          es horizontal e Y vertical (0% = arriba/izquierda, 50% = centro,
          100% = abajo/derecha). Ej: `posicion: '50% 20%'` prioriza la
-         parte de arriba de la imagen. La forma más fácil de encontrar el
-         valor correcto: abre esa foto/video en la web (botón "Ajustar
-         encuadre" dentro del visor), movela con las flechas hasta que se
-         vea bien, y copiá la línea que te da con el botón "Copiar línea
-         para config.js" — pegala acá abajo, en el recuerdo que corresponda.
-         Si no lo pones, queda centrado (o el encuadre de siempre en video). */
+         parte de arriba de la imagen. Si subís la foto desde el botón
+         "Añadir Nuevo Recuerdo" de la web, esto se elige arrastrando la
+         previsualización — no hace falta tocarlo a mano acá. Si no lo
+         pones, queda centrado (o el encuadre de siempre en video).      */
     destacados: [
       {
         titulo: 'Cafecito Juan Valdéz',
         frase: '"El puntapié incial."',
         fraseAmplia: '"La primera conversación frente a frente que tuvimos, y que marcó el inicio de todo."',
-        fecha: '12 Mayo',
+        fecha: '2026-05-12',
         detalle: '18:30',
         iconoDetalle: 'schedule',
         foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212535/nuestro-tiempo/fotos/juanValdez.jpg',
@@ -276,7 +290,7 @@ window.COSMIC = {
         titulo: 'Nuestro pimer beso',
         frase: 'La entrada que lo cambió todo.',
         fraseAmplia: 'Nuestra primera salida que también terminó siendo nuestro primer beso .',
-        fecha: '23 Mayo',
+        fecha: '2026-05-23',
         detalle: 'Lluvia',
         iconoDetalle: 'water_drop',
         foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212533/nuestro-tiempo/fotos/entradaCine.png',
@@ -292,7 +306,7 @@ window.COSMIC = {
         titulo: 'Una salida porque sí',
         frase: 'El cielo copió los colores de tu sonrisa.',
         fraseAmplia: 'Un día común y corriente se convierte en el mejor cuando te veo.',
-        fecha: '24 Junio',
+        fecha: '2026-06-24',
         detalle: 'Dorado',
         iconoDetalle: 'wb_twilight',
         foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212541/nuestro-tiempo/fotos/porque_si.jpg',
@@ -310,7 +324,7 @@ window.COSMIC = {
         titulo: 'Un momento en video',
         frase: 'Contigo a todo lado.',
         fraseAmplia: 'Cualquier plan contigo es inolvidable',
-        fecha: '22 Agosto',
+        fecha: '2026-08-22',
         detalle: 'Video',
         iconoDetalle: 'videocam',
         video: 'https://res.cloudinary.com/fm7lsoqf/video/upload/f_auto,q_auto/v1790212546/nuestro-tiempo/videos/bolos.mp4',
@@ -325,17 +339,29 @@ window.COSMIC = {
       },
     ],
 
-    /* Galería en cuadrícula de 2 columnas. Acepta `posicion` igual que
-       los destacados de arriba, para corregir recortes feos.           */
+    /* Galería en cuadrícula de 2 columnas.
+       `fecha` va en formato AAAA-MM-DD (fecha real, no solo texto): con
+       eso la web arma sola el "Mes 1", "Mes 2"... contando desde el
+       `fechaInicio` de arriba, y agrupa aparte (sin número de mes) todo
+       lo anterior a esa fecha. Acepta `posicion` igual que los destacados,
+       para corregir recortes feos, y `favorito: true` para marcarla de
+       fábrica (el corazón de la web también se puede tocar para marcar
+       o desmarcar, y eso se guarda solo — ver README).
+
+       `id` es un nombre corto y único para cada una — sirve para que,
+       al marcarla favorita, la web sepa siempre cuál es esa foto puntual
+       aunque el orden de la lista cambie con el tiempo (por ejemplo, al
+       subir recuerdos nuevos). Si agregás una foto acá a mano, ponele
+       también un `id` que no se repita.                                */
     galeria: [
-      { titulo: 'Cafecito Juan Valdéz', nota: 'El puntapié inicial', fecha: '12 Mayo', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212535/nuestro-tiempo/fotos/juanValdez.jpg' },
-      { titulo: 'Nuestro primer beso', nota: 'La entrada que lo cambió todo', fecha: '23 Mayo', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212533/nuestro-tiempo/fotos/entradaCine.png' },
-      { titulo: 'Cumpleaños de Juli', nota: 'Almuerzo de celebración', fecha: '07 Jun', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212532/nuestro-tiempo/fotos/cumpleJuli.jpg' },
-      { titulo: 'Cafecito de tarde-noche', nota: 'Tarde de planes', fecha: '09 Jun', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212540/nuestro-tiempo/fotos/planes.jpg' },
-      { titulo: 'Mi lugar seguro', nota: 'Salida por mi cumpleaños', fecha: '20 Jun', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212538/nuestro-tiempo/fotos/mi_lugar_seguro.jpg' },
-      { titulo: 'Una salida porque sí', nota: 'El cielo copió los colores de tu sonrisa', fecha: '24 Jun', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212541/nuestro-tiempo/fotos/porque_si.jpg' },
-      { titulo: 'Lámpara de recuerdo', nota: 'Regalo para la pedida de noviazgo', fecha: '04 Jul', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212537/nuestro-tiempo/fotos/lampara.jpg' },
-      { titulo: 'Siempre contigo', nota: 'Defensa de tesis', fecha: '07 Jul', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212530/nuestro-tiempo/fotos/contigo_siempre.jpg' },
+      { id: 'juan-valdez', titulo: 'Cafecito Juan Valdéz', nota: 'El puntapié inicial', fecha: '2026-05-12', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212535/nuestro-tiempo/fotos/juanValdez.jpg' },
+      { id: 'entrada-cine', titulo: 'Nuestro primer beso', nota: 'La entrada que lo cambió todo', fecha: '2026-05-23', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212533/nuestro-tiempo/fotos/entradaCine.png' },
+      { id: 'cumple-juli', titulo: 'Cumpleaños de Juli', nota: 'Almuerzo de celebración', fecha: '2026-06-07', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212532/nuestro-tiempo/fotos/cumpleJuli.jpg' },
+      { id: 'tarde-planes', titulo: 'Cafecito de tarde-noche', nota: 'Tarde de planes', fecha: '2026-06-09', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212540/nuestro-tiempo/fotos/planes.jpg' },
+      { id: 'mi-lugar-seguro', titulo: 'Mi lugar seguro', nota: 'Salida por mi cumpleaños', fecha: '2026-06-20', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212538/nuestro-tiempo/fotos/mi_lugar_seguro.jpg' },
+      { id: 'porque-si', titulo: 'Una salida porque sí', nota: 'El cielo copió los colores de tu sonrisa', fecha: '2026-06-24', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212541/nuestro-tiempo/fotos/porque_si.jpg' },
+      { id: 'lampara', titulo: 'Lámpara de recuerdo', nota: 'Regalo para la pedida de noviazgo', fecha: '2026-07-04', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212537/nuestro-tiempo/fotos/lampara.jpg' },
+      { id: 'contigo-siempre', titulo: 'Siempre contigo', nota: 'Defensa de tesis', fecha: '2026-07-07', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212530/nuestro-tiempo/fotos/contigo_siempre.jpg' },
     ],
 
 
