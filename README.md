@@ -42,43 +42,44 @@ Y entrar en `http://localhost:5500`.
 | La clave de acceso | `acceso.pin` (`null` = se genera como DDMMAA desde la fecha) |
 | La canción | `musica.src` → un mp3 en `assets/audio/` |
 | Las razones (y desde cuándo se desbloquean) | `razones.lista` y `razones.fechaInicio` |
-| Las fotos y sus textos | `recuerdos.destacados` y `recuerdos.galeria` |
+| Las fotos y sus textos | `recuerdos.galeria` (una sola lista — ver abajo) |
 | Cómo se llama el grupo de fotos previas a la relación | `recuerdos.etiquetaPrevia` |
 | El texto de la carta | `carta.parrafos` |
 
 > Con la fecha actual del archivo (`2026-07-04`) la clave por defecto es **040726**.
 > Es un placeholder elegido para que la web se vea igual que el diseño original.
 
-### Fotos
+### Fotos y videos
 
-Copia las imágenes en `assets/fotos/` y apunta a ellas desde `config.js`.
-Mientras un archivo no exista se muestra un marcador gris en su lugar —
-la web nunca se rompe por una foto que falta.
+`recuerdos.galeria` es la ÚNICA lista de recuerdos — no hay una lista
+aparte para "destacados". Copia las imágenes en `assets/fotos/` (o los
+videos en `assets/videos/`) y apuntá a ellas desde `config.js` con
+`foto: '...'` o `video: '...'`. Mientras un archivo no exista se
+muestra un marcador gris en su lugar — la web nunca se rompe por una
+foto que falta.
 
-**O más fácil: subilas directo desde la web.** El botón "Añadir Nuevo
-Recuerdo" de `recuerdos.html` deja elegir una foto o video, la fecha a
-la que corresponde, y arrastrarla para elegir qué parte se prioriza si
-el recorte automático no la deja ver bien — todo sin tocar código, y
-disponible para cualquiera que entre a la web con el PIN, no solo para
-quien la armó. Se suben a Cloudinary (gratis, con compresión automática)
-y quedan visibles para los dos, en cualquier dispositivo. Ver
-`js/config.js` (bloque `cloudinary`) para los detalles técnicos.
+**O más fácil: hacé todo directo desde la web**, sin tocar código —
+disponible para cualquiera que entre con el PIN, no solo para quien
+armó la web:
 
-Cada foto/video de `recuerdos.galeria` (destacada o subida desde la web)
-se agrupa sola por mes de relación ("Mes 1", "Mes 2"...) según su fecha
-real, contando desde `fechaInicio`. Las que sean de antes de esa fecha
-se agrupan aparte, bajo `recuerdos.etiquetaPrevia`.
+- **"Añadir Nuevo Recuerdo"**: elegís una foto o video, la fecha a la
+  que corresponde, y arrastrás la previsualización para elegir qué
+  parte se prioriza si el recorte automático no la deja ver bien.
+- **El lápiz dentro de cualquier recuerdo** (abrilo tocándolo, después
+  tocá el lápiz arriba a la izquierda): edita título, nota, fecha,
+  encuadre, le cambia la foto/video, o lo elimina.
+- **La estrella** en cada foto de la galería la marca (o desmarca) como
+  "destacada" — hasta un máximo de 5 a la vez aparecen arriba, en el
+  carrusel grande. Marcá otra distinta para "rotar" cuál se destaca.
+- **El corazón** la marca como favorita — se ve para los dos, en
+  cualquier dispositivo (ver "Favoritos compartidos" más abajo).
 
-### Videos en el carrusel
+Todo esto se sube a Cloudinary (gratis, con compresión automática).
+Ver `js/config.js` (bloque `cloudinary`) para los detalles técnicos.
 
-El carrusel de "Momentos Destacados" (en Recuerdos) también acepta
-videos, mezclados con las fotos en el mismo carrusel — no es algo aparte.
-
-En `recuerdos.destacados`, cambia `foto: '...'` por `video: '...'`
-apuntando a un mp4 en `assets/videos/`. El video se reproduce solo,
-en bucle, sin sonido y sin ningún control: nadie puede pausarlo,
-buscar en él ni activarle el audio — es completamente automático.
-Ya hay un elemento de ejemplo en `config.js` para copiar y editar.
+Cada foto/video se agrupa sola por mes de relación ("Mes 1", "Mes
+2"...) según su fecha real, contando desde `fechaInicio`. Las que sean
+de antes de esa fecha se agrupan aparte, bajo `recuerdos.etiquetaPrevia`.
 
 ---
 
@@ -121,9 +122,10 @@ stitch/screenshots*/       Capturas de ambos (referencia)
   (`sessionStorage`). Al cerrarla vuelve a pedirse.
 - **Favoritas de "Razones" persistentes.** Se guardan en `localStorage`
   del dispositivo — cada quien ve las suyas en su propio navegador.
-- **Favoritos de "Recuerdos" compartidos, sin login.** A diferencia de
-  las razones, acá el corazón se guarda para los dos (en cualquier
-  dispositivo), no solo en el navegador de quien lo tocó. Usa un
+- **Cambios de "Recuerdos" compartidos, sin login.** A diferencia de las
+  razones, en Recuerdos el corazón (favorito), la estrella (destacado),
+  las ediciones y los borrados se guardan para los dos (en cualquier
+  dispositivo), no solo en el navegador de quien los tocó. Usa un
   archivo en Cloudinary más una función de Netlify que lo actualiza de
   forma segura (ver "Publicar" abajo) — nadie necesita crear cuenta
   ni ingresar contraseña para que funcione.
@@ -135,10 +137,11 @@ stitch/screenshots*/       Capturas de ambos (referencia)
 Al ser estática, se sube arrastrando la carpeta a Netlify, Vercel,
 GitHub Pages o cualquier hosting — no hace falta build ni instalar nada.
 
-**Excepción: si querés que los favoritos de "Recuerdos" se vean iguales
-para los dos (no solo en el navegador de quien tocó el corazón), hace
-falta desplegar en Netlify** (por la función en `netlify/functions/
-favoritos.js`) y configurar una única variable de entorno, una sola vez:
+**Excepción: si querés que los cambios en "Recuerdos" (favoritos,
+destacados, ediciones, borrados) se vean iguales para los dos —no solo
+en el navegador de quien los hizo—, hace falta desplegar en Netlify**
+(por la función en `netlify/functions/recuerdos.js`) y configurar una
+única variable de entorno, una sola vez:
 
 1. Dashboard de Netlify → tu sitio → **Site configuration → Environment
    variables** → agregar:
@@ -147,8 +150,9 @@ favoritos.js`) y configurar una única variable de entorno, una sola vez:
 2. Volver a desplegar el sitio una vez para que la tome.
 
 Sin este paso, la web funciona igual en todo lo demás — subir fotos,
-verlas, ajustar el encuadre — solo que el corazón de "Recuerdos" queda
-guardado nada más en el navegador de quien lo tocó, no compartido.
+verlas, editarlas, ajustar el encuadre — solo que esos cambios en
+"Recuerdos" quedan guardados nada más en el navegador de quien los
+hizo, no compartidos.
 
 Antes de enviarla como regalo, recuerda:
 

@@ -81,26 +81,26 @@
 
     <!-- ══ DESTACADOS ══ -->
 
-    <!-- Móvil: carrusel horizontal -->
-    <section class="mt-space-xs md:hidden enter enter-1">
-      <div class="flex items-center justify-between mb-space-2xs">
-        <div class="flex items-center gap-1.5 text-label-sm font-label-sm text-secondary">
-          <span class="material-symbols-outlined text-[14px]">stars</span>
+    <!-- Móvil: carrusel horizontal, grande -->
+    <section class="mt-space-xs md:hidden enter enter-1" id="destacados-seccion-movil">
+      <div class="flex items-center justify-between mb-space-sm">
+        <div class="flex items-center gap-1.5 text-label-md font-label-md text-secondary">
+          <span class="material-symbols-outlined fill-icon text-[18px]">stars</span>
           <span>Momentos Destacados</span>
         </div>
         <span class="text-label-sm font-label-sm text-on-surface-variant/70" data-conteo-destacados></span>
       </div>
       <div
-        class="flex gap-space-sm overflow-x-auto snap-x snap-mandatory no-scrollbar pb-1 -mx-gutter-mobile px-gutter-mobile"
+        class="flex gap-space-md overflow-x-auto snap-x snap-mandatory no-scrollbar pb-1 -mx-gutter-mobile px-gutter-mobile"
         id="destacados-movil"></div>
     </section>
 
-    <!-- Escritorio: recuerdo protagonista con navegación -->
-    <section class="hidden md:block relative w-full enter enter-1">
+    <!-- Escritorio: recuerdo protagonista, grande, con navegación -->
+    <section class="hidden md:block relative w-full enter enter-1" id="destacados-seccion-escritorio">
       <div class="flex items-center justify-between mb-6 px-1">
-        <div class="flex items-center gap-2">
-          <span class="material-symbols-outlined text-primary text-[18px]">favorite</span>
-          <span class="text-label-md font-label-md text-on-surface tracking-wide">Recuerdo Protagonista</span>
+        <div class="flex items-center gap-2.5">
+          <span class="material-symbols-outlined fill-icon text-primary text-[22px]">stars</span>
+          <span class="font-display text-title-lg text-on-surface tracking-wide">Momentos Destacados</span>
         </div>
         <div class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant">
           <span class="inline-block w-2 h-2 rounded-full bg-primary animate-pulse"></span>
@@ -108,36 +108,41 @@
         </div>
       </div>
 
-      <div class="relative flex items-center justify-center w-full min-h-[440px]">
+      <div class="relative flex items-center justify-center w-full min-h-[560px]">
         <!-- Tarjetas laterales atenuadas -->
         <!-- Solo desde 1280px: por debajo quedarían tapadas por la tarjeta central -->
         <div
-          class="hidden xl:flex absolute left-0 w-[300px] h-[340px] rounded-2xl bg-surface-container-low/40 backdrop-blur-md border border-white/5 opacity-25 scale-90 -rotate-3 pointer-events-none p-4 flex-col justify-end">
+          class="hidden xl:flex absolute left-0 w-[300px] h-[380px] rounded-2xl bg-surface-container-low/40 backdrop-blur-md border border-white/5 opacity-25 scale-90 -rotate-3 pointer-events-none p-4 flex-col justify-end">
           <span class="text-label-sm font-label-sm text-secondary">Recuerdo Anterior</span>
           <h4 class="font-display text-headline-md text-on-surface/70" data-lateral-prev></h4>
         </div>
         <div
-          class="hidden xl:flex absolute right-0 w-[300px] h-[340px] rounded-2xl bg-surface-container-low/40 backdrop-blur-md border border-white/5 opacity-25 scale-90 rotate-3 pointer-events-none p-4 flex-col justify-end">
+          class="hidden xl:flex absolute right-0 w-[300px] h-[380px] rounded-2xl bg-surface-container-low/40 backdrop-blur-md border border-white/5 opacity-25 scale-90 rotate-3 pointer-events-none p-4 flex-col justify-end">
           <span class="text-label-sm font-label-sm text-primary">Siguiente Recuerdo</span>
           <h4 class="font-display text-headline-md text-on-surface/70" data-lateral-next></h4>
         </div>
 
-        <!-- Tarjeta central -->
-        <div
-          class="relative z-20 w-full max-w-3xl rounded-2xl bg-surface-container/75 backdrop-blur-2xl border border-primary/30 p-8 transition-all duration-500 hover:border-primary/50"
-          id="protagonista"></div>
+        <!-- Tarjeta central: más grande, con acento de luz arriba -->
+        <div class="relative z-20 w-full max-w-4xl rounded-[28px] overflow-hidden
+                    shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7),0_0_50px_rgba(244,114,182,0.1)]
+                    transition-all duration-500">
+          <div class="absolute top-0 inset-x-10 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent pointer-events-none z-10">
+          </div>
+          <div class="bg-surface-container/75 backdrop-blur-2xl border border-primary/30 hover:border-primary/50 p-9 transition-colors duration-500"
+            id="protagonista"></div>
+        </div>
       </div>
 
       <!-- Controles -->
-      <div class="flex items-center justify-between max-w-3xl mx-auto mt-6 px-4">
+      <div class="flex items-center justify-between max-w-4xl mx-auto mt-6 px-4">
         <button type="button" data-carrusel="-1" aria-label="Recuerdo anterior"
-          class="w-10 h-10 rounded-full bg-surface-container/60 hover:bg-surface-container-high border border-outline-variant/40 flex items-center justify-center text-on-surface hover:text-primary transition-all duration-200 active:scale-90">
-          <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+          class="w-11 h-11 rounded-full bg-surface-container/60 hover:bg-surface-container-high border border-outline-variant/40 flex items-center justify-center text-on-surface hover:text-primary transition-all duration-200 active:scale-90">
+          <span class="material-symbols-outlined text-[22px]">chevron_left</span>
         </button>
         <div class="flex items-center gap-2" id="puntos"></div>
         <button type="button" data-carrusel="1" aria-label="Recuerdo siguiente"
-          class="w-10 h-10 rounded-full bg-surface-container/60 hover:bg-surface-container-high border border-outline-variant/40 flex items-center justify-center text-on-surface hover:text-primary transition-all duration-200 active:scale-90">
-          <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+          class="w-11 h-11 rounded-full bg-surface-container/60 hover:bg-surface-container-high border border-outline-variant/40 flex items-center justify-center text-on-surface hover:text-primary transition-all duration-200 active:scale-90">
+          <span class="material-symbols-outlined text-[22px]">chevron_right</span>
         </button>
       </div>
     </section>
@@ -157,10 +162,12 @@
           <p class="font-body-md text-body-md text-on-surface-variant mt-1" data-subtitulo-coleccion></p>
         </div>
 
-        <div class="flex items-center gap-3">
-          <!-- Selector de mes -->
+        <div class="flex items-center gap-3 min-w-0">
+          <!-- Selector de mes: con varios meses ya no entra fijo en el ancho
+               del celular, así que se desplaza horizontalmente en vez de
+               achicar cada chip hasta hacerlos ilegibles. -->
           <div
-            class="p-1 rounded-full bg-surface-container-lowest/80 border border-outline-variant/30 flex items-center backdrop-blur-md md:self-auto md:w-auto"
+            class="p-1 rounded-full bg-surface-container-lowest/80 border border-outline-variant/30 flex items-center backdrop-blur-md md:self-auto md:w-auto overflow-x-auto no-scrollbar min-w-0"
             id="meses"></div>
           <button type="button" id="alternar-favoritas" aria-label="Ver solo favoritas"
             class="shrink-0 w-9 h-9 rounded-full bg-surface-container-lowest/80 border border-outline-variant/30 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
@@ -237,6 +244,10 @@
       class="absolute top-4 left-4 w-10 h-10 rounded-full bg-surface-container/80 border border-outline-variant/30 flex items-center justify-center active:scale-90 transition-transform">
       <span class="material-symbols-outlined">favorite_border</span>
     </button>
+    <button type="button" id="visor-editar" aria-label="Editar recuerdo"
+      class="absolute top-4 left-16 w-10 h-10 rounded-full bg-surface-container/80 border border-outline-variant/30 text-on-surface flex items-center justify-center active:scale-90 transition-transform">
+      <span class="material-symbols-outlined text-[20px]">edit</span>
+    </button>
     <figure class="max-w-lg md:max-w-3xl w-full">
       <div
         class="rounded-xl overflow-hidden border border-white/10 shadow-[0_25px_60px_-12px_rgba(0,0,0,0.85)] aspect-[4/5] md:aspect-[16/10] bg-surface-container-high"
@@ -307,6 +318,75 @@
     </div>
   </div>
 
+  <!-- Editar un recuerdo -->
+  <div id="editar"
+    class="fixed inset-0 z-[60] hidden items-center justify-center p-4 bg-surface-container-lowest/90 backdrop-blur-xl">
+    <div
+      class="w-full max-w-md max-h-[90vh] overflow-y-auto rounded-2xl bg-surface-container/90 backdrop-blur-2xl border border-primary/20 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] p-6 md:p-8 relative">
+      <button type="button" id="cerrar-editar" aria-label="Cerrar"
+        class="absolute top-4 right-4 w-9 h-9 rounded-full bg-surface-container-high/80 border border-outline-variant/30 text-on-surface flex items-center justify-center active:scale-90 transition-transform">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+
+      <h2 class="font-display text-headline-md text-on-surface mb-1">Editar recuerdo</h2>
+      <p class="text-body-md text-on-surface-variant mb-6">Cambiá lo que necesites, o borralo.</p>
+
+      <form id="form-editar" class="flex flex-col gap-4">
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center justify-between">
+            <span class="text-label-md font-label-md text-on-surface-variant">Arrastrá para encuadrar</span>
+            <div class="flex items-center gap-3">
+              <label class="text-label-sm font-label-sm text-primary underline underline-offset-2 cursor-pointer">
+                Cambiar archivo
+                <input type="file" name="archivo" accept="image/*,video/*" class="hidden">
+              </label>
+              <button type="button" id="centrar-editar"
+                class="text-label-sm font-label-sm text-primary underline underline-offset-2">Centrar</button>
+            </div>
+          </div>
+          <div id="marco-editar"
+            class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-surface-container-high border border-outline-variant/40 cursor-grab active:cursor-grabbing touch-none select-none">
+          </div>
+        </div>
+
+        <label class="flex flex-col gap-2">
+          <span class="text-label-md font-label-md text-on-surface-variant">Título</span>
+          <input type="text" name="titulo" maxlength="60" required
+            class="w-full rounded-xl bg-surface-container/70 border border-outline-variant/40 p-3 text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm font-body-md">
+        </label>
+        <label class="flex flex-col gap-2">
+          <span class="text-label-md font-label-md text-on-surface-variant">¿De qué fecha es?</span>
+          <input type="date" name="fecha" required
+            class="w-full rounded-xl bg-surface-container/70 border border-outline-variant/40 p-3 text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm font-body-md">
+        </label>
+        <label class="flex flex-col gap-2">
+          <span class="text-label-md font-label-md text-on-surface-variant">Nota (opcional)</span>
+          <input type="text" name="nota" maxlength="80"
+            class="w-full rounded-xl bg-surface-container/70 border border-outline-variant/40 p-3 text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm font-body-md">
+        </label>
+        <label class="flex items-center gap-2.5 py-1">
+          <input type="checkbox" name="destacado"
+            class="w-5 h-5 rounded border-outline-variant/40 bg-surface-container/70 text-primary focus:ring-primary focus:ring-offset-0">
+          <span class="text-label-md font-label-md text-on-surface-variant">Mostrar en "Momentos Destacados" (máx. 5)</span>
+        </label>
+
+        <p id="editar-estado" class="text-label-sm font-label-sm text-on-surface-variant min-h-[1.2em]"></p>
+
+        <div class="flex items-center gap-3 mt-1">
+          <button type="button" id="eliminar-recuerdo"
+            class="py-3.5 px-5 rounded-xl bg-error-container/60 hover:bg-error-container text-on-error-container font-label-md font-semibold flex items-center justify-center gap-2 transition-all duration-300 active:scale-95">
+            <span class="material-symbols-outlined text-[18px]">delete</span>
+          </button>
+          <button type="submit" id="editar-boton"
+            class="flex-1 py-3.5 rounded-xl bg-gradient-to-r from-primary-container to-secondary text-surface-container-lowest font-label-md font-semibold flex items-center justify-center gap-2 shadow-[0_8px_24px_-4px_rgba(244,114,182,0.4)] transition-all duration-300 active:scale-95 disabled:opacity-50 disabled:pointer-events-none">
+            <span class="material-symbols-outlined text-[18px]">check</span>
+            <span>Guardar cambios</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <script src="js/common.js"></script>
   <script>
     (function () {
@@ -316,6 +396,7 @@
       const $ = (s) => document.querySelector(s);
       const t = Cosmic.tiempo();
       const hito = Cosmic.hito();
+      const MAX_DESTACADOS = 5;
 
       /* ── Textos ── */
       $('[data-etiqueta]').textContent = Cosmic.etiquetaHito().replace(' Juntos', ' Compartiendo la Eternidad');
@@ -328,84 +409,113 @@
       $('[data-subtitulo-coleccion]').textContent = c.subtituloColeccion;
       $('[data-pie-titulo]').textContent = Cosmic.miles(t.diasTotales) + ' Días de Historia';
       $('[data-pie-nota]').textContent = c.piePagina;
-      $('[data-conteo-destacados]').textContent = `Desliza • ${c.destacados.length} recuerdos`;
-      $('[data-conteo-galeria]').textContent = `${c.galeria.length} guardados`;
       $('[data-cita]').textContent = Cosmic.texto(c.cita.texto);
       $('[data-cita-detalle]').textContent = Cosmic.texto(c.cita.detalle);
       $('[data-cita-inicio]').textContent = Cosmic.fechaLarga();
       $('[data-cita-hoy]').textContent = Cosmic.miles(t.diasTotales) + ' días después';
 
-      /* ── Destacados: carrusel móvil ── */
+      function actualizarConteos() {
+        $('[data-conteo-destacados]').textContent = `Desliza • ${destacadosActuales().length} recuerdos`;
+        $('[data-conteo-galeria]').textContent = `${c.galeria.length} guardados`;
+      }
+
+      /** La galería es la ÚNICA lista de recuerdos. "Destacados" ya no es
+       *  una lista aparte: es simplemente hasta 5 elementos de la galería
+       *  con `destacado: true` (marcados a mano en config.js, o con la
+       *  estrella de la propia web). Cada uno lleva `.i`, su índice real
+       *  en `c.galeria` — hace falta para abrir/favoritear/destacar la
+       *  foto correcta sin importar en qué posición del carrusel esté.   */
+      function destacadosActuales() {
+        return c.galeria
+          .map((r, i) => ({ ...r, i }))
+          .filter((r) => r.destacado)
+          .slice(0, MAX_DESTACADOS);
+      }
+
+      /* ── Destacados: carrusel móvil (grande) ── */
       function pintarDestacadosMovil() {
-        document.getElementById('destacados-movil').innerHTML = c.destacados.map((r, i) => `
-    <article data-abrir="d${i}"
-             class="snap-center shrink-0 w-[78vw] max-w-[290px] aspect-[4/5] rounded-xl overflow-hidden relative bg-surface-container-high border border-${r.acento}/20 shadow-[0_12px_28px_-8px_rgba(0,0,0,0.7)] cursor-pointer active:scale-[0.98] transition-transform">
+        const destacados = destacadosActuales();
+        const seccion = document.getElementById('destacados-seccion-movil');
+        // Estilo inline (no clase) a propósito: esta sección ya tiene
+        // `md:hidden` de base, y una clase `hidden` sin prefijo compitiendo
+        // con otra clase de display puede perder el empate de especificidad
+        // — display inline siempre gana, sin ese riesgo.
+        if (!destacados.length) { seccion.style.display = 'none'; return; }
+        seccion.style.display = '';
+
+        document.getElementById('destacados-movil').innerHTML = destacados.map((r) => `
+    <article data-abrir="g${r.i}"
+             class="snap-center shrink-0 w-[86vw] max-w-[340px] aspect-[3/4] rounded-2xl overflow-hidden relative bg-surface-container-high border border-${r.acento || 'primary'}/20 shadow-[0_16px_36px_-10px_rgba(0,0,0,0.7),0_0_30px_rgba(244,114,182,0.12)] cursor-pointer active:scale-[0.98] transition-transform">
       ${Cosmic.medio(r)}
       <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent flex flex-col justify-end p-space-md">
         <div class="flex items-center gap-1.5 mb-1">
-          <span class="px-2 py-0.5 rounded-full bg-${r.acento}/20 backdrop-blur-md border border-${r.acento}/30 text-${r.acento} text-label-sm font-label-sm">${Cosmic.fechaCorta(r.fecha)}</span>
-          <span class="text-label-sm font-label-sm text-tertiary flex items-center gap-0.5">
-            <span class="material-symbols-outlined text-[12px]">${r.iconoDetalle}</span> ${r.detalle}
-          </span>
+          <span class="px-2 py-0.5 rounded-full bg-${r.acento || 'primary'}/20 backdrop-blur-md border border-${r.acento || 'primary'}/30 text-${r.acento || 'primary'} text-label-sm font-label-sm">${Cosmic.fechaCorta(r.fecha)}</span>
+          ${r.detalle ? `<span class="text-label-sm font-label-sm text-tertiary flex items-center gap-0.5">
+            <span class="material-symbols-outlined text-[12px]">${r.iconoDetalle || 'schedule'}</span> ${r.detalle}
+          </span>` : ''}
         </div>
         <h3 class="text-title-lg font-display text-on-background">${r.titulo}</h3>
-        <p class="text-body-md font-body-md text-on-surface-variant italic mt-0.5 line-clamp-2">${r.frase}</p>
+        ${r.frase ? `<p class="text-body-md font-body-md text-on-surface-variant italic mt-0.5 line-clamp-2">${r.frase}</p>` : ''}
       </div>
-      <button type="button" data-favorito="d${i}" aria-label="${r.favorito ? 'Quitar de favoritos' : 'Marcar como favorito'}"
+      <button type="button" data-favorito="g${r.i}" aria-label="${r.favorito ? 'Quitar de favoritos' : 'Marcar como favorito'}"
         class="absolute top-space-xs right-space-xs p-1.5 rounded-full bg-surface-container-lowest/60 backdrop-blur-md active:scale-90 transition-transform ${r.favorito ? 'text-primary' : 'text-secondary'}">
         <span class="material-symbols-outlined text-[16px] ${r.favorito ? 'fill-icon' : ''}">${r.favorito ? 'favorite' : 'favorite_border'}</span>
       </button>
     </article>`).join('');
         conectar();
       }
-      pintarDestacadosMovil();
 
-      /* ── Destacados: protagonista en escritorio ── */
+      /* ── Destacados: protagonista en escritorio (grande) ── */
       let actual = 0;
-      const total = c.destacados.length;
 
       function pintarProtagonista() {
-        const r = c.destacados[actual];
+        const destacados = destacadosActuales();
+        const seccion = document.getElementById('destacados-seccion-escritorio');
+        // Estilo inline, mismo motivo que en el carrusel móvil de arriba.
+        if (!destacados.length) { seccion.style.display = 'none'; return; }
+        seccion.style.display = '';
+        if (actual >= destacados.length) actual = 0;
+
+        const total = destacados.length;
+        const r = destacados[actual];
         const etiquetas = (r.etiquetas || []).map((e) => `
       <span class="inline-flex items-center gap-1.5 text-label-sm font-label-sm text-${e.color} bg-surface-container-high/40 px-2.5 py-1 rounded-full">
         <span class="material-symbols-outlined text-[13px]">${e.icono}</span>${e.texto}
       </span>`).join('');
 
         document.getElementById('protagonista').innerHTML = `
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-        <div class="md:col-span-6 relative group overflow-hidden rounded-xl aspect-[4/3] bg-surface-container-lowest border border-white/10 cursor-pointer" data-abrir="d${actual}">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-7 relative group overflow-hidden rounded-2xl aspect-[4/3] bg-surface-container-lowest border border-white/10 cursor-pointer" data-abrir="g${r.i}">
           ${Cosmic.medio(r, 'w-full h-full object-cover transition-transform duration-700 group-hover:scale-105')}
           <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-surface-container-lowest/20 to-transparent pointer-events-none"></div>
-          <button type="button" data-favorito="d${actual}" aria-label="${r.favorito ? 'Quitar de favoritos' : 'Marcar como favorito'}"
-            class="absolute top-3 right-3 p-1.5 rounded-full bg-surface-container-lowest/70 backdrop-blur-md active:scale-90 transition-transform ${r.favorito ? 'text-primary' : 'text-on-surface'}">
-            <span class="material-symbols-outlined text-[18px] ${r.favorito ? 'fill-icon' : ''}">${r.favorito ? 'favorite' : 'favorite_border'}</span>
+          <button type="button" data-favorito="g${r.i}" aria-label="${r.favorito ? 'Quitar de favoritos' : 'Marcar como favorito'}"
+            class="absolute top-4 right-4 p-2 rounded-full bg-surface-container-lowest/70 backdrop-blur-md active:scale-90 transition-transform ${r.favorito ? 'text-primary' : 'text-on-surface'}">
+            <span class="material-symbols-outlined text-[20px] ${r.favorito ? 'fill-icon' : ''}">${r.favorito ? 'favorite' : 'favorite_border'}</span>
           </button>
-          <div class="absolute bottom-3 left-3 right-3 flex justify-between items-center text-label-sm font-label-sm text-on-surface pointer-events-none">
+          <div class="absolute bottom-4 left-4 right-4 flex justify-between items-center text-label-sm font-label-sm text-on-surface pointer-events-none">
             ${r.lugar ? `<span class="flex items-center gap-1 bg-surface-container-lowest/70 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
               <span class="material-symbols-outlined text-[14px] text-tertiary">location_on</span>${r.lugar}</span>` : '<span></span>'}
             <span class="bg-surface-container-lowest/70 backdrop-blur-md px-2 py-1 rounded-full border border-white/10 text-primary">${Cosmic.fechaCorta(r.fecha)}</span>
           </div>
         </div>
 
-        <div class="md:col-span-6 flex flex-col justify-between h-full space-y-4">
+        <div class="md:col-span-5 flex flex-col justify-between h-full gap-4">
           <div>
-            <div class="flex items-center gap-2 mb-2">
-              <span class="px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-label-sm font-label-sm">${r.insignia || 'Recuerdo'}</span>
-              <span class="text-on-surface-variant text-label-sm font-label-sm">Recuerdo ${actual + 1} de ${total}</span>
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-label-md font-label-md font-medium">${r.insignia || 'Recuerdo'}</span>
+              <span class="text-on-surface-variant text-label-sm font-label-sm">${actual + 1} de ${total}</span>
             </div>
-            <h3 class="font-display text-headline-lg text-on-surface mb-2">${r.titulo}</h3>
-            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-4 italic">${r.fraseAmplia || r.frase}</p>
-            ${etiquetas ? `<div class="flex flex-wrap gap-2 pt-2 border-t border-outline-variant/30">${etiquetas}</div>` : ''}
+            <h3 class="font-display text-display text-on-surface mb-3 leading-[1.05]">${r.titulo}</h3>
+            <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-4 italic">${r.fraseAmplia || r.frase || r.nota || ''}</p>
+            ${etiquetas ? `<div class="flex flex-wrap gap-2 pt-3 border-t border-outline-variant/30">${etiquetas}</div>` : ''}
           </div>
-
-
         </div>
       </div>`;
 
-        $('[data-lateral-prev]').textContent = c.destacados[(actual - 1 + total) % total].titulo;
-        $('[data-lateral-next]').textContent = c.destacados[(actual + 1) % total].titulo;
+        $('[data-lateral-prev]').textContent = destacados[(actual - 1 + total) % total].titulo;
+        $('[data-lateral-next]').textContent = destacados[(actual + 1) % total].titulo;
 
-        document.getElementById('puntos').innerHTML = c.destacados.map((_, i) => `
+        document.getElementById('puntos').innerHTML = destacados.map((_, i) => `
       <button type="button" data-punto="${i}" aria-label="Ir al recuerdo ${i + 1}"
               class="${i === actual ? 'w-8 bg-primary' : 'w-2.5 bg-outline-variant hover:bg-primary/50'} h-2 rounded-full transition-all duration-300"></button>`).join('');
 
@@ -413,6 +523,8 @@
       }
 
       function mover(paso) {
+        const total = destacadosActuales().length;
+        if (!total) return;
         actual = (actual + paso + total) % total;
         pintarProtagonista();
       }
@@ -474,7 +586,9 @@
       function pintarGaleria() {
         const items = c.galeria
           .map((r, i) => ({ ...r, i, mes: Cosmic.mesDeRelacion(r.fecha) }))
-          .filter((r) => mesActivo === 0 || r.mes === mesActivo)
+          // mesActivo === -1 es el botón "antes de nosotros", que en
+          // `mesDeRelacion` corresponde al valor 0 (no hay un "mes -1" real).
+          .filter((r) => mesActivo === 0 || r.mes === (mesActivo === -1 ? 0 : mesActivo))
           .filter((r) => !soloFavoritas || r.favorito)
           .sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
@@ -502,15 +616,21 @@
         <div class="aspect-square md:aspect-[4/3] w-full relative md:overflow-hidden md:rounded-xl md:mb-4 md:bg-surface-container-lowest">
           ${Cosmic.medio(r, 'w-full h-full object-cover md:transition-transform md:duration-500 md:group-hover:scale-105')}
           <div class="absolute top-2 md:top-3 left-2 md:left-3 px-1.5 md:px-2.5 py-0.5 rounded md:rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-[10px] md:text-label-sm font-label-sm text-secondary border border-outline-variant/20 md:border-white/10">${Cosmic.fechaCorta(r.fecha)}</div>
-          <button type="button" data-favorito="g${r.i}" aria-label="${r.favorito ? 'Quitar de favoritos' : 'Marcar como favorito'}"
-            class="absolute top-2 md:top-3 right-2 md:right-3 p-1 md:p-1.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-md active:scale-90 transition-transform ${r.favorito ? 'text-primary' : 'text-on-surface'}">
-            <span class="material-symbols-outlined text-[14px] md:text-[16px] ${r.favorito ? 'fill-icon' : ''}">${r.favorito ? 'favorite' : 'favorite_border'}</span>
-          </button>
+          <div class="absolute top-2 md:top-3 right-2 md:right-3 flex items-center gap-1">
+            <button type="button" data-destacado="g${r.i}" aria-label="${r.destacado ? 'Quitar de destacados' : 'Marcar como destacada'}"
+              class="p-1 md:p-1.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-md active:scale-90 transition-transform ${r.destacado ? 'text-tertiary' : 'text-on-surface'}">
+              <span class="material-symbols-outlined text-[14px] md:text-[16px] ${r.destacado ? 'fill-icon' : ''}">stars</span>
+            </button>
+            <button type="button" data-favorito="g${r.i}" aria-label="${r.favorito ? 'Quitar de favoritos' : 'Marcar como favorito'}"
+              class="p-1 md:p-1.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-md active:scale-90 transition-transform ${r.favorito ? 'text-primary' : 'text-on-surface'}">
+              <span class="material-symbols-outlined text-[14px] md:text-[16px] ${r.favorito ? 'fill-icon' : ''}">${r.favorito ? 'favorite' : 'favorite_border'}</span>
+            </button>
+          </div>
           <div class="hidden md:block absolute bottom-3 right-3 px-2 py-0.5 rounded-md bg-surface-container-lowest/80 backdrop-blur-md text-[11px] text-on-surface-variant">${r.mes === 0 ? (c.etiquetaPrevia || 'Antes') : `Mes ${r.mes}`}</div>
         </div>
         <div class="p-space-xs md:p-0 md:pb-1 bg-surface-container-lowest/60 md:bg-transparent">
           <p class="font-label-md text-label-md md:text-title-lg md:font-display text-on-background truncate md:whitespace-normal">${r.titulo}</p>
-          <p class="font-label-sm text-label-sm md:text-body-md text-on-surface-variant truncate md:whitespace-normal md:mt-1">${r.nota}</p>
+          <p class="font-label-sm text-label-sm md:text-body-md text-on-surface-variant truncate md:whitespace-normal md:mt-1">${r.nota || ''}</p>
         </div>
       </div>`).join('');
 
@@ -526,9 +646,9 @@
       /* ── Visor ── */
       const visor = document.getElementById('visor');
 
-      let tipoVisor = null;
       let iVisor = null;
       const visorFavorito = document.getElementById('visor-favorito');
+      const visorEditar = document.getElementById('visor-editar');
 
       function pintarVisorFavorito(r) {
         visorFavorito.classList.toggle('text-primary', !!r.favorito);
@@ -540,10 +660,13 @@
       }
 
       function abrir(clave) {
-        tipoVisor = clave[0];
         iVisor = Number(clave.slice(1));
-        const r = tipoVisor === 'd' ? c.destacados[iVisor] : c.galeria[iVisor];
-        document.getElementById('visor-marco').innerHTML = Cosmic.medio(r);
+        const r = c.galeria[iVisor];
+        // A diferencia de las miniaturas (que recortan con object-cover
+        // para llenar su recuadro), el visor a pantalla completa debe
+        // mostrar la foto/video entera — object-contain no recorta nada,
+        // solo la encoge para que quepa completa.
+        document.getElementById('visor-marco').innerHTML = Cosmic.medio(r, 'w-full h-full object-contain');
         document.getElementById('visor-titulo').textContent = r.titulo;
         document.getElementById('visor-nota').textContent = r.fraseAmplia || r.frase || r.nota || '';
         pintarVisorFavorito(r);
@@ -552,10 +675,12 @@
       const cerrar = () => visor.classList.replace('flex', 'hidden');
 
       visorFavorito.addEventListener('click', async () => {
-        if (tipoVisor === null) return;
-        await alternarFavorito(tipoVisor, iVisor);
-        const r = tipoVisor === 'd' ? c.destacados[iVisor] : c.galeria[iVisor];
-        pintarVisorFavorito(r);
+        if (iVisor === null) return;
+        await alternarFavorito(iVisor);
+        pintarVisorFavorito(c.galeria[iVisor]);
+      });
+      visorEditar.addEventListener('click', () => {
+        if (iVisor !== null) abrirEditar(iVisor);
       });
 
       /* ── Conexión de eventos (se repite tras cada repintado) ── */
@@ -577,8 +702,15 @@
           el.dataset.conectado = '1';
           el.addEventListener('click', (e) => {
             e.stopPropagation(); // no abrir el visor al tocar el corazón
-            const clave = el.dataset.favorito;
-            alternarFavorito(clave[0], Number(clave.slice(1)));
+            alternarFavorito(Number(el.dataset.favorito.slice(1)));
+          });
+        });
+        document.querySelectorAll('[data-destacado]').forEach((el) => {
+          if (el.dataset.conectado) return;
+          el.dataset.conectado = '1';
+          el.addEventListener('click', (e) => {
+            e.stopPropagation(); // no abrir el visor al tocar la estrella
+            alternarDestacado(Number(el.dataset.destacado.slice(1)));
           });
         });
       }
@@ -598,99 +730,91 @@
         else if (e.key === 'ArrowLeft' && visor.classList.contains('hidden')) mover(-1);
       });
 
-      /* ── Subir un recuerdo nuevo (directo a Cloudinary, sin backend) ──
-         El preset "sin firmar" (unsigned) permite subir archivos desde
-         el navegador sin exponer ningún secreto: cloudName y el nombre
-         del preset son datos públicos, pensados para usarse así.      */
-      const cloudCfg = COSMIC.cloudinary;
-      const modalSubir = document.getElementById('subir');
-      const formSubir = document.getElementById('form-subir');
-      const estadoSubir = document.getElementById('subir-estado');
-      const botonSubir = document.getElementById('subir-boton');
+      /* ── Encuadre reutilizable (arrastrar para elegir qué parte se ve) ──
+         Tanto "Añadir Nuevo Recuerdo" como "Editar recuerdo" necesitan
+         exactamente lo mismo: mostrar una previsualización y dejar
+         arrastrarla. En vez de repetir el código, esta función arma un
+         controlador independiente para cada recuadro.                   */
+      function crearEncuadre(marco, botonCentrar) {
+        const estado = { posX: 50, posY: 50 };
 
-      let previewUrl = null;
-      let previewPosX = 50;
-      let previewPosY = 50;
-      const inputArchivo = formSubir.querySelector('input[name="archivo"]');
-      const previsualizacion = document.getElementById('previsualizacion');
-      const marcoPreview = document.getElementById('marco-previsualizacion');
-
-      function abrirSubir() {
-        if (!cloudCfg || !cloudCfg.cloudName || !cloudCfg.presetSubidas) {
-          alert('Falta configurar Cloudinary en js/config.js (bloque "cloudinary").');
-          return;
+        function aplicar() {
+          const media = marco.querySelector('img, video');
+          if (media) media.style.objectPosition = `${estado.posX}% ${estado.posY}%`;
         }
-        formSubir.reset();
-        formSubir.querySelector('input[name="fecha"]').value = new Date().toISOString().slice(0, 10);
-        estadoSubir.textContent = '';
-        estadoSubir.classList.remove('text-error');
-        ocultarPreview();
-        modalSubir.classList.replace('hidden', 'flex');
+
+        function cargar(url, esVideo, posXInicial = 50, posYInicial = 50) {
+          estado.posX = posXInicial;
+          estado.posY = posYInicial;
+          marco.innerHTML = esVideo
+            ? `<video src="${url}" class="w-full h-full object-cover pointer-events-none" style="object-position:${posXInicial}% ${posYInicial}%" autoplay muted loop playsinline></video>`
+            : `<img src="${url}" class="w-full h-full object-cover pointer-events-none" style="object-position:${posXInicial}% ${posYInicial}%">`;
+        }
+
+        function limpiar() {
+          marco.innerHTML = '';
+          estado.posX = 50;
+          estado.posY = 50;
+        }
+
+        botonCentrar.addEventListener('click', () => { estado.posX = 50; estado.posY = 50; aplicar(); });
+
+        // Arrastrar dentro del recuadro mueve la foto/video, no la página
+        // (touch-none en el HTML evita que el dedo haga scroll al arrastrar).
+        let arrastrando = false;
+        marco.addEventListener('pointerdown', (e) => {
+          if (!marco.querySelector('img, video')) return;
+          arrastrando = true;
+          marco.setPointerCapture(e.pointerId);
+        });
+        marco.addEventListener('pointermove', (e) => {
+          if (!arrastrando) return;
+          const rect = marco.getBoundingClientRect();
+          // Arrastrar hacia la izquierda debe "revelar" más de la derecha
+          // de la imagen, por eso se resta (no se suma) el movimiento.
+          estado.posX = Math.min(100, Math.max(0, estado.posX - (e.movementX / rect.width) * 100));
+          estado.posY = Math.min(100, Math.max(0, estado.posY - (e.movementY / rect.height) * 100));
+          aplicar();
+        });
+        ['pointerup', 'pointercancel'].forEach((ev) => marco.addEventListener(ev, () => { arrastrando = false; }));
+
+        return { estado, cargar, limpiar };
       }
-      const cerrarSubir = () => modalSubir.classList.replace('flex', 'hidden');
-
-      function ocultarPreview() {
-        if (previewUrl) { URL.revokeObjectURL(previewUrl); previewUrl = null; }
-        marcoPreview.innerHTML = '';
-        previsualizacion.classList.add('hidden');
-        previsualizacion.classList.remove('flex');
-        previewPosX = 50;
-        previewPosY = 50;
-      }
-
-      /** Al elegir un archivo, se muestra en el recuadro de previsualización
-       *  para poder arrastrarlo y elegir qué parte se prioriza — la misma
-       *  idea que "reposicionar" una foto de portada en redes sociales.  */
-      inputArchivo.addEventListener('change', () => {
-        const archivo = inputArchivo.files[0];
-        if (previewUrl) URL.revokeObjectURL(previewUrl);
-        if (!archivo) { ocultarPreview(); return; }
-
-        previewUrl = URL.createObjectURL(archivo);
-        previewPosX = 50;
-        previewPosY = 50;
-        const esVideo = archivo.type.startsWith('video/');
-        marcoPreview.innerHTML = esVideo
-          ? `<video src="${previewUrl}" class="w-full h-full object-cover pointer-events-none" style="object-position:50% 50%" autoplay muted loop playsinline></video>`
-          : `<img src="${previewUrl}" class="w-full h-full object-cover pointer-events-none" style="object-position:50% 50%">`;
-        previsualizacion.classList.remove('hidden');
-        previsualizacion.classList.add('flex');
-      });
-
-      function aplicarPosicionPreview() {
-        const media = marcoPreview.querySelector('img, video');
-        if (media) media.style.objectPosition = `${previewPosX}% ${previewPosY}%`;
-      }
-
-      document.getElementById('centrar-previsualizacion').addEventListener('click', () => {
-        previewPosX = 50;
-        previewPosY = 50;
-        aplicarPosicionPreview();
-      });
-
-      // Arrastrar dentro del recuadro mueve la foto/video, no la página
-      // (touch-none en el HTML evita que el dedo haga scroll al arrastrar).
-      let arrastrandoPreview = false;
-      marcoPreview.addEventListener('pointerdown', (e) => {
-        if (!marcoPreview.querySelector('img, video')) return;
-        arrastrandoPreview = true;
-        marcoPreview.setPointerCapture(e.pointerId);
-      });
-      marcoPreview.addEventListener('pointermove', (e) => {
-        if (!arrastrandoPreview) return;
-        const rect = marcoPreview.getBoundingClientRect();
-        // Arrastrar hacia la izquierda debe "revelar" más de la derecha de
-        // la imagen, por eso se resta (no se suma) el movimiento del mouse/dedo.
-        previewPosX = Math.min(100, Math.max(0, previewPosX - (e.movementX / rect.width) * 100));
-        previewPosY = Math.min(100, Math.max(0, previewPosY - (e.movementY / rect.height) * 100));
-        aplicarPosicionPreview();
-      });
-      ['pointerup', 'pointercancel'].forEach((ev) =>
-        marcoPreview.addEventListener(ev, () => { arrastrandoPreview = false; }));
 
       function generarSlug(s) {
         return s.normalize('NFD').replace(/\p{Diacritic}/gu, '')
           .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-+|-+$)/g, '');
+      }
+
+      /** Sube un archivo directo a Cloudinary con el preset "sin firmar"
+       *  (unsigned) — no expone ningún secreto: cloudName y el nombre del
+       *  preset son datos públicos, pensados para usarse así. Se reutiliza
+       *  tanto al añadir un recuerdo nuevo como al cambiarle la foto/video
+       *  a uno existente.                                                */
+      const cloudCfg = COSMIC.cloudinary;
+
+      async function subirArchivo(archivo, { titulo, nota, fecha, posX, posY }) {
+        const esVideo = archivo.type.startsWith('video/');
+        const sello = new Date().toISOString().replace(/[-:.TZ]/g, '').slice(0, 14);
+        const publicId = `${generarSlug(titulo) || 'recuerdo'}-${sello}`;
+
+        const contexto = [`posx=${Math.round(posX)}`, `posy=${Math.round(posY)}`, `fecha=${fecha}`];
+        if (nota) contexto.unshift(`caption=${nota.replace(/[|=]/g, ' ')}`);
+
+        const cuerpo = new FormData();
+        cuerpo.append('file', archivo);
+        cuerpo.append('upload_preset', cloudCfg.presetSubidas);
+        cuerpo.append('public_id', publicId);
+        cuerpo.append('tags', cloudCfg.etiquetaSubidas);
+        cuerpo.append('context', contexto.join('|'));
+
+        const resp = await fetch(`https://api.cloudinary.com/v1_1/${cloudCfg.cloudName}/${esVideo ? 'video' : 'image'}/upload`, {
+          method: 'POST',
+          body: cuerpo,
+        });
+        const resultado = await resp.json();
+        if (!resp.ok || !resultado.secure_url) throw new Error((resultado.error && resultado.error.message) || 'No se pudo subir.');
+        return { ...resultado, esVideo };
       }
 
       /** Convierte una respuesta de Cloudinary (recién subida, o del listado
@@ -698,7 +822,7 @@
        *  fecha elegida y la posición viajan en `context` (metadatos de
        *  Cloudinary) para que se puedan reconstruir después, en cualquier
        *  dispositivo. `publicId` queda guardado para poder identificar la
-       *  foto/video de forma estable si más adelante se marca favorita.  */
+       *  foto/video de forma estable al favoritear/destacar/editar.      */
       function itemDesdeCloudinary(r) {
         const nombre = r.public_id.split('/').pop().replace(/-\d{14}$/, '');
         const titulo = nombre.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()) || 'Nuevo recuerdo';
@@ -723,8 +847,55 @@
         c.galeria = [item, ...c.galeria];
         pintarMeses();
         pintarGaleria();
-        $('[data-conteo-galeria]').textContent = `${c.galeria.length} guardados`;
+        actualizarConteos();
       }
+
+      /* ── Modal: Añadir un recuerdo nuevo ── */
+      const modalSubir = document.getElementById('subir');
+      const formSubir = document.getElementById('form-subir');
+      const estadoSubir = document.getElementById('subir-estado');
+      const botonSubir = document.getElementById('subir-boton');
+      const inputArchivoSubir = formSubir.querySelector('input[name="archivo"]');
+      const encuadreSubir = crearEncuadre(
+        document.getElementById('marco-previsualizacion'),
+        document.getElementById('centrar-previsualizacion'));
+      let previewUrl = null;
+
+      function abrirSubir() {
+        if (!cloudCfg || !cloudCfg.cloudName || !cloudCfg.presetSubidas) {
+          alert('Falta configurar Cloudinary en js/config.js (bloque "cloudinary").');
+          return;
+        }
+        formSubir.reset();
+        formSubir.querySelector('input[name="fecha"]').value = new Date().toISOString().slice(0, 10);
+        estadoSubir.textContent = '';
+        estadoSubir.classList.remove('text-error');
+        if (previewUrl) { URL.revokeObjectURL(previewUrl); previewUrl = null; }
+        encuadreSubir.limpiar();
+        document.getElementById('previsualizacion').classList.add('hidden');
+        document.getElementById('previsualizacion').classList.remove('flex');
+        modalSubir.classList.replace('hidden', 'flex');
+      }
+      const cerrarSubir = () => modalSubir.classList.replace('flex', 'hidden');
+
+      /** Al elegir un archivo, se muestra en el recuadro de previsualización
+       *  para poder arrastrarlo y elegir qué parte se prioriza — la misma
+       *  idea que "reposicionar" una foto de portada en redes sociales.  */
+      inputArchivoSubir.addEventListener('change', () => {
+        const archivo = inputArchivoSubir.files[0];
+        const previsualizacion = document.getElementById('previsualizacion');
+        if (previewUrl) URL.revokeObjectURL(previewUrl);
+        if (!archivo) {
+          encuadreSubir.limpiar();
+          previsualizacion.classList.add('hidden');
+          previsualizacion.classList.remove('flex');
+          return;
+        }
+        previewUrl = URL.createObjectURL(archivo);
+        encuadreSubir.cargar(previewUrl, archivo.type.startsWith('video/'));
+        previsualizacion.classList.remove('hidden');
+        previsualizacion.classList.add('flex');
+      });
 
       formSubir.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -735,36 +906,12 @@
         const fecha = datos.get('fecha') || new Date().toISOString().slice(0, 10);
         if (!archivo || !archivo.size) return;
 
-        const esVideo = archivo.type.startsWith('video/');
-        const sello = new Date().toISOString().replace(/[-:.TZ]/g, '').slice(0, 14);
-        const publicId = `${generarSlug(titulo) || 'recuerdo'}-${sello}`;
-
-        // El encuadre elegido en la previsualización y la fecha que pusiste
-        // viajan como metadato (context) de Cloudinary — así cualquiera que
-        // abra la web después ve la foto/video igual como lo dejaste, no
-        // solo vos.
-        const contexto = [`posx=${Math.round(previewPosX)}`, `posy=${Math.round(previewPosY)}`, `fecha=${fecha}`];
-        if (nota) contexto.unshift(`caption=${nota.replace(/[|=]/g, ' ')}`);
-
-        const cuerpo = new FormData();
-        cuerpo.append('file', archivo);
-        cuerpo.append('upload_preset', cloudCfg.presetSubidas);
-        cuerpo.append('public_id', publicId);
-        cuerpo.append('tags', cloudCfg.etiquetaSubidas);
-        cuerpo.append('context', contexto.join('|'));
-
         botonSubir.disabled = true;
         estadoSubir.classList.remove('text-error');
         estadoSubir.textContent = 'Subiendo… puede tardar unos segundos.';
 
         try {
-          const resp = await fetch(`https://api.cloudinary.com/v1_1/${cloudCfg.cloudName}/${esVideo ? 'video' : 'image'}/upload`, {
-            method: 'POST',
-            body: cuerpo,
-          });
-          const resultado = await resp.json();
-          if (!resp.ok || !resultado.secure_url) throw new Error((resultado.error && resultado.error.message) || 'No se pudo subir.');
-
+          const resultado = await subirArchivo(archivo, { titulo, nota, fecha, posX: encuadreSubir.estado.posX, posY: encuadreSubir.estado.posY });
           agregarAGaleria(itemDesdeCloudinary({ ...resultado, nota, fecha }));
           estadoSubir.textContent = '¡Listo! Ya se ve en la galería.';
           setTimeout(cerrarSubir, 900);
@@ -778,6 +925,124 @@
 
       document.getElementById('cerrar-subir').addEventListener('click', cerrarSubir);
       modalSubir.addEventListener('click', (e) => { if (e.target === modalSubir) cerrarSubir(); });
+
+      /* ── Modal: Editar / cambiar foto / eliminar un recuerdo existente ── */
+      const modalEditar = document.getElementById('editar');
+      const formEditar = document.getElementById('form-editar');
+      const estadoEditar = document.getElementById('editar-estado');
+      const botonEditar = document.getElementById('editar-boton');
+      const inputArchivoEditar = formEditar.querySelector('input[name="archivo"]');
+      const encuadreEditar = crearEncuadre(
+        document.getElementById('marco-editar'),
+        document.getElementById('centrar-editar'));
+      let editandoIndice = null;
+      let previewUrlEditar = null;
+
+      function abrirEditar(i) {
+        const r = c.galeria[i];
+        editandoIndice = i;
+        cerrar(); // cierra el visor para dejar ver el modal de edición
+
+        formEditar.reset();
+        formEditar.querySelector('input[name="titulo"]').value = r.titulo || '';
+        formEditar.querySelector('input[name="fecha"]').value = r.fecha || '';
+        formEditar.querySelector('input[name="nota"]').value = r.nota || '';
+        formEditar.querySelector('input[name="destacado"]').checked = !!r.destacado;
+
+        const [posXActual, posYActual] = (r.posicion || '50% 50%').split(' ').map((v) => parseInt(v, 10));
+        encuadreEditar.cargar(r.foto || r.video, !!r.video, posXActual || 50, posYActual || 50);
+
+        estadoEditar.textContent = '';
+        estadoEditar.classList.remove('text-error');
+        if (previewUrlEditar) { URL.revokeObjectURL(previewUrlEditar); previewUrlEditar = null; }
+        modalEditar.classList.replace('hidden', 'flex');
+      }
+      const cerrarEditar = () => modalEditar.classList.replace('flex', 'hidden');
+
+      inputArchivoEditar.addEventListener('change', () => {
+        const archivo = inputArchivoEditar.files[0];
+        if (!archivo) return;
+        if (previewUrlEditar) URL.revokeObjectURL(previewUrlEditar);
+        previewUrlEditar = URL.createObjectURL(archivo);
+        encuadreEditar.cargar(previewUrlEditar, archivo.type.startsWith('video/'));
+      });
+
+      formEditar.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (editandoIndice === null) return;
+        const r = c.galeria[editandoIndice];
+        const datos = new FormData(formEditar);
+        const archivoNuevo = datos.get('archivo');
+        const titulo = (datos.get('titulo') || '').trim() || r.titulo;
+        const nota = (datos.get('nota') || '').trim();
+        const fecha = datos.get('fecha') || r.fecha;
+        const destacado = formEditar.querySelector('input[name="destacado"]').checked;
+
+        if (destacado && !r.destacado && destacadosActuales().length >= MAX_DESTACADOS) {
+          estadoEditar.textContent = `Ya hay ${MAX_DESTACADOS} recuerdos destacados — sacá uno para agregar este.`;
+          estadoEditar.classList.add('text-error');
+          return;
+        }
+
+        botonEditar.disabled = true;
+        estadoEditar.classList.remove('text-error');
+        estadoEditar.textContent = 'Guardando…';
+
+        try {
+          const cambios = { titulo, nota, fecha, destacado, posicion: `${Math.round(encuadreEditar.estado.posX)}% ${Math.round(encuadreEditar.estado.posY)}%` };
+
+          if (archivoNuevo && archivoNuevo.size) {
+            estadoEditar.textContent = 'Subiendo el nuevo archivo…';
+            const resultado = await subirArchivo(archivoNuevo, { titulo, nota, fecha, posX: encuadreEditar.estado.posX, posY: encuadreEditar.estado.posY });
+            if (resultado.esVideo) { cambios.video = resultado.secure_url.replace('/upload/', '/upload/f_auto,q_auto/'); }
+            else { cambios.foto = resultado.secure_url.replace('/upload/', '/upload/f_auto,q_auto/'); }
+          }
+
+          aplicarCambiosAItem(r, cambios);
+          await guardarCambios(claveDe(r), cambios);
+
+          pintarMeses();
+          pintarGaleria();
+          pintarDestacadosMovil();
+          pintarProtagonista();
+          actualizarConteos();
+
+          estadoEditar.textContent = '¡Listo!';
+          setTimeout(cerrarEditar, 700);
+        } catch (err) {
+          estadoEditar.textContent = 'Algo falló: ' + err.message;
+          estadoEditar.classList.add('text-error');
+        } finally {
+          botonEditar.disabled = false;
+        }
+      });
+
+      document.getElementById('eliminar-recuerdo').addEventListener('click', async () => {
+        if (editandoIndice === null) return;
+        if (!confirm('¿Eliminar este recuerdo? No se puede deshacer.')) return;
+        const r = c.galeria[editandoIndice];
+
+        botonEditar.disabled = true;
+        estadoEditar.textContent = 'Eliminando…';
+        try {
+          await guardarCambios(claveDe(r), { eliminado: true });
+          c.galeria.splice(editandoIndice, 1);
+          pintarMeses();
+          pintarGaleria();
+          pintarDestacadosMovil();
+          pintarProtagonista();
+          actualizarConteos();
+          cerrarEditar();
+        } catch (err) {
+          estadoEditar.textContent = 'Algo falló: ' + err.message;
+          estadoEditar.classList.add('text-error');
+        } finally {
+          botonEditar.disabled = false;
+        }
+      });
+
+      document.getElementById('cerrar-editar').addEventListener('click', cerrarEditar);
+      modalEditar.addEventListener('click', (e) => { if (e.target === modalEditar) cerrarEditar(); });
 
       /** Trae los recuerdos que cualquiera haya subido desde la web (propios
        *  o de tu pareja, desde cualquier dispositivo) usando el listado
@@ -798,7 +1063,9 @@
 
           // Cada foto/video se convierte por separado: si uno falla (por
           // ejemplo, un dato inesperado de Cloudinary), no se pierden los demás.
+          const yaConocidos = new Set(c.galeria.map((r) => r.publicId).filter(Boolean));
           const nuevos = recursos
+            .filter((r) => !yaConocidos.has(r.public_id))
             .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
             .map((r) => { try { return itemDesdeCloudinary(r); } catch (e) { return null; } })
             .filter(Boolean);
@@ -806,106 +1073,142 @@
           c.galeria = [...nuevos, ...c.galeria];
           pintarMeses();
           pintarGaleria();
-          $('[data-conteo-galeria]').textContent = `${c.galeria.length} guardados`;
+          actualizarConteos();
         } catch (e) {
           // Silencioso a propósito — ver comentario arriba.
         }
       }
 
-      /** Favoritos compartidos, sin necesitar cuenta ni contraseña.
+      /** Cambios compartidos sobre cualquier recuerdo — favorito, destacado,
+       *  edición de título/nota/fecha/encuadre, cambio de foto/video, o
+       *  borrado — sin necesitar cuenta ni contraseña.
        *
-       *  Tanto leerlos como guardarlos pasa por una función de Netlify
-       *  (netlify/functions/favoritos.js) y no por una URL directa de
-       *  Cloudinary. Guardar necesita el secreto de Cloudinary (nunca en
-       *  el navegador); leer, en teoría, no lo necesitaría —pero se probó
-       *  en vivo que la CDN de Cloudinary puede tardar en mostrar la
-       *  versión más nueva de un archivo, así que la función usa la API
-       *  autenticada (sin ese problema) para encontrar siempre la versión
-       *  correcta. Ver el comentario de ese archivo para el detalle.
+       *  `js/config.js` (o lo subido a Cloudinary) sigue siendo el punto de
+       *  partida de cada recuerdo; acá solo se guardan las DIFERENCIAS
+       *  respecto a eso, en un archivo en Cloudinary (la misma cuenta que
+       *  ya usás para las fotos). Tanto leerlas como guardarlas pasa por
+       *  una función de Netlify (netlify/functions/recuerdos.js) — GUARDAR
+       *  necesita el secreto de Cloudinary (nunca en el navegador); LEER,
+       *  en teoría no lo necesitaría, pero se probó en vivo que la CDN de
+       *  Cloudinary puede tardar en mostrar la versión más nueva de un
+       *  archivo, así que la función usa la API autenticada (sin ese
+       *  problema) para encontrar siempre la versión correcta. Ver el
+       *  comentario de ese archivo para el detalle.
        *
        *  Cada recuerdo se identifica con una clave estable (no con su
        *  posición en la lista, que cambia cada vez que alguien sube algo
-       *  nuevo): `d0`, `d1`... para destacados (fijos, de config.js), y el
-       *  `id` de config.js o el `publicId` de Cloudinary para la galería. */
-      function claveFavorito(tipo, i) {
-        if (tipo === 'd') return 'd' + i;
-        const r = c.galeria[i];
-        return r.id || r.publicId || ('g' + i);
+       *  nuevo): el `id` de config.js, o el `publicId` de Cloudinary.    */
+      function claveDe(r) {
+        return r.id || r.publicId || null;
       }
 
-      const CLAVE_FAVORITOS_LOCAL = 'cosmic:favoritos-recuerdos';
+      /** Aplica `cambios` sobre `base` — si `cambios` trae una foto nueva,
+       *  se descarta cualquier video viejo (y viceversa), para que un
+       *  recuerdo no quede con los dos campos a la vez tras cambiarle el
+       *  archivo.                                                       */
+      function aplicarCambiosAItem(base, cambios) {
+        Object.assign(base, cambios);
+        if (cambios.video) delete base.foto;
+        if (cambios.foto) delete base.video;
+        return base;
+      }
 
-      async function cargarFavoritos() {
-        let favoritos = null;
+      const CLAVE_CAMBIOS_LOCAL = 'cosmic:cambios-recuerdos';
+
+      function leerCambiosLocales() {
         try {
-          const resp = await fetch('/.netlify/functions/favoritos');
+          const guardado = JSON.parse(localStorage.getItem(CLAVE_CAMBIOS_LOCAL) || 'null');
+          return (guardado && typeof guardado === 'object') ? guardado : {};
+        } catch (e) { return {}; }
+      }
+
+      function guardarCambiosLocales(cambiosPorId) {
+        try { localStorage.setItem(CLAVE_CAMBIOS_LOCAL, JSON.stringify(cambiosPorId)); } catch (e) {}
+      }
+
+      async function cargarCambios() {
+        let cambiosPorId = null;
+        try {
+          const resp = await fetch('/.netlify/functions/recuerdos');
           if (resp.ok) {
             const datos = await resp.json();
-            if (Array.isArray(datos.favoritos)) favoritos = datos.favoritos;
+            if (datos.cambios && typeof datos.cambios === 'object') cambiosPorId = datos.cambios;
           }
         } catch (e) { /* sin conexión con la función — se prueba con lo local */ }
 
         // Si no hay Netlify (por ejemplo, la web está en otro hosting) o
         // falló la red, se usa lo último guardado en este navegador, para
-        // que el corazón no "se olvide" ni siquiera en ese caso.
-        if (!favoritos) {
-          try {
-            const guardado = JSON.parse(localStorage.getItem(CLAVE_FAVORITOS_LOCAL) || 'null');
-            if (Array.isArray(guardado)) favoritos = guardado;
-          } catch (e) { /* localStorage no disponible — queda lo de config.js */ }
-        }
-        if (!favoritos) return;
+        // que los cambios no "se olviden" ni siquiera en ese caso.
+        if (!cambiosPorId) cambiosPorId = leerCambiosLocales();
+        if (!cambiosPorId || !Object.keys(cambiosPorId).length) return;
 
-        const set = new Set(favoritos);
-        c.destacados.forEach((r, i) => { r.favorito = set.has(claveFavorito('d', i)); });
-        c.galeria.forEach((r, i) => { r.favorito = set.has(claveFavorito('g', i)); });
+        c.galeria = c.galeria
+          .map((r) => {
+            const cambios = cambiosPorId[claveDe(r)];
+            return cambios ? aplicarCambiosAItem({ ...r }, cambios) : r;
+          })
+          .filter((r) => !r.eliminado);
+
+        pintarMeses();
+        pintarGaleria();
         pintarDestacadosMovil();
         pintarProtagonista();
-        pintarGaleria();
+        actualizarConteos();
       }
 
-      /** El corazón ya cambió en pantalla antes de llamar a esto. Se guarda
-       *  primero en este navegador (instantáneo, nunca falla) y después se
-       *  intenta sincronizar con Netlify para que se vea igual del otro
-       *  lado — si eso falla (sin conexión, o la web no está en Netlify),
-       *  el cambio local queda igual, solo que no se comparte todavía.    */
-      async function guardarFavoritos() {
-        const favoritos = [
-          ...c.destacados.map((r, i) => (r.favorito ? claveFavorito('d', i) : null)),
-          ...c.galeria.map((r, i) => (r.favorito ? claveFavorito('g', i) : null)),
-        ].filter(Boolean);
-
-        try { localStorage.setItem(CLAVE_FAVORITOS_LOCAL, JSON.stringify(favoritos)); } catch (e) {}
+      /** El cambio ya se aplicó en pantalla antes de llamar a esto. Se
+       *  guarda primero en este navegador (instantáneo, nunca falla) y
+       *  después se intenta sincronizar con Netlify para que se vea igual
+       *  del otro lado — si eso falla (sin conexión, o la web no está en
+       *  Netlify), el cambio local queda igual, solo que no se comparte
+       *  todavía.                                                       */
+      async function guardarCambios(id, cambios) {
+        if (!id) return;
+        const locales = leerCambiosLocales();
+        locales[id] = { ...(locales[id] || {}), ...cambios };
+        guardarCambiosLocales(locales);
 
         try {
-          await fetch('/.netlify/functions/favoritos', {
+          await fetch('/.netlify/functions/recuerdos', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ favoritos }),
+            body: JSON.stringify({ id, cambios }),
           });
         } catch (e) {
           // Silencioso a propósito — ver comentario de arriba.
         }
       }
 
-      async function alternarFavorito(tipo, i) {
-        const r = tipo === 'd' ? c.destacados[i] : c.galeria[i];
+      async function alternarFavorito(i) {
+        const r = c.galeria[i];
         r.favorito = !r.favorito;
-        if (tipo === 'd') {
-          pintarDestacadosMovil();
-          if (i === actual) pintarProtagonista();
-        } else {
-          pintarGaleria();
+        pintarDestacadosMovil();
+        pintarProtagonista();
+        pintarGaleria();
+        await guardarCambios(claveDe(r), { favorito: r.favorito });
+      }
+
+      async function alternarDestacado(i) {
+        const r = c.galeria[i];
+        if (!r.destacado && destacadosActuales().length >= MAX_DESTACADOS) {
+          alert(`Ya hay ${MAX_DESTACADOS} recuerdos destacados — sacá uno para agregar este.`);
+          return;
         }
-        await guardarFavoritos();
+        r.destacado = !r.destacado;
+        pintarDestacadosMovil();
+        pintarProtagonista();
+        pintarGaleria();
+        await guardarCambios(claveDe(r), { destacado: r.destacado });
       }
 
       pintarProtagonista();
+      pintarDestacadosMovil();
       pintarMeses();
       pintarGaleria();
+      actualizarConteos();
       (async () => {
         await cargarSubidas();
-        await cargarFavoritos();
+        await cargarCambios();
       })();
     })();
   </script>

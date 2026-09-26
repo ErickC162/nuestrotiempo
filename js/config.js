@@ -233,8 +233,12 @@ window.COSMIC = {
     // pareja oficialmente.
     etiquetaPrevia: 'Antes de nosotros',
 
-    /* Momentos destacados → carrusel.
-       `insignia`, `lugar` y `etiquetas` solo se ven en escritorio.
+    /* Galería: es la ÚNICA lista de recuerdos — ya no hay una lista aparte
+       para "destacados". Cualquier foto/video de acá puede marcarse como
+       destacada (`destacado: true`) y va a aparecer también arriba, en el
+       carrusel — hasta un máximo de 5 a la vez. Podés marcarlas acá a mano,
+       o con la estrella que aparece en cada foto dentro de la propia web
+       (se guarda sola, para siempre y para los dos — ver README).
 
        ▸ CÓMO AÑADIR UNA FOTO O VIDEO NUEVO (con Cloudinary, gratis y
          ya optimizado — recomendado para no engordar el repositorio):
@@ -244,124 +248,88 @@ window.COSMIC = {
          También puedes seguir usando una ruta local como 'assets/fotos/x.jpg'
          si prefieres no usar Cloudinary — ambas formas funcionan igual.
          (Para fotos/videos del día a día, es más fácil usar el botón
-         "Añadir Nuevo Recuerdo" directo en la web — ver README.)
+         "Añadir Nuevo Recuerdo" directo en la web, que además deja
+         editarlas, cambiarles la foto o borrarlas después — ver README.)
 
-       ▸ VIDEOS EN EL CARRUSEL: en vez de `foto`, pon `video` con la URL
-         o ruta del archivo. Se reproduce solo, en bucle, sin sonido y
-         sin ningún control — nadie puede pausarlo ni tocarlo, es 100%
-         automático. Un elemento usa `foto` O `video`, nunca los dos.
-         `poster` (opcional) es una imagen de vista previa mientras
-         el video carga.
+       ▸ VIDEOS: en vez de `foto`, pon `video` con la URL o ruta del
+         archivo. Se reproduce solo, en bucle, sin sonido y sin ningún
+         control — nadie puede pausarlo ni tocarlo, es 100% automático.
+         Un elemento usa `foto` O `video`, nunca los dos. `poster`
+         (opcional) es una imagen de vista previa mientras el video carga.
+
+       ▸ `id` es un nombre corto y único para cada una — sirve para que la
+         web sepa siempre cuál es esa foto puntual (favorita, destacada,
+         editada...) aunque el orden de la lista cambie con el tiempo. Si
+         agregás una foto acá a mano, ponele también un `id` que no se repita.
 
        ▸ `fecha` va en formato AAAA-MM-DD. Con eso la web arma sola el
          "Mes 1", "Mes 2"... contando desde el `fechaInicio` de arriba,
          y agrupa aparte (sin número de mes) todo lo anterior a esa fecha.
 
-       ▸ `favorito: true` la marca de fábrica. El corazón de la web
-         también se puede tocar para marcar/desmarcar, y eso se guarda
-         solo, para siempre y para los dos (ver README).
+       ▸ `favorito: true` y `destacado: true` la marcan de fábrica — el
+         corazón y la estrella de la web hacen lo mismo, tocándolas.
 
        ▸ SI UNA FOTO/VIDEO SE VE MAL RECORTADO (porque su tamaño no
          coincide con el recuadro): agrega `posicion: 'X% Y%'`, donde X
          es horizontal e Y vertical (0% = arriba/izquierda, 50% = centro,
          100% = abajo/derecha). Ej: `posicion: '50% 20%'` prioriza la
-         parte de arriba de la imagen. Si subís la foto desde el botón
-         "Añadir Nuevo Recuerdo" de la web, esto se elige arrastrando la
-         previsualización — no hace falta tocarlo a mano acá. Si no lo
-         pones, queda centrado (o el encuadre de siempre en video).      */
-    destacados: [
+         parte de arriba de la imagen. Si subís o editás la foto desde la
+         web, esto se elige arrastrando la previsualización — no hace
+         falta tocarlo a mano acá. Si no lo pones, queda centrado (o el
+         encuadre de siempre en video).
+
+       ▸ SOLO PARA DESTACADAS (opcionales, se ignoran en la cuadrícula):
+         `frase`/`fraseAmplia` (una línea poética corta/larga), `detalle`
+         + `iconoDetalle` (ej. una hora o el clima), `acento` (color:
+         'primary'/'secondary'/'tertiary'), `insignia` (una etiqueta corta),
+         `lugar`, y `etiquetas` (chips que solo se ven en escritorio).      */
+    galeria: [
       {
-        titulo: 'Cafecito Juan Valdéz',
+        id: 'juan-valdez', titulo: 'Cafecito Juan Valdéz', nota: 'El puntapié inicial',
+        fecha: '2026-05-12', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212535/nuestro-tiempo/fotos/juanValdez.jpg',
+        favorito: true, destacado: true,
         frase: '"El puntapié incial."',
         fraseAmplia: '"La primera conversación frente a frente que tuvimos, y que marcó el inicio de todo."',
-        fecha: '2026-05-12',
-        detalle: '18:30',
-        iconoDetalle: 'schedule',
-        foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212535/nuestro-tiempo/fotos/juanValdez.jpg',
-        favorito: true,
-        acento: 'primary',
-        insignia: 'Primer Destello',
-        lugar: 'Universidad Católica',
-        etiquetas: [
-          { icono: 'schedule', texto: '1 Hora Inolvidable', color: 'tertiary' },
-        ],
+        detalle: '18:30', iconoDetalle: 'schedule', acento: 'primary',
+        insignia: 'Primer Destello', lugar: 'Universidad Católica',
+        etiquetas: [{ icono: 'schedule', texto: '1 Hora Inolvidable', color: 'tertiary' }],
       },
       {
-        titulo: 'Nuestro pimer beso',
+        id: 'entrada-cine', titulo: 'Nuestro primer beso', nota: 'La entrada que lo cambió todo',
+        fecha: '2026-05-23', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212533/nuestro-tiempo/fotos/entradaCine.png',
+        destacado: true,
         frase: 'La entrada que lo cambió todo.',
         fraseAmplia: 'Nuestra primera salida que también terminó siendo nuestro primer beso .',
-        fecha: '2026-05-23',
-        detalle: 'Lluvia',
-        iconoDetalle: 'water_drop',
-        foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212533/nuestro-tiempo/fotos/entradaCine.png',
-        favorito: false,
-        acento: 'secondary',
-        insignia: 'Película de m**rd*',
-        lugar: 'CCI',
-        etiquetas: [
-          { icono: 'movie', texto: 'Película', color: 'secondary' },
-        ],
+        detalle: 'Lluvia', iconoDetalle: 'water_drop', acento: 'secondary',
+        insignia: 'Película de m**rd*', lugar: 'CCI',
+        etiquetas: [{ icono: 'movie', texto: 'Película', color: 'secondary' }],
       },
-      {
-        titulo: 'Una salida porque sí',
-        frase: 'El cielo copió los colores de tu sonrisa.',
-        fraseAmplia: 'Un día común y corriente se convierte en el mejor cuando te veo.',
-        fecha: '2026-06-24',
-        detalle: 'Dorado',
-        iconoDetalle: 'wb_twilight',
-        foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212541/nuestro-tiempo/fotos/porque_si.jpg',
-        favorito: true,
-        acento: 'tertiary',
-        insignia: 'Hora Dorada',
-        lugar: 'McDonalds - Ejido',
-        etiquetas: [
-          { icono: 'favorite', texto: 'Silencio a dos', color: 'primary' },
-        ],
-      },
-      {
-        // ▸ Ejemplo de video en el carrusel — reemplázalo por el tuyo
-        //   (o borra este elemento si no vas a usar videos).
-        titulo: 'Un momento en video',
-        frase: 'Contigo a todo lado.',
-        fraseAmplia: 'Cualquier plan contigo es inolvidable',
-        fecha: '2026-08-22',
-        detalle: 'Video',
-        iconoDetalle: 'videocam',
-        video: 'https://res.cloudinary.com/fm7lsoqf/video/upload/f_auto,q_auto/v1790212546/nuestro-tiempo/videos/bolos.mp4',
-        // poster: 'assets/fotos/portada-video.jpg', // opcional
-        favorito: false,
-        acento: 'primary',
-        insignia: 'Video',
-        lugar: '',
-        etiquetas: [
-          { icono: 'videocam', texto: 'Se reproduce solo', color: 'primary' },
-        ],
-      },
-    ],
-
-    /* Galería en cuadrícula de 2 columnas.
-       `fecha` va en formato AAAA-MM-DD (fecha real, no solo texto): con
-       eso la web arma sola el "Mes 1", "Mes 2"... contando desde el
-       `fechaInicio` de arriba, y agrupa aparte (sin número de mes) todo
-       lo anterior a esa fecha. Acepta `posicion` igual que los destacados,
-       para corregir recortes feos, y `favorito: true` para marcarla de
-       fábrica (el corazón de la web también se puede tocar para marcar
-       o desmarcar, y eso se guarda solo — ver README).
-
-       `id` es un nombre corto y único para cada una — sirve para que,
-       al marcarla favorita, la web sepa siempre cuál es esa foto puntual
-       aunque el orden de la lista cambie con el tiempo (por ejemplo, al
-       subir recuerdos nuevos). Si agregás una foto acá a mano, ponele
-       también un `id` que no se repita.                                */
-    galeria: [
-      { id: 'juan-valdez', titulo: 'Cafecito Juan Valdéz', nota: 'El puntapié inicial', fecha: '2026-05-12', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212535/nuestro-tiempo/fotos/juanValdez.jpg' },
-      { id: 'entrada-cine', titulo: 'Nuestro primer beso', nota: 'La entrada que lo cambió todo', fecha: '2026-05-23', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212533/nuestro-tiempo/fotos/entradaCine.png' },
       { id: 'cumple-juli', titulo: 'Cumpleaños de Juli', nota: 'Almuerzo de celebración', fecha: '2026-06-07', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212532/nuestro-tiempo/fotos/cumpleJuli.jpg' },
       { id: 'tarde-planes', titulo: 'Cafecito de tarde-noche', nota: 'Tarde de planes', fecha: '2026-06-09', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212540/nuestro-tiempo/fotos/planes.jpg' },
       { id: 'mi-lugar-seguro', titulo: 'Mi lugar seguro', nota: 'Salida por mi cumpleaños', fecha: '2026-06-20', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212538/nuestro-tiempo/fotos/mi_lugar_seguro.jpg' },
-      { id: 'porque-si', titulo: 'Una salida porque sí', nota: 'El cielo copió los colores de tu sonrisa', fecha: '2026-06-24', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212541/nuestro-tiempo/fotos/porque_si.jpg' },
+      {
+        id: 'porque-si', titulo: 'Una salida porque sí', nota: 'El cielo copió los colores de tu sonrisa',
+        fecha: '2026-06-24', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212541/nuestro-tiempo/fotos/porque_si.jpg',
+        favorito: true, destacado: true,
+        frase: 'El cielo copió los colores de tu sonrisa.',
+        fraseAmplia: 'Un día común y corriente se convierte en el mejor cuando te veo.',
+        detalle: 'Dorado', iconoDetalle: 'wb_twilight', acento: 'tertiary',
+        insignia: 'Hora Dorada', lugar: 'McDonalds - Ejido',
+        etiquetas: [{ icono: 'favorite', texto: 'Silencio a dos', color: 'primary' }],
+      },
       { id: 'lampara', titulo: 'Lámpara de recuerdo', nota: 'Regalo para la pedida de noviazgo', fecha: '2026-07-04', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212537/nuestro-tiempo/fotos/lampara.jpg' },
       { id: 'contigo-siempre', titulo: 'Siempre contigo', nota: 'Defensa de tesis', fecha: '2026-07-07', foto: 'https://res.cloudinary.com/fm7lsoqf/image/upload/f_auto,q_auto/v1790212530/nuestro-tiempo/fotos/contigo_siempre.jpg' },
+      {
+        // ▸ Ejemplo de video destacado — reemplázalo por el tuyo (o borra
+        //   este elemento y su `destacado: true` si no vas a usar videos).
+        id: 'bolos', titulo: 'Un momento en video', nota: 'Contigo a todo lado',
+        fecha: '2026-08-22', video: 'https://res.cloudinary.com/fm7lsoqf/video/upload/f_auto,q_auto/v1790212546/nuestro-tiempo/videos/bolos.mp4',
+        destacado: true,
+        frase: 'Contigo a todo lado.', fraseAmplia: 'Cualquier plan contigo es inolvidable',
+        detalle: 'Video', iconoDetalle: 'videocam', acento: 'primary',
+        insignia: 'Video', lugar: '',
+        etiquetas: [{ icono: 'videocam', texto: 'Se reproduce solo', color: 'primary' }],
+      },
     ],
 
 
